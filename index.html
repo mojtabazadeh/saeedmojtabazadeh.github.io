@@ -3,87 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>تماشای مستند زندگی سعید مجتبی‌زاده</title>
-  <meta name="description" content="مستند رسمی از زندگی علمی و حرفه‌ای مهندس ایرانی سعید مجتبی‌زاده را آنلاین و تمام‌صفحه تماشا کنید.">
-  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/Vazirmatn.css" rel="stylesheet" />
+  <title>مستند زندگی سعید مجتبی‌زاده</title>
+  <meta name="description" content="پخش تمام‌صفحه مستند رسمی زندگی علمی مهندس سعید مجتبی‌زاده با کنترل کامل پلیر آپارات. مناسب برای موبایل و دسکتاپ.">
+  <meta name="keywords" content="سعید مجتبی زاده, مستند ایرانی, آپارات, مهندس ژئوتکنیک, فیلم علمی, ویدیو تمام‌صفحه">
+  <meta property="og:type" content="video.other">
+  <meta property="og:title" content="مستند زندگی سعید مجتبی‌زاده">
+  <meta property="og:image" content="https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg">
+  <meta property="og:url" content="https://www.aparat.com/v/x722241">
 
   <style>
-    * {
-      box-sizing: border-box;
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      background-color: #000;
+      font-family: sans-serif;
     }
-    body {
-      height: 100vh;
-      font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(225deg, #0f0c29, #302b63, #24243e);
-      color: #fff;
-      overflow: hidden;
-    }
-    header, .video-wrapper, footer {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 1.2s ease-out forwards;
-    }
-    header {
-      animation-delay: 0.5s;
-      position: absolute;
-      top: 20px;
-      width: 100%;
-      text-align: center;
-      z-index: 2;
-    }
-    header h1 {
-      font-size: 2em;
-      color: #00ffc6;
-      text-shadow: 1px 1px 4px #000;
-    }
+
     .video-wrapper {
-      animation-delay: 1s;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       z-index: 1;
+      overflow: hidden;
     }
-    .video-wrapper iframe, .video-wrapper div {
+
+    .video-wrapper iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-    footer {
-      animation-delay: 1.4s;
-      position: absolute;
-      bottom: 20px;
+
+    .rotation-hint {
+      position: fixed;
+      bottom: 12px;
       width: 100%;
       text-align: center;
-      font-size: 0.85em;
-      color: #bbb;
+      font-size: 0.9em;
+      color: #888;
       z-index: 2;
+      pointer-events: none;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    @media screen and (orientation: portrait) {
+      .rotation-hint {
+        display: block;
+      }
+    }
+
+    @media screen and (orientation: landscape) {
+      .rotation-hint {
+        display: none;
       }
     }
   </style>
+
+  <!-- Structured Data Schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "مستند زندگی سعید مجتبی‌زاده",
+    "description": "مستند رسمی درباره زندگی علمی و حرفه‌ای مهندس ایرانی سعید مجتبی‌زاده. پخش تمام‌صفحه با کنترل کامل پلیر آپارات، مناسب برای موبایل.",
+    "thumbnailUrl": "https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg",
+    "uploadDate": "2023-08-15",
+    "duration": "PT20M",
+    "embedUrl": "https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=true",
+    "contentUrl": "https://www.aparat.com/v/x722241"
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>🎬 مستند زندگی سعید مجتبی‌زاده</h1>
-  </header>
-
   <div class="video-wrapper">
-    <div id="43843190020">
-      <script type="text/javascript" src="https://www.aparat.com/embed/x722241?data[rnddiv]=43843190020&data[responsive]=yes&autoplay=true"></script>
-    </div>
+    <iframe
+      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=true"
+      allowfullscreen
+      allow="autoplay; encrypted-media"
+      title="مستند زندگی سعید مجتبی‌زاده"
+    ></iframe>
   </div>
 
-  <footer>
-    © تمامی حقوق محفوظ است | mojtabazadeh.ir
-  </footer>
+  <div class="rotation-hint">
+    🔄 برای تجربه بهتر، گوشی را در حالت افقی قرار دهید
+  </div>
 </body>
 </html>
