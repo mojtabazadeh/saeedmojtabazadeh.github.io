@@ -1,70 +1,46 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html ⚡ lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>تماشای ویژه</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@500&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+  <title>ویدیو</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style amp-boilerplate>
     body {
-      font-family: 'Vazirmatn', sans-serif;
-      height: 100vh;
-      background: radial-gradient(circle at center, #111, #000);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      visibility: hidden;
     }
-
-    .welcome {
+  </style>
+  <noscript>
+    <style amp-boilerplate>
+      body {
+        visibility: visible;
+      }
+    </style>
+  </noscript>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+  <style amp-custom>
+    body {
+      margin: 0;
+      background-color: black;
+    }
+    amp-iframe {
       position: absolute;
-      top: 5%;
-      font-size: 2rem;
-      text-shadow: 2px 2px 5px #000;
-      animation: fadeInDown 2s ease;
-    }
-
-    #video-container {
-      position: relative;
-      width: 90vw;
-      height: 50vw;
-      max-height: 90vh;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
-      border-radius: 10px;
-      overflow: hidden;
-      animation: fadeInUp 2s ease;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
-  <div class="welcome">🎬 خوش‌اومدی به تجربه‌ی سینمایی ما</div>
-  <div id="video-container">
-    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame"
-            allowfullscreen 
-            allow="autoplay"></iframe>
-  </div>
+  <amp-iframe 
+    width="1920" 
+    height="1080" 
+    layout="responsive"
+    sandbox="allow-scripts allow-same-origin allow-popups"
+    frameborder="0"
+    allowfullscreen
+    src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame">
+  </amp-iframe>
 </body>
 </html>
