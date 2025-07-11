@@ -1,61 +1,104 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>مستند زندگی سعید مجتبی‌زاده</title>
-  <meta name="description" content="تماشای مستند رسمی زندگی علمی و حرفه‌ای مهندس سعید مجتبی‌زاده با کنترل کامل پلیر آپارات.">
-  <meta name="keywords" content="سعید مجتبی زاده, مستند ایرانی, آپارات, ویدیو علمی, مهندس ژئوتکنیک">
+  <meta name="description" content="تماشای رایگان مستند رسمی از زندگی علمی، شخصی و حرفه‌ای مهندس ایرانی سعید مجتبی‌زاده با کنترل کامل پلیر آپارات.">
+  <meta name="keywords" content="سعید مجتبی زاده, مستند ایرانی, آپارات, مهندس ژئوتکنیک, ویدیو علمی, زندگی‌نامه">
+  <meta name="author" content="mojtabazadeh.ir">
+  <meta property="og:type" content="video.other">
+  <meta property="og:title" content="مستند زندگی سعید مجتبی‌زاده">
+  <meta property="og:description" content="تماشای آنلاین مستند زندگی مهندس سعید مجتبی‌زاده با کنترل کامل از طریق آپارات">
+  <meta property="og:image" content="https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg">
+  <meta property="og:url" content="https://www.aparat.com/v/x722241">
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/Vazirmatn.css" rel="stylesheet" />
+
   <style>
     body {
       margin: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      background-color: #111;
       color: #fff;
+      font-family: 'Vazirmatn', sans-serif;
       text-align: center;
     }
+
     h1 {
-      margin-top: 30px;
+      margin-top: 40px;
       font-size: 2em;
       color: #00ffc6;
-      text-shadow: 1px 1px 4px #000;
+      animation: fadeDown 1s ease-out forwards;
     }
+
     .video-container {
-      position: relative;
-      padding-top: 56.25%; /* نسبت 16:9 */
-      margin: 30px auto;
-      max-width: 960px;
+      margin: 40px auto;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.5s ease-out forwards;
     }
+
     .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
-      border: none;
+      height: 450px;
       border-radius: 12px;
+      border: none;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
-    footer {
-      margin: 40px 0;
-      font-size: 0.9em;
-      color: #ccc;
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .video-container iframe {
+        height: 220px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
     }
   </style>
+
+  <!-- Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "مستند زندگی سعید مجتبی‌زاده",
+    "description": "مستند رسمی از زندگی علمی و حرفه‌ای مهندس ایرانی سعید مجتبی‌زاده.",
+    "thumbnailUrl": "https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg",
+    "uploadDate": "2023-08-15",
+    "duration": "PT20M",
+    "contentUrl": "https://www.aparat.com/v/x722241",
+    "embedUrl": "https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame"
+  }
+  </script>
 </head>
 <body>
   <h1>🎬 مستند زندگی سعید مجتبی‌زاده</h1>
   <div class="video-container">
     <iframe
-      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame"
+      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=true"
       allowfullscreen
       allow="autoplay; encrypted-media"
       title="مستند سعید مجتبی‌زاده"
     ></iframe>
   </div>
-  <footer>
-    © تمامی حقوق محفوظ است | mojtabazadeh.ir
-  </footer>
 </body>
 </html>
