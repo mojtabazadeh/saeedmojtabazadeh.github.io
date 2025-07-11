@@ -2,34 +2,68 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ویدیو تمام صفحه</title>
+  <title>تماشای ویژه</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@500&display=swap" rel="stylesheet">
   <style>
-    html, body {
+    * {
       margin: 0;
       padding: 0;
-      height: 100%;
-      background-color: black;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      height: 100vh;
+      background: radial-gradient(circle at center, #111, #000);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
     }
-    #video-container {
+
+    .welcome {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 5%;
+      font-size: 2rem;
+      text-shadow: 2px 2px 5px #000;
+      animation: fadeInDown 2s ease;
     }
+
+    #video-container {
+      position: relative;
+      width: 90vw;
+      height: 50vw;
+      max-height: 90vh;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      animation: fadeInUp 2s ease;
+    }
+
     iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
+  <div class="welcome">🎬 خوش‌اومدی به تجربه‌ی سینمایی ما</div>
   <div id="video-container">
     <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame"
-            allowfullscreen="true" 
-            title="ویدیو" 
+            allowfullscreen 
             allow="autoplay"></iframe>
   </div>
 </body>
