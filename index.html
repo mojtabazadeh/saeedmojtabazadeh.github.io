@@ -5,36 +5,46 @@
   <title>مستند زندگی دکتر سعید مجتبی‌زاده</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO حرفه‌ای -->
-  <meta name="description" content="مستند زندگی دکتر سعید مجتبی‌زاده | پخش با طراحی زیبا، ریسپانسیو، زمینه خاص، و تجربه‌ای حرفه‌ای از وب‌سایت ویدیویی.">
-  <meta name="keywords" content="مستند دکتر سعید مجتبی‌زاده, ویدیو آپارات, طراحی وب, HTML, صفحه حرفه‌ای, قالب واکنش‌گرا">
+  <!-- SEO -->
+  <meta name="description" content="مستند زندگی دکتر سعید مجتبی‌زاده | طراحی هنری، ریسپانسیو، زمینه‌ی خاص، افکت‌های خلاقانه و تجربه‌ای حرفه‌ای از پخش ویدیو">
+  <meta name="keywords" content="مستند دکتر سعید مجتبی‌زاده, آپارات, قالب HTML, طراحی سینمایی, افکت وب, وب‌سایت ویدیویی">
   <meta name="author" content="Saeed Mojtabazadeh">
   <meta property="og:title" content="مستند زندگی دکتر سعید مجتبی‌زاده">
-  <meta property="og:description" content="نمایش مستند با طراحی شیک، زمینه‌ی سفارشی، و قاب حرفه‌ای برای تجربه‌ی کاربری متفاوت">
+  <meta property="og:description" content="نمایش مستند آپارات با طراحی شیک، افکت‌های جذاب و زمینه‌ی هنری واکنش‌گرا">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://bayanbox.ir/view/5592656112678928833/Background.png">
   <meta property="og:url" content="https://example.com">
 
-  <!-- فونت فارسی -->
+  <!-- فونت و Favicon -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
-
-  <!-- Favicon سفارشی -->
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/mojtabazadeh/instagallery.github.io/refs/heads/main/Favicon.ico">
-  
+
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Vazirmatn', sans-serif;
-      background-image: url('https://bayanbox.ir/view/5592656112678928833/Background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      background: url('https://bayanbox.ir/view/5592656112678928833/Background.png') center center / cover no-repeat fixed;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: var(--mouse-y, 50%);
+      left: var(--mouse-x, 50%);
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 80%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: top 0.1s ease-out, left 0.1s ease-out;
+      z-index: 0;
     }
 
     .title {
@@ -49,6 +59,11 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       text-align: center;
       backdrop-filter: blur(4px);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      animation: typing 3.6s steps(42, end), blink 0.7s infinite;
+      max-width: 90%;
     }
 
     .frame-wrapper {
@@ -64,6 +79,12 @@
       transform: translateY(20px);
       background: rgba(0,0,0,0.25);
       backdrop-filter: blur(6px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .frame-wrapper:hover {
+      transform: scale(1.015);
+      box-shadow: 0 14px 48px rgba(255,255,255,0.3);
     }
 
     .frame-wrapper iframe {
@@ -83,6 +104,7 @@
       font-size: 0.9rem;
       opacity: 0.7;
       text-align: center;
+      z-index: 2;
     }
 
     @keyframes fadeInUp {
@@ -92,16 +114,20 @@
       }
     }
 
-    @media (max-width: 768px) {
-      body {
-        background-attachment: scroll;
-        background-size: cover;
-      }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
 
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @media (max-width: 768px) {
       .title {
         font-size: 1.3rem;
-        margin-top: 24px;
         padding: 10px 16px;
+        border-right: 2px solid white;
       }
 
       .frame-wrapper {
@@ -131,5 +157,12 @@
   </div>
 
   <div class="footer">© Saeed Mojtabazadeh</div>
+
+  <script>
+    document.addEventListener('mousemove', e => {
+      document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+    });
+  </script>
 </body>
 </html>
