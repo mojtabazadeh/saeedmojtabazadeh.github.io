@@ -2,76 +2,51 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>مستند زندگی دکتر سعید مجتبی‌زاده</title>
+  <title>تماشای ویدیو آپارات | آموزش، سرگرمی و محتواهای مفید</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO حرفه‌ای -->
-  <meta name="description" content="مستند زندگی دکتر سعید مجتبی‌زاده | طراحی هنری، واکنش‌گرا، زمینه‌ی سفارشی، ویدیو آپارات با چیدمان مرکزی و افکت‌های خلاقانه">
-  <meta name="keywords" content="مستند, دکتر سعید مجتبی‌زاده, آپارات, قالب HTML, طراحی سینمایی, افکت وب">
+  <meta name="description" content="پخش ویدیو آپارات با طراحی زیبا، ریسپانسیو، و بهینه برای موبایل. تجربه‌ای خاص از آموزش، سرگرمی و محتواهای جذاب.">
+  <meta name="keywords" content="ویدیو آپارات, تماشای آنلاین, آموزش تصویری, طراحی وب, قالب HTML, پخش ویدیو">
   <meta name="author" content="Saeed Mojtabazadeh">
-  <meta property="og:title" content="مستند زندگی دکتر سعید مجتبی‌زاده">
-  <meta property="og:description" content="پخش مستند با طراحی چشم‌نواز، زمینه سفارشی و محتوای متمرکز در صفحه">
+
+  <!-- داده‌های Open Graph برای اشتراک‌گذاری در شبکه‌های اجتماعی -->
+  <meta property="og:title" content="تماشای ویدیو آپارات | آموزش و سرگرمی">
+  <meta property="og:description" content="نمایش ویدیو آپارات در قالبی زیبا، سریع و موبایل‌فرندلی">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://bayanbox.ir/view/5592656112678928833/Background.png">
   <meta property="og:url" content="https://example.com">
 
-  <!-- فونت و Favicon -->
+  <!-- فونت فارسی -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/mojtabazadeh/instagallery.github.io/refs/heads/main/Favicon.ico">
-
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
+    body {
       margin: 0;
       padding: 0;
       font-family: 'Vazirmatn', sans-serif;
-      height: 100%;
-      background: url('https://bayanbox.ir/view/5592656112678928833/Background.png') center center / cover no-repeat fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .content {
-      text-align: center;
+      background-image: url('https://bayanbox.ir/view/5592656112678928833/Background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 24px;
-      max-width: 1024px;
-      width: 90%;
-      animation: fadeInUp 1.5s ease-out;
-    }
-
-    .title {
-      color: #ffffff;
-      font-size: 1.8rem;
-      font-weight: 700;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 12px 24px;
-      border-radius: 12px;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      min-height: 100vh;
     }
 
     .frame-wrapper {
       position: relative;
-      width: 100%;
+      width: 95%;
+      max-width: 1024px;
       aspect-ratio: 16 / 9;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      animation: fadeInUp 1.2s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
       background: rgba(0,0,0,0.25);
       backdrop-filter: blur(6px);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .frame-wrapper:hover {
-      transform: scale(1.015);
-      box-shadow: 0 14px 48px rgba(255,255,255,0.3);
     }
 
     .frame-wrapper iframe {
@@ -81,25 +56,19 @@
       width: 100%;
       height: 100%;
       border: none;
+      display: block;
       border-radius: 20px;
     }
 
     .footer {
+      margin-top: 24px;
       color: white;
       font-size: 0.9rem;
-      opacity: 0.75;
-      background: rgba(0,0,0,0.35);
-      padding: 10px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      backdrop-filter: blur(4px);
+      opacity: 0.7;
+      text-align: center;
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
       to {
         opacity: 1;
         transform: translateY(0);
@@ -107,9 +76,9 @@
     }
 
     @media (max-width: 768px) {
-      .title {
-        font-size: 1.3rem;
-        padding: 10px 16px;
+      body {
+        background-attachment: scroll;
+        background-size: cover;
       }
 
       .frame-wrapper {
@@ -122,24 +91,20 @@
 
       .footer {
         font-size: 0.8rem;
+        margin-top: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <div class="title">مستند زندگی دکتر سعید مجتبی‌زاده</div>
-
-    <div class="frame-wrapper">
-      <iframe
-        src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-        title="پخش مستند آپارات">
-      </iframe>
-    </div>
-
-    <div class="footer">© Saeed Mojtabazadeh</div>
+  <div class="frame-wrapper">
+    <iframe
+      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+      title="پخش ویدیو آپارات - محتوای آموزشی و سرگرمی">
+    </iframe>
   </div>
+  <div class="footer">© Saeed Mojtabazadeh</div>
 </body>
 </html>
