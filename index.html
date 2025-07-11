@@ -1,92 +1,36 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>مستند زندگی سعید مجتبی‌زاده</title>
-  <meta name="description" content="پخش تمام‌صفحه مستند رسمی زندگی علمی مهندس سعید مجتبی‌زاده با کنترل کامل پلیر آپارات. مناسب برای موبایل و دسکتاپ.">
-  <meta name="keywords" content="سعید مجتبی زاده, مستند ایرانی, آپارات, مهندس ژئوتکنیک, فیلم علمی, ویدیو تمام‌صفحه">
-  <meta property="og:type" content="video.other">
-  <meta property="og:title" content="مستند زندگی سعید مجتبی‌زاده">
-  <meta property="og:image" content="https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg">
-  <meta property="og:url" content="https://www.aparat.com/v/x722241">
-
+  <meta charset="UTF-8">
+  <title>ویدیو تمام صفحه</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: #000;
-      font-family: sans-serif;
-    }
-
-    .video-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 1;
+      background-color: black;
       overflow: hidden;
     }
-
-    .video-wrapper iframe {
+    #video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-
-    .rotation-hint {
-      position: fixed;
-      bottom: 12px;
-      width: 100%;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    @media screen and (orientation: portrait) {
-      .rotation-hint {
-        display: block;
-      }
-    }
-
-    @media screen and (orientation: landscape) {
-      .rotation-hint {
-        display: none;
-      }
-    }
   </style>
-
-  <!-- Structured Data Schema for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "مستند زندگی سعید مجتبی‌زاده",
-    "description": "مستند رسمی درباره زندگی علمی و حرفه‌ای مهندس ایرانی سعید مجتبی‌زاده. پخش تمام‌صفحه با کنترل کامل پلیر آپارات، مناسب برای موبایل.",
-    "thumbnailUrl": "https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg",
-    "uploadDate": "2023-08-15",
-    "duration": "PT20M",
-    "embedUrl": "https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=true",
-    "contentUrl": "https://www.aparat.com/v/x722241"
-  }
-  </script>
 </head>
 <body>
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=true"
-      allowfullscreen
-      allow="autoplay; encrypted-media"
-      title="مستند زندگی سعید مجتبی‌زاده"
-    ></iframe>
-  </div>
-
-  <div class="rotation-hint">
-    🔄 برای تجربه بهتر، گوشی را در حالت افقی قرار دهید
+  <div id="video-container">
+    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame"
+            allowfullscreen="true" 
+            title="ویدیو" 
+            allow="autoplay"></iframe>
   </div>
 </body>
 </html>
