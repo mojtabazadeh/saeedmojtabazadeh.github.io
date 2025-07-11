@@ -4,71 +4,78 @@
   <meta charset="UTF-8">
   <title>ویدیو آپارات</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- فونت فارسی -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
   <style>
+    /* زمینه منحصر‌به‌فرد با گرادیان متحرک */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      background-size: 600% 600%;
-      animation: gradientBG 12s ease infinite;
+      background: linear-gradient(135deg, #2b5876, #4e4376);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
 
-    .container {
+    /* قاب ویدیو */
+    .video-wrapper {
       width: 90%;
       max-width: 720px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
       border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(255,255,255,0.1);
-      padding: 0; /* حذف padding برای جلوگیری از خط */
       overflow: hidden;
-      animation: fadeIn 1.6s ease-out;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
+      transform: scale(0.95);
     }
 
-    #17059140073 {
+    /* iframe با لبه‌های گرد */
+    iframe {
       width: 100%;
       height: 360px;
-      margin: 0 !important;
-      padding: 0 !important;
       border: none;
       border-radius: 20px;
-      overflow: hidden;
       display: block;
     }
 
+    /* واکنش‌گرا برای موبایل */
     @media (max-width: 480px) {
-      #17059140073 {
+      iframe {
         height: 220px;
       }
-      .container {
+      .video-wrapper {
         border-radius: 16px;
       }
     }
 
+    /* افکت زمینه */
     @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
+    /* افکت ورود */
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div id="17059140073"></div>
-    <script type="text/javascript"
-      src="https://www.aparat.com/embed/x722241?data[rnddiv]=17059140073&data[responsive]=yes&autoplay=true">
-    </script>
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame" 
+      allowfullscreen 
+      allow="autoplay; fullscreen" 
+      title="تماشای ویدیو">
+    </iframe>
   </div>
 </body>
 </html>
