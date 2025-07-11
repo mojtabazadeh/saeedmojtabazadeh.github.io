@@ -2,28 +2,46 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>تماشای ویدیو</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نمایش زیبا</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      background-color: black;
-      overflow: hidden;
+      background: linear-gradient(to right, #1e1e1e, #232526);
+      font-family: 'Vazirmatn', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: white;
     }
 
-    #video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
+    .container {
+      width: 80%;
+      max-width: 960px;
+      background: #2c2c2c;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      transition: all 0.5s ease;
+    }
+
+    .container:hover {
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+    }
+
+    iframe, script, #17059140073 {
       width: 100%;
-      height: 100%;
+      height: 540px;
+      border: none;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <div id="video-container">
+  <div class="container">
     <div id="17059140073"></div>
     <script type="text/javascript" src="https://www.aparat.com/embed/x722241?data[rnddiv]=17059140073&data[responsive]=yes&autoplay=true"></script>
   </div>
