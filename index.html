@@ -4,77 +4,67 @@
   <meta charset="UTF-8">
   <title>ویدیو آپارات</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- فونت فارسی -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
   <style>
-    /* زمینه منحصر‌به‌فرد با گرادیان متحرک */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(135deg, #2b5876, #4e4376);
+      background: linear-gradient(135deg, #1e202a, #3a3d52);
       background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      animation: gradientBG 16s ease infinite;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
 
-    /* قاب ویدیو */
-    .video-wrapper {
+    .frame-wrapper {
+      position: relative;
       width: 90%;
       max-width: 720px;
+      aspect-ratio: 16 / 9;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-      animation: fadeIn 1.2s ease-out forwards;
-      opacity: 0;
-      transform: scale(0.95);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      animation: fadeIn 1.2s ease-out;
     }
 
-    /* iframe با لبه‌های گرد */
-    iframe {
+    .frame-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 360px;
+      height: 100%;
       border: none;
-      border-radius: 20px;
-      display: block;
     }
 
-    /* واکنش‌گرا برای موبایل */
-    @media (max-width: 480px) {
-      iframe {
-        height: 220px;
-      }
-      .video-wrapper {
-        border-radius: 16px;
-      }
-    }
-
-    /* افکت زمینه */
     @keyframes gradientBG {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
 
-    /* افکت ورود */
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: scale(1);
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 480px) {
+      .frame-wrapper {
+        border-radius: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="video-wrapper">
-    <iframe 
-      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame" 
-      allowfullscreen 
-      allow="autoplay; fullscreen" 
-      title="تماشای ویدیو">
+  <div class="frame-wrapper">
+    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=true"
+      allow="autoplay"
+      allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen
+      title="پخش ویدیو">
     </iframe>
   </div>
 </body>
