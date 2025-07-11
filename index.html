@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>ویدیو آپارات</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- فونت فارسی -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
   <style>
     body {
@@ -20,14 +21,15 @@
     }
 
     .frame-wrapper {
-      position: relative;
-      width: 90%;
-      max-width: 720px;
+      width: 95%;
+      max-width: 1024px;
       aspect-ratio: 16 / 9;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
-      animation: fadeIn 1.2s ease-out;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
+      transform: scale(0.95);
     }
 
     .frame-wrapper iframe {
@@ -37,6 +39,8 @@
       width: 100%;
       height: 100%;
       border: none;
+      border-radius: 20px;
+      display: block;
     }
 
     @keyframes gradientBG {
@@ -46,12 +50,18 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .frame-wrapper {
+        width: 95%;
+        border-radius: 16px;
+      }
+      .frame-wrapper iframe {
         border-radius: 16px;
       }
     }
@@ -59,12 +69,12 @@
 </head>
 <body>
   <div class="frame-wrapper">
-    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=true"
-      allow="autoplay"
+    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame"
+      allow="autoplay; fullscreen"
       allowfullscreen
       webkitallowfullscreen
       mozallowfullscreen
-      title="پخش ویدیو">
+      title="تماشای ویدیو">
     </iframe>
   </div>
 </body>
