@@ -5,12 +5,12 @@
   <title>مستند زندگی دکتر سعید مجتبی‌زاده</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
-  <meta name="description" content="مستند زندگی دکتر سعید مجتبی‌زاده | طراحی هنری، ریسپانسیو، زمینه‌ی خاص، افکت‌های خلاقانه و تجربه‌ای حرفه‌ای از پخش ویدیو">
-  <meta name="keywords" content="مستند دکتر سعید مجتبی‌زاده, آپارات, قالب HTML, طراحی سینمایی, افکت وب, وب‌سایت ویدیویی">
+  <!-- SEO حرفه‌ای -->
+  <meta name="description" content="مستند زندگی دکتر سعید مجتبی‌زاده | طراحی هنری، واکنش‌گرا، زمینه‌ی سفارشی، ویدیو آپارات با چیدمان مرکزی و افکت‌های خلاقانه">
+  <meta name="keywords" content="مستند, دکتر سعید مجتبی‌زاده, آپارات, قالب HTML, طراحی سینمایی, افکت وب">
   <meta name="author" content="Saeed Mojtabazadeh">
   <meta property="og:title" content="مستند زندگی دکتر سعید مجتبی‌زاده">
-  <meta property="og:description" content="نمایش مستند آپارات با طراحی شیک، افکت‌های جذاب و زمینه‌ی هنری واکنش‌گرا">
+  <meta property="og:description" content="پخش مستند با طراحی چشم‌نواز، زمینه سفارشی و محتوای متمرکز در صفحه">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://bayanbox.ir/view/5592656112678928833/Background.png">
   <meta property="og:url" content="https://example.com">
@@ -20,47 +20,50 @@
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/mojtabazadeh/instagallery.github.io/refs/heads/main/Favicon.ico">
 
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Vazirmatn', sans-serif;
+      height: 100%;
       background: url('https://bayanbox.ir/view/5592656112678928833/Background.png') center center / cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content {
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
-      position: relative;
-      z-index: 1;
+      gap: 24px;
+      max-width: 1024px;
+      width: 90%;
+      animation: fadeInUp 1.5s ease-out;
     }
 
     .title {
-      margin-top: 40px;
-      margin-bottom: 16px;
       color: #ffffff;
       font-size: 1.8rem;
       font-weight: 700;
       background: rgba(0, 0, 0, 0.4);
       padding: 12px 24px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      text-align: center;
       backdrop-filter: blur(4px);
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: showTitle 1.5s ease-out forwards;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
     .frame-wrapper {
       position: relative;
-      width: 95%;
-      max-width: 1024px;
+      width: 100%;
       aspect-ratio: 16 / 9;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-      animation: fadeInUp 1.2s ease-out forwards;
-      opacity: 0;
-      transform: translateY(20px);
       background: rgba(0,0,0,0.25);
       backdrop-filter: blur(6px);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -78,40 +81,25 @@
       width: 100%;
       height: 100%;
       border: none;
-      display: block;
       border-radius: 20px;
     }
 
     .footer {
-      margin: 32px 0 16px;
       color: white;
       font-size: 0.9rem;
-      text-align: center;
+      opacity: 0.75;
       background: rgba(0,0,0,0.35);
       padding: 10px 20px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       backdrop-filter: blur(4px);
-      animation: fadeFooter 1.6s ease-out forwards;
-      transform: translateY(20px);
-      opacity: 0;
-    }
-
-    @keyframes showTitle {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-    }
-
-    @keyframes fadeFooter {
       to {
         opacity: 1;
         transform: translateY(0);
@@ -139,23 +127,19 @@
   </style>
 </head>
 <body>
-  <div class="title">مستند زندگی دکتر سعید مجتبی‌زاده</div>
+  <div class="content">
+    <div class="title">مستند زندگی دکتر سعید مجتبی‌زاده</div>
 
-  <div class="frame-wrapper">
-    <iframe
-      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
-      allow="autoplay; fullscreen"
-      allowfullscreen
-      title="پخش مستند آپارات">
-    </iframe>
+    <div class="frame-wrapper">
+      <iframe
+        src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+        title="پخش مستند آپارات">
+      </iframe>
+    </div>
+
+    <div class="footer">© Saeed Mojtabazadeh</div>
   </div>
-
-  <div class="footer">© Saeed Mojtabazadeh - <span id="year-shamsi"></span></div>
-
-  <script>
-    const miladiYear = new Date().getFullYear();
-    const shamsiYear = miladiYear - 621;
-    document.getElementById("year-shamsi").textContent = (shamsiYear >= 1400 ? shamsiYear : "1400+");
-  </script>
 </body>
 </html>
