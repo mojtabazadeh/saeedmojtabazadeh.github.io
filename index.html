@@ -1,46 +1,31 @@
 <!DOCTYPE html>
-<html ⚡ lang="fa">
+<html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ویدیو</title>
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-  <style amp-boilerplate>
-    body {
-      visibility: hidden;
-    }
-  </style>
-  <noscript>
-    <style amp-boilerplate>
-      body {
-        visibility: visible;
-      }
-    </style>
-  </noscript>
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-  <style amp-custom>
-    body {
+  <title>تماشای ویدیو</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       background-color: black;
+      overflow: hidden;
     }
-    amp-iframe {
-      position: absolute;
+
+    #video-container {
+      position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
-  <amp-iframe 
-    width="1920" 
-    height="1080" 
-    layout="responsive"
-    sandbox="allow-scripts allow-same-origin allow-popups"
-    frameborder="0"
-    allowfullscreen
-    src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame">
-  </amp-iframe>
+  <div id="video-container">
+    <div id="17059140073"></div>
+    <script type="text/javascript" src="https://www.aparat.com/embed/x722241?data[rnddiv]=17059140073&data[responsive]=yes&autoplay=true"></script>
+  </div>
 </body>
 </html>
