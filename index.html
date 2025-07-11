@@ -33,20 +33,6 @@
       z-index: 1;
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      top: var(--mouse-y, 50%);
-      left: var(--mouse-x, 50%);
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 80%);
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      transition: top 0.1s ease-out, left 0.1s ease-out;
-      z-index: 0;
-    }
-
     .title {
       margin-top: 40px;
       margin-bottom: 16px;
@@ -59,11 +45,9 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       text-align: center;
       backdrop-filter: blur(4px);
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid white;
-      animation: typing 3.6s steps(42, end), blink 0.7s infinite;
-      max-width: 90%;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: showTitle 1.5s ease-out forwards;
     }
 
     .frame-wrapper {
@@ -102,9 +86,22 @@
       margin: 32px 0 16px;
       color: white;
       font-size: 0.9rem;
-      opacity: 0.7;
       text-align: center;
-      z-index: 2;
+      background: rgba(0,0,0,0.35);
+      padding: 10px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      backdrop-filter: blur(4px);
+      animation: fadeFooter 1.6s ease-out forwards;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    @keyframes showTitle {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeInUp {
@@ -114,20 +111,17 @@
       }
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent }
+    @keyframes fadeFooter {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 768px) {
       .title {
         font-size: 1.3rem;
         padding: 10px 16px;
-        border-right: 2px solid white;
       }
 
       .frame-wrapper {
@@ -156,13 +150,12 @@
     </iframe>
   </div>
 
-  <div class="footer">© Saeed Mojtabazadeh</div>
+  <div class="footer">© Saeed Mojtabazadeh - <span id="year-shamsi"></span></div>
 
   <script>
-    document.addEventListener('mousemove', e => {
-      document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
-    });
+    const miladiYear = new Date().getFullYear();
+    const shamsiYear = miladiYear - 621;
+    document.getElementById("year-shamsi").textContent = (shamsiYear >= 1400 ? shamsiYear : "1400+");
   </script>
 </body>
 </html>
