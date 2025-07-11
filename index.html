@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>تماشای مستند زندگی سعید مجتبی‌زاده</title>
   <meta name="description" content="مستند رسمی از زندگی علمی و حرفه‌ای مهندس ایرانی سعید مجتبی‌زاده را آنلاین و تمام‌صفحه تماشا کنید.">
+  <meta name="keywords" content="مستند سعید مجتبی زاده, زندگی‌نامه, آپارات, ویدیو علمی, مهندس ایرانی">
+  <meta property="og:type" content="video.other">
+  <meta property="og:title" content="مستند زندگی سعید مجتبی‌زاده">
+  <meta property="og:description" content="تماشای تمام‌صفحه مستند علمی زندگی مهندس ایرانی سعید مجتبی‌زاده">
+  <meta property="og:image" content="https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg">
+  <meta property="og:url" content="https://www.aparat.com/v/x722241">
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/Vazirmatn.css" rel="stylesheet" />
 
   <style>
@@ -13,13 +19,14 @@
       margin: 0;
       padding: 0;
     }
-    body {
-      height: 100vh;
+    html, body {
+      height: 100%;
       font-family: 'Vazirmatn', sans-serif;
       background: linear-gradient(225deg, #0f0c29, #302b63, #24243e);
       color: #fff;
       overflow: hidden;
     }
+
     header, .video-wrapper, footer {
       opacity: 0;
       transform: translateY(30px);
@@ -38,6 +45,7 @@
       color: #00ffc6;
       text-shadow: 1px 1px 4px #000;
     }
+
     .video-wrapper {
       animation-delay: 1s;
       position: absolute;
@@ -47,11 +55,13 @@
       height: 100vh;
       z-index: 1;
     }
-    .video-wrapper iframe, .video-wrapper div {
+
+    .video-frame {
       width: 100%;
       height: 100%;
       border: none;
     }
+
     footer {
       animation-delay: 1.4s;
       position: absolute;
@@ -70,6 +80,21 @@
       }
     }
   </style>
+
+  <!-- Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "مستند زندگی سعید مجتبی‌زاده",
+    "description": "مستند رسمی از زندگی علمی و فعالیت‌های حرفه‌ای مهندس ایرانی سعید مجتبی‌زاده.",
+    "thumbnailUrl": "https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg",
+    "uploadDate": "2023-08-15",
+    "duration": "PT20M",
+    "contentUrl": "https://www.aparat.com/v/x722241",
+    "embedUrl": "https://www.aparat.com/embed/x722241"
+  }
+  </script>
 </head>
 <body>
   <header>
@@ -77,9 +102,13 @@
   </header>
 
   <div class="video-wrapper">
-    <div id="43843190020">
-      <script type="text/javascript" src="https://www.aparat.com/embed/x722241?data[rnddiv]=43843190020&data[responsive]=yes&autoplay=true"></script>
-    </div>
+    <iframe
+      class="video-frame"
+      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame"
+      allowfullscreen
+      allow="autoplay; encrypted-media"
+      title="مستند سعید مجتبی‌زاده"
+    ></iframe>
   </div>
 
   <footer>
