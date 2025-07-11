@@ -11,7 +11,7 @@
   <meta property="og:description" content="تماشای آنلاین مستند زندگی مهندس ایرانی سعید مجتبی‌زاده با کنترل کامل از طریق آپارات">
   <meta property="og:image" content="https://static.cdn.asset.aparat.com/avt/722241-3647__71595.jpg">
   <meta property="og:url" content="https://www.aparat.com/v/x722241">
-  <link href="https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam.css" rel="stylesheet" />
+  <link href="https://cdn.fontcdn.ir/Font/Persian/SarvNaz/SarvNaz.css" rel="stylesheet" />
 
   <style>
     * {
@@ -21,11 +21,12 @@
     }
     html, body {
       height: 100%;
-      font-family: 'Shabnam', sans-serif;
       background-color: #111;
       color: #fff;
+      font-family: 'SarvNaz', cursive;
       overflow: hidden;
     }
+
     header {
       position: absolute;
       top: 20px;
@@ -35,21 +36,29 @@
       z-index: 2;
       animation: fadeDown 1s ease-out forwards;
     }
+
     header h1 {
-      font-size: 2em;
-      color: #00ffc6;
-      text-shadow: 1px 1px 4px #000;
+      font-size: 2.2em;
+      color: #ffb6c1;
+      text-shadow: 1px 1px 6px #000;
     }
-    .video-full {
-      width: 100vw;
-      height: 100vh;
+
+    .video-container {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 100px);
+      padding: 0 10px;
       animation: fadeUp 1.5s ease-out forwards;
-      z-index: 1;
     }
-    .video-full iframe {
+
+    .video-container iframe {
       width: 100%;
       height: 100%;
       border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
     }
 
     @keyframes fadeUp {
@@ -64,7 +73,11 @@
 
     @media screen and (max-width: 600px) {
       header h1 {
-        font-size: 1.4em;
+        font-size: 1.5em;
+      }
+      .video-container {
+        top: 50px;
+        height: calc(100% - 80px);
       }
     }
   </style>
@@ -89,7 +102,7 @@
     <h1>🎬 مستند زندگی سعید مجتبی‌زاده</h1>
   </header>
 
-  <div class="video-full">
+  <div class="video-container">
     <iframe
       src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=true"
       allowfullscreen
