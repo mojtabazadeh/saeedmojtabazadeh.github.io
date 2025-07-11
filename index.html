@@ -13,8 +13,9 @@
       font-family: 'Vazirmatn', sans-serif;
       background-image: url('https://bayanbox.ir/view/5592656112678928833/Background.png');
       background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -32,7 +33,7 @@
       animation: fadeInUp 1.2s ease-out forwards;
       opacity: 0;
       transform: translateY(20px);
-      background: rgba(0,0,0,0.25); /* نیمه‌شفاف برای کنتراست بهتر */
+      background: rgba(0,0,0,0.25);
       backdrop-filter: blur(6px);
     }
 
@@ -47,24 +48,24 @@
       border-radius: 20px;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @media (max-width: 768px) {
+      body {
+        background-attachment: scroll; /* جلوگیری از مشکل در برخی موبایل‌ها */
+        background-size: cover;       /* حفظ پوشش کامل تصویر */
+        background-position: center center;
+      }
       .frame-wrapper {
-        width: 95%;
         border-radius: 16px;
       }
       .frame-wrapper iframe {
         border-radius: 16px;
       }
-      body {
-        background-attachment: scroll;
-        background-size: contain;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
