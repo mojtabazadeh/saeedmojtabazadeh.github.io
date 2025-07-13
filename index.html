@@ -37,6 +37,17 @@
       min-height: 100vh;
     }
 
+    .video-title {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-align: center;
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
     .frame-wrapper {
       position: relative;
       width: 95%;
@@ -84,6 +95,11 @@
         background-size: cover;
       }
 
+      .video-title {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+      }
+
       .frame-wrapper {
         border-radius: 16px;
       }
@@ -100,6 +116,8 @@
   </style>
 </head>
 <body>
+  <h1 class="video-title">مستند زندگی دکتر سعید مجتبی زاده</h1>
+
   <div class="frame-wrapper">
     <iframe
       src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
@@ -108,9 +126,11 @@
       title="مستند زندگی دکتر سعید مجتبی زاده">
     </iframe>
   </div>
-  <div class="footer">
-  © <a href="http://www.mojtabazadeh.ir/" target="_blank" style="color: white; text-decoration: none; font-weight: 500;">
-    Saeed Mojtabazadeh | www.mojtabazadeh.ir
-  </a>
-</div>
 
+  <div class="footer">
+    © <a href="http://www.mojtabazadeh.ir/" target="_blank" style="color: white; text-decoration: none; font-weight: 500;">
+      Saeed Mojtabazadeh | www.mojtabazadeh.ir
+    </a>
+  </div>
+</body>
+</html>
