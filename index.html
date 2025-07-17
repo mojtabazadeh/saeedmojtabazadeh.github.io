@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>مسیر علم و زندگی: روایت دکتر سعید مجتبی‌زاده</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <meta name="description" content="پایگاه رسمی دکتر سعید مجتبی‌زاده | روایت مسیر علم و زندگی در پژوهش و نوآوری.">
   <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی">
   <meta name="author" content="Saeed Mojtabazadeh">
@@ -13,23 +13,26 @@
 
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
+    html,body{
+      width:100%;height:100%;
+      overflow-x:hidden;
+    }
     body {
       font-family:'Vazirmatn',sans-serif;
       background:#000;
       color:white;
       text-align:center;
-      overflow-x:hidden;
       display:flex;
       flex-direction:column;
       align-items:center;
       padding:20px 10px 40px;
       transition:all 0.6s ease;
+      transform-origin:0 0;
     }
     body.lang-en{font-family:'Poppins',sans-serif;direction:ltr;text-align:center}
 
     #particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
 
-    /* ✅ عکس پروفایل با افکت نرم */
     .profile-container {
       width:150px;height:150px;margin:25px auto 16px;
       border-radius:50%;overflow:hidden;
@@ -42,7 +45,6 @@
       50%{transform:translateY(-6px)}
     }
 
-    /* ✅ عنوان */
     .title-wrapper {
       max-width:90vw;margin-bottom:20px;
       animation:fadeInUp 1s ease forwards;opacity:0;transform:translateY(10px);
@@ -63,7 +65,6 @@
       text-shadow:0 1px 3px rgba(0,0,0,0.4);
     }
 
-    /* ✅ لینک‌ها */
     .link-bar {
       display:flex;flex-wrap:wrap;justify-content:center;
       gap:10px;max-width:95vw;margin-bottom:16px;
@@ -84,7 +85,6 @@
       transform:translateY(-2px);
     }
 
-    /* ✅ ویدیو */
     .frame-wrapper {
       width:95%;max-width:900px;aspect-ratio:16/9;
       border-radius:16px;overflow:hidden;
@@ -94,11 +94,9 @@
     }
     .frame-wrapper iframe {width:100%;height:100%;border:none;display:block;border-radius:16px}
 
-    /* ✅ فوتر */
     .footer {font-size:0.8rem;margin-top:18px;opacity:0.7}
     .footer a {color:white;text-decoration:none}
 
-    /* ✅ دکمه زبان */
     .lang-switch {
       position:fixed;top:12px;left:12px;display:flex;gap:6px;z-index:99;
     }
@@ -112,12 +110,15 @@
       background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    /* ✅ افکت تغییر زبان محو شونده */
-    .fade-switch {animation:fadeSwitch 0.6s ease}
-    @keyframes fadeSwitch {
-      0% {opacity:1;filter:blur(0px)}
-      50%{opacity:0;filter:blur(4px)}
-      100%{opacity:1;filter:blur(0px)}
+    /* ✅ افکت تغییر زبان خیلی نرم */
+    .smooth-switch {
+      animation:smoothFadeSlide 0.8s ease;
+    }
+    @keyframes smoothFadeSlide {
+      0%{opacity:1;transform:translateX(0)}
+      40%{opacity:0;transform:translateX(20px)}
+      60%{opacity:0;transform:translateX(-20px)}
+      100%{opacity:1;transform:translateX(0)}
     }
 
     @keyframes fadeInUp {to {opacity:1;transform:translateY(0)}}
@@ -162,6 +163,15 @@
   </div>
 
   <script>
+    // ✅ تنظیم اسکیل معکوس برای فیکس شدن اندازه در زوم
+    function fixZoom(){
+      const scale = 1 / window.devicePixelRatio;
+      document.body.style.transform = `scale(${scale})`;
+    }
+    fixZoom();
+    window.addEventListener("resize", fixZoom);
+
+    // ✅ داده زبان‌ها
     const data = {
       fa:{title:"مسیر علم و زندگی",sub:"روایت علم، اندیشه و نوآوری دکتر سعید مجتبی‌زاده",links:[
         {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
@@ -199,7 +209,7 @@
     }
 
     function switchLang(lang){
-      document.body.classList.add("fade-switch");
+      document.body.classList.add("smooth-switch");
       setTimeout(()=>{
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
@@ -212,7 +222,7 @@
           document.documentElement.dir="rtl";
         }
       },300);
-      setTimeout(()=>document.body.classList.remove("fade-switch"),600);
+      setTimeout(()=>document.body.classList.remove("smooth-switch"),800);
     }
 
     buildLinks("fa");
