@@ -40,53 +40,61 @@
       background: transparent;
     }
 
-    /* ✅ پروفایل با افکت زنده مایع */
+    /* ✅ پروفایل دایره‌ای با Halo Glow */
     .profile-container {
       position: relative;
       width: 180px;
       height: 180px;
       margin: 30px auto 18px;
-      perspective: 600px;
     }
 
     .profile-pic {
-      position: relative;
       width: 100%;
       height: 100%;
+      border-radius: 50%;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(255, 200, 100, 0.5);
-      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
-      animation: liquidMorph 6s ease-in-out infinite;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+      transition: transform 0.3s ease;
     }
 
     .profile-pic img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      border-radius: 50%;
+    }
+
+    .halo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(255,215,0,0) 70%);
+      transform: translate(-50%, -50%);
+      filter: blur(25px);
+      animation: pulse 4s infinite alternate;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes pulse {
+      from {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+      }
+      to {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+      }
     }
 
     .profile-container:hover .profile-pic {
-      box-shadow: 0 12px 36px rgba(255, 210, 120, 0.8);
-    }
-
-    @keyframes liquidMorph {
-      0% {
-        border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
-      }
-      25% {
-        border-radius: 55% 45% 60% 40% / 55% 45% 60% 40%;
-      }
-      50% {
-        border-radius: 50% 60% 40% 60% / 60% 40% 50% 50%;
-      }
-      75% {
-        border-radius: 65% 35% 45% 55% / 45% 65% 55% 45%;
-      }
-      100% {
-        border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
-      }
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 220, 120, 0.8);
     }
 
     /* ✅ عنوان */
@@ -240,12 +248,6 @@
       0%,100%{text-shadow:0 0 10px rgba(255,211,108,0.6);}
       50%{text-shadow:0 0 22px rgba(255,211,108,1);}
     }
-    @media(max-width:768px){
-      .profile-container{width:130px;height:130px;}
-      .title-line{font-size:2rem;}
-      .title-sub{font-size:1rem;}
-      .link-bar a{font-size:0.85rem;padding:8px 14px;}
-    }
   </style>
 </head>
 <body>
@@ -257,7 +259,8 @@
   </div>
 
   <div class="profile-container">
-    <div class="profile-pic" id="profile-pic">
+    <div class="halo" id="halo"></div>
+    <div class="profile-pic">
       <img src="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" alt="Dr. Saeed Mojtabazadeh">
     </div>
   </div>
@@ -349,52 +352,12 @@
     document.getElementById("btn-fa").addEventListener("click",()=>switchLang("fa"));
     document.getElementById("btn-en").addEventListener("click",()=>switchLang("en"));
 
-    // ✅ ذرات پس‌زمینه
-    const canvas=document.getElementById("particles");
-    const ctx=canvas.getContext("2d");
-    let particles=[];
-
-    function resizeCanvas(){
-      canvas.width=window.innerWidth;
-      canvas.height=window.innerHeight;
-    }
-    window.addEventListener("resize",resizeCanvas);
-    resizeCanvas();
-
-    for(let i=0;i<80;i++){
-      particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5});
-    }
-
-    function drawParticles(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      ctx.fillStyle="rgba(255,220,150,0.8)";
-      particles.forEach(p=>{
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fill();
-        p.x+=p.dx; p.y+=p.dy;
-        if(p.x<0||p.x>canvas.width)p.dx*=-1;
-        if(p.y<0||p.y>canvas.height)p.dy*=-1;
-      });
-      requestAnimationFrame(drawParticles);
-    }
-    drawParticles();
-
-    // ✅ افکت واکنش‌گر مایع با موس
-    const profilePic=document.getElementById("profile-pic");
-    const container=document.querySelector(".profile-container");
-
-    container.addEventListener("mousemove",e=>{
-      const rect=container.getBoundingClientRect();
-      const x=e.clientX-rect.left-rect.width/2;
-      const y=e.clientY-rect.top-rect.height/2;
-      const rotateX=(y/rect.height)*10;
-      const rotateY=-(x/rect.width)*10;
-      profilePic.style.transform=`rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-    });
-
-    container.addEventListener("mouseleave",()=>{
-      profilePic.style.transform="rotateX(0deg) rotateY(0deg) scale(1)";
+    // ✅ افکت هاله با حرکت موس
+    const halo=document.getElementById("halo");
+    document.addEventListener("mousemove",e=>{
+      const x=(e.clientX/window.innerWidth-0.5)*100;
+      const y=(e.clientY/window.innerHeight-0.5)*100;
+      halo.style.transform=`translate(-50%, -50%) rotateX(${y/10}deg) rotateY(${x/10}deg)`;
     });
   </script>
 </body>
