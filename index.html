@@ -40,59 +40,56 @@
       background: transparent;
     }
 
-    /* عکس پروفایل + افکت Particle Aura */
+    /* ✅ پروفایل با افکت زنده مایع */
     .profile-container {
       position: relative;
       width: 180px;
       height: 180px;
       margin: 30px auto 18px;
+      perspective: 600px;
     }
+
     .profile-pic {
       position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       overflow: hidden;
-      box-shadow: 0 0 40px rgba(255, 215, 100, 0.4);
-      z-index: 2;
+      box-shadow: 0 8px 24px rgba(255, 200, 100, 0.5);
+      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+      animation: liquidMorph 6s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .profile-pic img {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       object-fit: cover;
       display: block;
     }
-    .particle-aura {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 220px;
-      height: 220px;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: radial-gradient(circle, #ffd977, #ffb400);
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: floatParticle 5s linear infinite;
-    }
-    @keyframes floatParticle {
-      0% {transform: translate(0,0) scale(1); opacity: 0.7;}
-      50% {transform: translate(var(--x), var(--y)) scale(1.2); opacity: 1;}
-      100% {transform: translate(0,0) scale(1); opacity: 0.7;}
-    }
-    .profile-container:hover .particle {
-      animation-duration: 3s;
-      opacity: 1;
+
+    .profile-container:hover .profile-pic {
+      box-shadow: 0 12px 36px rgba(255, 210, 120, 0.8);
     }
 
-    /* عنوان */
+    @keyframes liquidMorph {
+      0% {
+        border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+      }
+      25% {
+        border-radius: 55% 45% 60% 40% / 55% 45% 60% 40%;
+      }
+      50% {
+        border-radius: 50% 60% 40% 60% / 60% 40% 50% 50%;
+      }
+      75% {
+        border-radius: 65% 35% 45% 55% / 45% 65% 55% 45%;
+      }
+      100% {
+        border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+      }
+    }
+
+    /* ✅ عنوان */
     .title-wrapper {
       text-align: center;
       margin-bottom: 30px;
@@ -120,7 +117,7 @@
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
-    /* نوار لینک */
+    /* ✅ نوار لینک */
     .link-bar {
       display: flex;
       justify-content: center;
@@ -150,7 +147,7 @@
       transform: translateY(-3px);
     }
 
-    /* ویدیو */
+    /* ✅ ویدیو */
     .frame-wrapper {
       margin: 0 auto;
       display: flex;
@@ -177,7 +174,7 @@
       border-radius: 20px;
     }
 
-    /* فوتر */
+    /* ✅ فوتر */
     .footer {
       margin-top: 24px;
       color: white;
@@ -192,7 +189,7 @@
       font-weight: 500;
     }
 
-    /* دکمه زبان */
+    /* ✅ دکمه زبان */
     .lang-switch {
       position: fixed;
       top: 16px;
@@ -260,10 +257,9 @@
   </div>
 
   <div class="profile-container">
-    <div class="profile-pic">
+    <div class="profile-pic" id="profile-pic">
       <img src="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" alt="Dr. Saeed Mojtabazadeh">
     </div>
-    <div class="particle-aura" id="particleAura"></div>
   </div>
 
   <div class="title-wrapper">
@@ -283,7 +279,7 @@
   </div>
 
   <script>
-    // داده زبان‌ها
+    // ✅ داده زبان‌ها
     const data = {
       fa: {
         title:"مسیر علم و زندگی: روایت دکتر سعید مجتبی‌زاده",
@@ -353,7 +349,7 @@
     document.getElementById("btn-fa").addEventListener("click",()=>switchLang("fa"));
     document.getElementById("btn-en").addEventListener("click",()=>switchLang("en"));
 
-    // ذرات پس‌زمینه
+    // ✅ ذرات پس‌زمینه
     const canvas=document.getElementById("particles");
     const ctx=canvas.getContext("2d");
     let particles=[];
@@ -384,23 +380,22 @@
     }
     drawParticles();
 
-    // Particle Aura اطراف عکس
-    const particleAura=document.getElementById("particleAura");
-    const particleCount=18;
-    for(let i=0;i<particleCount;i++){
-      const particle=document.createElement("div");
-      particle.classList.add("particle");
-      const angle=Math.random()*Math.PI*2;
-      const radius=40+Math.random()*40;
-      const x=Math.cos(angle)*radius+"px";
-      const y=Math.sin(angle)*radius+"px";
-      particle.style.setProperty("--x",x);
-      particle.style.setProperty("--y",y);
-      particle.style.top=50+Math.sin(angle)*60+"%";
-      particle.style.left=50+Math.cos(angle)*60+"%";
-      particle.style.animationDelay=Math.random()*3+"s";
-      particleAura.appendChild(particle);
-    }
+    // ✅ افکت واکنش‌گر مایع با موس
+    const profilePic=document.getElementById("profile-pic");
+    const container=document.querySelector(".profile-container");
+
+    container.addEventListener("mousemove",e=>{
+      const rect=container.getBoundingClientRect();
+      const x=e.clientX-rect.left-rect.width/2;
+      const y=e.clientY-rect.top-rect.height/2;
+      const rotateX=(y/rect.height)*10;
+      const rotateY=-(x/rect.width)*10;
+      profilePic.style.transform=`rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    container.addEventListener("mouseleave",()=>{
+      profilePic.style.transform="rotateX(0deg) rotateY(0deg) scale(1)";
+    });
   </script>
 </body>
 </html>
