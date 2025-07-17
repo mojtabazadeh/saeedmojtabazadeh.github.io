@@ -2,21 +2,25 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>دکتر سعید مجتبی‌زاده | علم، اندیشه و نوآوری</title>
+  <title>مسیر علم و زندگی: روایت دکتر سعید مجتبی‌زاده</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="پایگاه رسمی دکتر سعید مجتبی‌زاده | علم، اندیشه و نوآوری در ژئوتکنیک و پژوهش‌های علمی." />
+  <meta name="description" content="پایگاه رسمی دکتر سعید مجتبی‌زاده | مسیر علم و زندگی در پژوهش و نوآوری." />
   <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی" />
   <meta name="author" content="Saeed Mojtabazadeh" />
-  <link rel="icon" href="https://raw.githubusercontent.com/mojtabazadeh/instagallery.github.io/refs/heads/main/Favicon.ico" />
+  
+  <!-- فونت‌ها -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Orbitron:wght@500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn&family=Poppins:wght@400;600&display=swap"
     rel="stylesheet"
   />
+  
+  <link rel="icon" href="https://raw.githubusercontent.com/mojtabazadeh/instagallery.github.io/refs/heads/main/Favicon.ico" />
+  
   <style>
-    /* سبک‌های کلی */
+    /* پایه */
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px 10px 40px 10px;
       font-family: "Vazirmatn", sans-serif;
       background: #000;
       color: white;
@@ -26,9 +30,15 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding: 20px 10px 40px 10px;
     }
-    /* کانواس پس‌زمینه ذرات */
+    /* وقتی انگلیسی هست */
+    body.lang-en {
+      font-family: "Poppins", sans-serif;
+      direction: ltr;
+      text-align: left;
+    }
+    
+    /* کانواس ذرات */
     #particles {
       position: fixed;
       top: 0;
@@ -38,8 +48,8 @@
       z-index: -1;
       background: transparent;
     }
-
-    /* تصویر پروفایل */
+    
+    /* عکس پروفایل */
     .profile-pic {
       position: relative;
       width: 180px;
@@ -50,6 +60,7 @@
       box-shadow: 0 0 40px rgba(255, 215, 100, 0.4);
       transform-style: preserve-3d;
       transition: transform 0.5s ease;
+      cursor: default;
     }
     .profile-pic:hover {
       transform: rotateY(12deg) rotateX(8deg) scale(1.05);
@@ -62,6 +73,7 @@
       display: block;
       position: relative;
       z-index: 2;
+      user-select: none;
     }
     .profile-pic::before {
       content: "";
@@ -89,27 +101,26 @@
         transform: rotate(360deg);
       }
     }
-
-    /* بخش عناوین */
+    
+    /* بخش عنوان */
     .title-wrapper {
       text-align: center;
-      margin-bottom: 28px; /* فاصله بیشتر به دکمه‌ها */
+      margin-bottom: 30px; /* فاصله بیشتر */
       animation: fadeInUp 1s ease-out forwards;
       opacity: 0;
       transform: translateY(-20px);
       max-width: 95vw;
+      user-select: none;
     }
     .title-line {
-      font-family: "Orbitron", "Vazirmatn", sans-serif;
-      font-size: 2.6rem;
       font-weight: 800;
+      font-size: 2.6rem;
       background: linear-gradient(90deg, #fff2a8, #ffc94d, #ffb400);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 18px rgba(255, 211, 108, 0.6);
       animation: glowPulse 4s ease-in-out infinite;
       margin-bottom: 6px;
-      user-select: none;
     }
     .title-sub {
       font-size: 1.2rem;
@@ -117,18 +128,8 @@
       font-weight: 600;
       margin-top: 0;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-      user-select: none;
     }
-    @keyframes glowPulse {
-      0%,
-      100% {
-        text-shadow: 0 0 10px rgba(255, 211, 108, 0.6);
-      }
-      50% {
-        text-shadow: 0 0 22px rgba(255, 211, 108, 1);
-      }
-    }
-
+    
     /* نوار لینک‌ها */
     .link-bar {
       display: flex;
@@ -159,8 +160,8 @@
       box-shadow: 0 0 20px rgba(255, 200, 100, 0.7);
       transform: translateY(-3px);
     }
-
-    /* ویدیو وسط صفحه */
+    
+    /* ویدیو */
     .frame-wrapper {
       margin: 0 auto;
       display: flex;
@@ -186,7 +187,7 @@
       display: block;
       border-radius: 20px;
     }
-
+    
     /* فوتر */
     .footer {
       margin-top: 24px;
@@ -201,8 +202,8 @@
       text-decoration: none;
       font-weight: 500;
     }
-
-    /* دکمه‌های تغییر زبان */
+    
+    /* دکمه‌های زبان */
     .lang-switch {
       position: fixed;
       top: 16px;
@@ -247,7 +248,7 @@
       width: 120px;
       height: 120px;
     }
-
+    
     /* انیمیشن‌ها */
     @keyframes fadeInUp {
       to {
@@ -255,7 +256,18 @@
         transform: translateY(0);
       }
     }
-
+    
+    @keyframes glowPulse {
+      0%,
+      100% {
+        text-shadow: 0 0 10px rgba(255, 211, 108, 0.6);
+      }
+      50% {
+        text-shadow: 0 0 22px rgba(255, 211, 108, 1);
+      }
+    }
+    
+    /* ریسپانسیو */
     @media (max-width: 768px) {
       .profile-pic {
         width: 130px;
@@ -290,7 +302,7 @@
   </div>
 
   <div class="title-wrapper">
-    <h1 class="title-line" id="main-title">دکتر سعید مجتبی‌زاده</h1>
+    <h1 class="title-line" id="main-title">مسیر علم و زندگی: روایت دکتر سعید مجتبی‌زاده</h1>
     <h2 class="title-sub" id="sub-title">علم، اندیشه و نوآوری</h2>
   </div>
 
@@ -315,10 +327,9 @@
   </div>
 
   <script>
-    // داده‌های دو زبان
     const data = {
       fa: {
-        title: "دکتر سعید مجتبی‌زاده",
+        title: "مسیر علم و زندگی: روایت دکتر سعید مجتبی‌زاده",
         sub: "علم، اندیشه و نوآوری",
         links: [
           { text: "پایگاه شخصی", href: "http://mojtabazadeh.ir/" },
@@ -335,7 +346,7 @@
         ],
       },
       en: {
-        title: "Dr. Saeed Mojtabazadeh",
+        title: "The Journey of Science and Life: The Story of Dr. Saeed Mojtabazadeh",
         sub: "Science, Insights & Innovation",
         links: [
           { text: "Personal Website", href: "http://mojtabazadeh.ir/" },
@@ -357,7 +368,6 @@
     const subTitle = document.getElementById("sub-title");
     const linksContainer = document.getElementById("links");
 
-    // تابع ساخت لینک‌ها
     function buildLinks(lang) {
       linksContainer.innerHTML = "";
       data[lang].links.forEach((link) => {
@@ -370,25 +380,33 @@
       });
     }
 
-    // تغییر زبان با افکت نرمال
     function switchLang(lang) {
       document.body.style.opacity = 0;
       setTimeout(() => {
         mainTitle.textContent = data[lang].title;
         subTitle.textContent = data[lang].sub;
         buildLinks(lang);
+
+        if (lang === "en") {
+          document.body.classList.add("lang-en");
+          document.documentElement.lang = "en";
+          document.documentElement.dir = "ltr";
+        } else {
+          document.body.classList.remove("lang-en");
+          document.documentElement.lang = "fa";
+          document.documentElement.dir = "rtl";
+        }
         document.body.style.opacity = 1;
       }, 400);
     }
 
-    // زبان پیش‌فرض فارسی است
+    // پیش‌فرض فارسی
     buildLinks("fa");
 
-    // دکمه‌ها
     document.getElementById("btn-fa").addEventListener("click", () => switchLang("fa"));
     document.getElementById("btn-en").addEventListener("click", () => switchLang("en"));
 
-    // افکت ذرات پس‌زمینه
+    // ذرات پس‌زمینه
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
     let particles = [];
