@@ -12,6 +12,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    
+/* ... استایل‌های اصلی بالا ... */
+
+  @media (max-width: 480px) {
+    .profile-container {
+      width: 120px;
+      height: 120px;
+    }
+    .link-bar a {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+    }
+  }
+    
+    
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{
       width:100%;height:100%;
@@ -163,13 +178,6 @@
   </div>
 
   <script>
-    // ✅ تنظیم اسکیل معکوس برای فیکس شدن اندازه در زوم
-    function fixZoom(){
-      const scale = 1 / window.devicePixelRatio;
-      document.body.style.transform = `scale(${scale})`;
-    }
-    fixZoom();
-    window.addEventListener("resize", fixZoom);
 
     // ✅ داده زبان‌ها
     const data = {
