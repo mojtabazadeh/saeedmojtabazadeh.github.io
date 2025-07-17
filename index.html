@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>دکتر سعید مجتبی‌زاده | علم، اندیشه و نوآوری</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="پایگاه رسمی دکتر سعید مجتبی‌زاده | علم، اندیشه و نوآوری در ژئوتکنیک و پژوهش‌های علمی.">
-  <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی">
-  <meta name="author" content="Saeed Mojtabazadeh">
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/mojtabazadeh/instagallery.github.io/refs/heads/main/Favicon.ico">
-  
-  <!-- فونت فارسی و لاتین -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="پایگاه رسمی دکتر سعید مجتبی‌زاده | علم، اندیشه و نوآوری در ژئوتکنیک و پژوهش‌های علمی." />
+  <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی" />
+  <meta name="author" content="Saeed Mojtabazadeh" />
+  <link rel="icon" href="https://raw.githubusercontent.com/mojtabazadeh/instagallery.github.io/refs/heads/main/Favicon.ico" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Orbitron:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
+    /* سبک‌های کلی */
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      background: #000; /* یکدست مشکی */
-      overflow-x: hidden;
+      font-family: "Vazirmatn", sans-serif;
+      background: #000;
       color: white;
+      overflow-x: hidden;
       transition: opacity 0.6s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 10px 40px 10px;
     }
-
-    /* پس‌زمینه ذرات متحرک */
+    /* کانواس پس‌زمینه ذرات */
     #particles {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       z-index: -1;
       background: transparent;
     }
 
-    /* پروفایل سه‌بعدی */
+    /* تصویر پروفایل */
     .profile-pic {
       position: relative;
       width: 180px;
       height: 180px;
       border-radius: 50%;
       overflow: hidden;
-      margin: 30px auto 8px; /* فاصله کمتر با عنوان */
+      margin: 30px auto 18px;
       box-shadow: 0 0 40px rgba(255, 215, 100, 0.4);
       transform-style: preserve-3d;
       transition: transform 0.5s ease;
@@ -66,25 +71,36 @@
       width: calc(100% + 10px);
       height: calc(100% + 10px);
       border-radius: 50%;
-      background: conic-gradient(from 0deg, #fcd975, #ffbb33, #ff6f00, #fcd975);
+      background: conic-gradient(
+        from 0deg,
+        #fcd975,
+        #ffbb33,
+        #ff6f00,
+        #fcd975
+      );
       animation: spin 6s linear infinite;
       z-index: 1;
     }
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
-    /* عنوان */
+    /* بخش عناوین */
     .title-wrapper {
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 28px; /* فاصله بیشتر به دکمه‌ها */
       animation: fadeInUp 1s ease-out forwards;
       opacity: 0;
       transform: translateY(-20px);
+      max-width: 95vw;
     }
     .title-line {
-      font-family: 'Orbitron','Vazirmatn',sans-serif;
+      font-family: "Orbitron", "Vazirmatn", sans-serif;
       font-size: 2.6rem;
       font-weight: 800;
       background: linear-gradient(90deg, #fff2a8, #ffc94d, #ffb400);
@@ -92,33 +108,41 @@
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 18px rgba(255, 211, 108, 0.6);
       animation: glowPulse 4s ease-in-out infinite;
-      margin-bottom: 4px; /* نزدیک شدن زیرعنوان */
+      margin-bottom: 6px;
+      user-select: none;
     }
     .title-sub {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: #ffddaa;
       font-weight: 600;
       margin-top: 0;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      user-select: none;
     }
     @keyframes glowPulse {
-      0%, 100% { text-shadow: 0 0 10px rgba(255,211,108,0.6); }
-      50% { text-shadow: 0 0 22px rgba(255,211,108,1); }
+      0%,
+      100% {
+        text-shadow: 0 0 10px rgba(255, 211, 108, 0.6);
+      }
+      50% {
+        text-shadow: 0 0 22px rgba(255, 211, 108, 1);
+      }
     }
 
-    /* لینک‌ها */
+    /* نوار لینک‌ها */
     .link-bar {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
       animation: fadeInUp 1.4s ease-out forwards;
       opacity: 0;
       transform: translateY(-20px);
+      max-width: 95vw;
     }
     .link-bar a {
-      background: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.12);
       color: white;
       padding: 10px 18px;
       border-radius: 30px;
@@ -127,15 +151,16 @@
       font-size: 0.95rem;
       backdrop-filter: blur(3px);
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(255,200,100,0.3);
+      box-shadow: 0 0 10px rgba(255, 200, 100, 0.3);
+      user-select: none;
     }
     .link-bar a:hover {
-      background: rgba(255,255,255,0.25);
-      box-shadow: 0 0 20px rgba(255,200,100,0.7);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 20px rgba(255, 200, 100, 0.7);
       transform: translateY(-3px);
     }
 
-    /* ویدیو در مرکز */
+    /* ویدیو وسط صفحه */
     .frame-wrapper {
       margin: 0 auto;
       display: flex;
@@ -146,12 +171,13 @@
       aspect-ratio: 16 / 9;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
       animation: fadeInUp 1.6s ease-out forwards;
       opacity: 0;
       transform: translateY(20px);
-      background: rgba(0,0,0,0.25);
+      background: rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(6px);
+      user-select: none;
     }
     .frame-wrapper iframe {
       width: 100%;
@@ -168,9 +194,15 @@
       font-size: 0.9rem;
       opacity: 0.7;
       text-align: center;
+      user-select: none;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
     }
 
-    /* دکمه تغییر زبان */
+    /* دکمه‌های تغییر زبان */
     .lang-switch {
       position: fixed;
       top: 16px;
@@ -178,10 +210,11 @@
       display: flex;
       gap: 8px;
       z-index: 999;
+      user-select: none;
     }
     .lang-switch button {
       position: relative;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
       color: white;
       border: none;
       padding: 8px 14px;
@@ -191,11 +224,11 @@
       font-size: 0.9rem;
       transition: all 0.3s ease;
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(255,215,0,0.3);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
     }
     .lang-switch button:hover {
-      background: rgba(255,255,255,0.3);
-      box-shadow: 0 0 20px rgba(255,215,0,0.7);
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
       transform: scale(1.1);
     }
     .lang-switch button:after {
@@ -205,7 +238,7 @@
       height: 0;
       top: 50%;
       left: 50%;
-      background: rgba(255,215,0,0.3);
+      background: rgba(255, 215, 0, 0.3);
       border-radius: 50%;
       transform: translate(-50%, -50%);
       transition: width 0.5s ease, height 0.5s ease;
@@ -215,6 +248,7 @@
       height: 120px;
     }
 
+    /* انیمیشن‌ها */
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -223,9 +257,20 @@
     }
 
     @media (max-width: 768px) {
-      .profile-pic {width: 130px; height: 130px;}
-      .title-line {font-size: 2rem;}
-      .title-sub {font-size: 1rem;}
+      .profile-pic {
+        width: 130px;
+        height: 130px;
+      }
+      .title-line {
+        font-size: 2rem;
+      }
+      .title-sub {
+        font-size: 1rem;
+      }
+      .link-bar a {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+      }
     }
   </style>
 </head>
@@ -233,12 +278,15 @@
   <canvas id="particles"></canvas>
 
   <div class="lang-switch">
-    <button onclick="switchLang('fa')">Fa</button>
-    <button onclick="switchLang('en')">En</button>
+    <button id="btn-fa">Fa</button>
+    <button id="btn-en">En</button>
   </div>
 
   <div class="profile-pic">
-    <img src="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" alt="Dr. Saeed Mojtabazadeh">
+    <img
+      src="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg"
+      alt="Dr. Saeed Mojtabazadeh"
+    />
   </div>
 
   <div class="title-wrapper">
@@ -247,73 +295,125 @@
   </div>
 
   <div class="link-bar" id="links">
-    <a href="http://mojtabazadeh.ir/" target="_blank">پایگاه شخصی</a>
-    <a href="http://www.drmojtabazadeh.ir/" target="_blank">پایگاه مقالات</a>
-    <a href="http://www.smojtabazadeh.ir/" target="_blank">پایگاه مطالعات</a>
-    <a href="http://www.instagallery.ir/" target="_blank">پایگاه اینستاگالری</a>
-    <a href="http://www.mojtabazadeh-hasanlouei.ir/" target="_blank">پایگاه اَپرچِر</a>
-    <a href="https://www.mojtabazade.ir/" target="_blank">پایگاه انگلیسی</a>
-    <a href="https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" target="_blank">گوگل اسکالر</a>
-    <a href="https://orcid.org/0000-0001-8508-4837" target="_blank">پایگاه اورکید</a>
+    <!-- لینک‌ها توسط JS ساخته می‌شوند -->
   </div>
 
   <div class="frame-wrapper">
-    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false" allow="autoplay; fullscreen" allowfullscreen title="مستند زندگی دکتر سعید مجتبی زاده"></iframe>
+    <iframe
+      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+      title="مستند زندگی دکتر سعید مجتبی زاده"
+    ></iframe>
   </div>
 
   <div class="footer">
-    © <a href="http://www.mojtabazadeh.ir/" target="_blank" style="color: white; text-decoration: none; font-weight: 500;">
-      Saeed Mojtabazadeh | www.mojtabazadeh.ir
-    </a>
+    ©
+    <a href="http://www.mojtabazadeh.ir/" target="_blank"
+      >Saeed Mojtabazadeh | www.mojtabazadeh.ir</a
+    >
   </div>
 
   <script>
+    // داده‌های دو زبان
     const data = {
       fa: {
         title: "دکتر سعید مجتبی‌زاده",
         sub: "علم، اندیشه و نوآوری",
-        links: ["پایگاه شخصی","پایگاه مقالات","پایگاه مطالعات","پایگاه اینستاگالری","پایگاه اَپرچِر","پایگاه انگلیسی","گوگل اسکالر","پایگاه اورکید"]
+        links: [
+          { text: "پایگاه شخصی", href: "http://mojtabazadeh.ir/" },
+          { text: "پایگاه مقالات", href: "http://www.drmojtabazadeh.ir/" },
+          { text: "پایگاه مطالعات", href: "http://www.smojtabazadeh.ir/" },
+          { text: "پایگاه اینستاگالری", href: "http://www.instagallery.ir/" },
+          { text: "پایگاه اَپرچِر", href: "http://www.mojtabazadeh-hasanlouei.ir/" },
+          { text: "پایگاه انگلیسی", href: "https://www.mojtabazade.ir/" },
+          {
+            text: "گوگل اسکالر",
+            href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en",
+          },
+          { text: "پایگاه اورکید", href: "https://orcid.org/0000-0001-8508-4837" },
+        ],
       },
       en: {
         title: "Dr. Saeed Mojtabazadeh",
         sub: "Science, Insights & Innovation",
-        links: ["Personal Website","Research Articles","Study Hub","Instagallery","Aperture Hub","English Site","Google Scholar","ORCID Profile"]
-      }
+        links: [
+          { text: "Personal Website", href: "http://mojtabazadeh.ir/" },
+          { text: "Research Articles", href: "http://www.drmojtabazadeh.ir/" },
+          { text: "Study Hub", href: "http://www.smojtabazadeh.ir/" },
+          { text: "Instagallery", href: "http://www.instagallery.ir/" },
+          { text: "Aperture Hub", href: "http://www.mojtabazadeh-hasanlouei.ir/" },
+          { text: "English Site", href: "https://www.mojtabazade.ir/" },
+          {
+            text: "Google Scholar",
+            href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en",
+          },
+          { text: "ORCID Profile", href: "https://orcid.org/0000-0001-8508-4837" },
+        ],
+      },
     };
+
+    const mainTitle = document.getElementById("main-title");
+    const subTitle = document.getElementById("sub-title");
+    const linksContainer = document.getElementById("links");
+
+    // تابع ساخت لینک‌ها
+    function buildLinks(lang) {
+      linksContainer.innerHTML = "";
+      data[lang].links.forEach((link) => {
+        const a = document.createElement("a");
+        a.href = link.href;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = link.text;
+        linksContainer.appendChild(a);
+      });
+    }
+
+    // تغییر زبان با افکت نرمال
     function switchLang(lang) {
       document.body.style.opacity = 0;
       setTimeout(() => {
-        document.getElementById("main-title").innerText = data[lang].title;
-        document.getElementById("sub-title").innerText = data[lang].sub;
-        const linkTexts = document.querySelectorAll("#links a");
-        linkTexts.forEach((a, i) => a.innerText = data[lang].links[i]);
+        mainTitle.textContent = data[lang].title;
+        subTitle.textContent = data[lang].sub;
+        buildLinks(lang);
         document.body.style.opacity = 1;
       }, 400);
     }
 
-    /* افکت ذرات */
+    // زبان پیش‌فرض فارسی است
+    buildLinks("fa");
+
+    // دکمه‌ها
+    document.getElementById("btn-fa").addEventListener("click", () => switchLang("fa"));
+    document.getElementById("btn-en").addEventListener("click", () => switchLang("en"));
+
+    // افکت ذرات پس‌زمینه
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
     let particles = [];
+
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
+
     for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         r: Math.random() * 2 + 1,
         dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5
+        dy: (Math.random() - 0.5) * 0.5,
       });
     }
+
     function drawParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "rgba(255, 220, 150, 0.8)";
-      particles.forEach(p => {
+      particles.forEach((p) => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
