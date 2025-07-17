@@ -8,6 +8,13 @@
   <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی">
   <meta name="author" content="Saeed Mojtabazadeh">
 
+  <!-- ✅ Open Graph for SEO & Social Sharing -->
+  <meta property="og:title" content="دکتر سعید مجتبی‌زاده">
+  <meta property="og:description" content="پایگاه رسمی دکتر سعید مجتبی‌زاده | روایت مسیر علم و زندگی در پژوهش و نوآوری.">
+  <meta property="og:image" content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg">
+  <meta property="og:url" content="http://www.mojtabazadeh.ir/">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/png" sizes="512x512" href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -107,7 +114,6 @@
       background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    /* ✅ افکت تغییر زبان خیلی نرم */
     .smooth-switch {
       animation:smoothFadeSlide 0.9s ease;
     }
@@ -159,8 +165,7 @@
     © <a href="http://www.mojtabazadeh.ir/" target="_blank">Saeed Mojtabazadeh | www.mojtabazadeh.ir</a>
   </div>
 
-  <script>
-    // ✅ داده زبان‌ها
+  <script defer>
     const data = {
       fa:{title:"دکتر سعید مجتبی‌زاده",sub:"فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای",links:[
         {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
@@ -198,6 +203,7 @@
     }
 
     function switchLang(lang){
+      localStorage.setItem("lang",lang);
       document.body.classList.add("smooth-switch");
       setTimeout(()=>{
         mainTitle.textContent=data[lang].title;
@@ -214,29 +220,35 @@
       setTimeout(()=>document.body.classList.remove("smooth-switch"),900);
     }
 
-    buildLinks("fa");
+    const savedLang=localStorage.getItem("lang")||"fa";
+    switchLang(savedLang);
+
     document.getElementById("btn-fa").onclick=()=>switchLang("fa");
     document.getElementById("btn-en").onclick=()=>switchLang("en");
 
-    // ✅ افکت ذرات پس‌زمینه ضد زوم
+    // ✅ ذرات پس‌زمینه (ضد زوم + خطوط اتصال)
     const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
+    let particles=[];
+    function createParticles(){
+      const count=Math.floor((window.innerWidth*window.innerHeight)/12000);
+      particles=Array.from({length:count},()=>({
+        x:Math.random()*window.innerWidth,
+        y:Math.random()*window.innerHeight,
+        r:Math.random()*1.8+1,
+        dx:(Math.random()-0.5)*0.4,
+        dy:(Math.random()-0.5)*0.4
+      }));
+    }
     function resizeParticles(){
       const ratio=window.devicePixelRatio||1;
       canvas.width=window.innerWidth*ratio;
       canvas.height=window.innerHeight*ratio;
-      ctx.setTransform(1,0,0,1,0,0); 
+      ctx.setTransform(1,0,0,1,0,0);
       ctx.scale(ratio,ratio);
+      createParticles();
     }
     resizeParticles();
     window.addEventListener("resize",resizeParticles);
-
-    const particles=Array.from({length:60},()=>({
-      x:Math.random()*window.innerWidth,
-      y:Math.random()*window.innerHeight,
-      r:Math.random()*1.8+1,
-      dx:(Math.random()-0.5)*0.4,
-      dy:(Math.random()-0.5)*0.4
-    }));
 
     (function draw(){
       ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
@@ -247,6 +259,22 @@
         if(p.x<0||p.x>window.innerWidth)p.dx*=-1;
         if(p.y<0||p.y>window.innerHeight)p.dy*=-1;
       });
+      // ✅ خطوط اتصال
+      ctx.strokeStyle="rgba(255,220,150,0.2)";
+      ctx.lineWidth=0.5;
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const dx=particles[i].x-particles[j].x;
+          const dy=particles[i].y-particles[j].y;
+          const dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<120){
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x,particles[i].y);
+            ctx.lineTo(particles[j].x,particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
       requestAnimationFrame(draw);
     })();
   </script>
