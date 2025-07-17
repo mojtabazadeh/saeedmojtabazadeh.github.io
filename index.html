@@ -23,6 +23,7 @@
       flex-direction:column;
       align-items:center;
       padding:20px 10px 40px;
+      transition:all 0.6s ease;
       transform-origin:0 0;
     }
     body.lang-en{font-family:'Poppins',sans-serif;direction:ltr;text-align:center}
@@ -36,7 +37,10 @@
       animation:floatMove 6s ease-in-out infinite;
     }
     .profile-container img {width:100%;height:100%;object-fit:cover;display:block}
-    @keyframes floatMove {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    @keyframes floatMove {
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
+    }
 
     .title-wrapper {
       max-width:90vw;margin-bottom:20px;
@@ -103,22 +107,22 @@
       background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    /* ✅ افکت تغییر زبان خیلی نرم و لوکس */
-    body.switching {
-      opacity:0;
-      transform:scale(0.96);
-      filter:blur(2px);
-      transition:all 0.5s ease-in-out;
+    /* ✅ افکت تغییر زبان خیلی نرم */
+    .smooth-switch {
+      animation:smoothFadeSlide 0.9s ease;
     }
-    body.ready {
-      opacity:1;
-      transform:scale(1);
-      filter:blur(0);
-      transition:all 0.5s ease-in-out;
+    @keyframes smoothFadeSlide {
+      0%{opacity:1;transform:translateY(0)}
+      40%{opacity:0;transform:translateY(-15px) scale(0.98)}
+      60%{opacity:0;transform:translateY(15px) scale(1.02)}
+      100%{opacity:1;transform:translateY(0) scale(1)}
     }
 
     @keyframes fadeInUp {to {opacity:1;transform:translateY(0)}}
-    @keyframes glowPulse {0%,100%{text-shadow:0 0 8px rgba(255,211,108,0.6)}50%{text-shadow:0 0 14px rgba(255,211,108,1)}}
+    @keyframes glowPulse {
+      0%,100%{text-shadow:0 0 8px rgba(255,211,108,0.6)}
+      50%{text-shadow:0 0 14px rgba(255,211,108,1)}
+    }
 
     @media(max-width:480px){
       .profile-container{width:120px;height:120px}
@@ -168,7 +172,7 @@
         {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
         {text:"پایگاه اورکید",href:"https://orcid.org/0000-0001-8508-4837"},
       ]},
-      en:{title:"Dr. Saeed Mojtabazadeh",sub:"The pioneering geotechnical engineering postdoctoral researcher in Iran",links:[
+      en:{title:"Dr. Saeed Mojtabazadeh",sub:"Iran's first geotechnical engineering postdoc",links:[
         {text:"Personal Website",href:"http://mojtabazadeh.ir/"},
         {text:"Research Articles",href:"http://www.drmojtabazadeh.ir/"},
         {text:"Study Hub",href:"http://www.smojtabazadeh.ir/"},
@@ -194,8 +198,7 @@
     }
 
     function switchLang(lang){
-      document.body.classList.remove("ready");
-      document.body.classList.add("switching");
+      document.body.classList.add("smooth-switch");
       setTimeout(()=>{
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
@@ -207,29 +210,42 @@
           document.body.classList.remove("lang-en");
           document.documentElement.dir="rtl";
         }
-        document.body.classList.remove("switching");
-        document.body.classList.add("ready");
-      },400);
+      },300);
+      setTimeout(()=>document.body.classList.remove("smooth-switch"),900);
     }
 
     buildLinks("fa");
-    document.body.classList.add("ready");
     document.getElementById("btn-fa").onclick=()=>switchLang("fa");
     document.getElementById("btn-en").onclick=()=>switchLang("en");
 
-    // ✅ افکت ذرات پس‌زمینه
+    // ✅ افکت ذرات پس‌زمینه ضد زوم
     const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
-    function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
-    addEventListener("resize",resize);resize();
-    const particles=Array.from({length:60},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.8+1,dx:(Math.random()-0.5)*0.4,dy:(Math.random()-0.5)*0.4}));
+    function resizeParticles(){
+      const ratio=window.devicePixelRatio||1;
+      canvas.width=window.innerWidth*ratio;
+      canvas.height=window.innerHeight*ratio;
+      ctx.setTransform(1,0,0,1,0,0); 
+      ctx.scale(ratio,ratio);
+    }
+    resizeParticles();
+    window.addEventListener("resize",resizeParticles);
+
+    const particles=Array.from({length:60},()=>({
+      x:Math.random()*window.innerWidth,
+      y:Math.random()*window.innerHeight,
+      r:Math.random()*1.8+1,
+      dx:(Math.random()-0.5)*0.4,
+      dy:(Math.random()-0.5)*0.4
+    }));
+
     (function draw(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
       ctx.fillStyle="rgba(255,220,150,0.8)";
       particles.forEach(p=>{
         ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
         p.x+=p.dx;p.y+=p.dy;
-        if(p.x<0||p.x>canvas.width)p.dx*=-1;
-        if(p.y<0||p.y>canvas.height)p.dy*=-1;
+        if(p.x<0||p.x>window.innerWidth)p.dx*=-1;
+        if(p.y<0||p.y>window.innerHeight)p.dy*=-1;
       });
       requestAnimationFrame(draw);
     })();
