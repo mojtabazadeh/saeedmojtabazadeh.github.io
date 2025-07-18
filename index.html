@@ -37,11 +37,11 @@
 
     .profile-container {
       width:150px;
-      aspect-ratio:1 / 1; 
+      height:150px;  /* ✅ مربع واقعی (دایره‌ای می‌مونه حتی در زوم) */
       margin:25px auto 16px;
-      clip-path:circle(50% at 50% 50%); /* ✅ دایره‌ای مطلق */
+      border-radius:50%;
       overflow:hidden;
-      box-shadow:0 8px 22px rgba(255,220,150,0.5);
+      box-shadow:0 8px 22px rgba(255,220,150,0.5); /* ✅ هاله طلایی */
       animation:floatMove 6s ease-in-out infinite;
     }
     .profile-container img {
@@ -139,8 +139,7 @@
     @media(max-width:480px){
       .profile-container{
         width:120px;
-        aspect-ratio:1 / 1;
-        clip-path:circle(50% at 50% 50%);
+        height:120px; /* ✅ مربع واقعی برای موبایل */
       }
       .link-bar{gap:6px}
       .link-bar a{padding:6px 10px}
