@@ -40,19 +40,15 @@
       height:150px;
       margin:25px auto 16px;
       border-radius:50%;
-      background:rgba(255,255,255,0.05);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
       box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
       animation:floatMove 6s ease-in-out infinite;
-      overflow:hidden;
+      background:rgba(255,255,255,0.05);
       position:relative;
+      overflow:visible;
     }
-    .profile-container img {
+    .profile-container svg {
       width:100%;
       height:100%;
-      border-radius:50%;
-      object-fit:cover;
       display:block;
     }
     @keyframes floatMove {
@@ -67,13 +63,10 @@
     .title-line {
       font-size:clamp(1.6rem,5vw,2.4rem);
       font-weight:800;
-      background:linear-gradient(90deg,#ffffff,#ffccff,#cc99ff,#9966ff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:
-        0 0 12px rgba(255,200,255,0.8),
-        0 0 18px rgba(200,150,255,0.6);
-      animation:glowPulse 3s ease-in-out infinite;
+      background:linear-gradient(90deg,#ffccff,#cc99ff,#9966ff);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 0 12px rgba(200,150,255,0.6);
+      animation:glowPulse 4s ease-in-out infinite;
     }
     .title-sub {
       font-size:clamp(1rem,3vw,1.2rem);
@@ -128,31 +121,6 @@
       background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    /* دکمه‌های ایمیل و تماس */
-    .contact-switch {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      z-index: 99;
-    }
-    .contact-switch .contact-btn {
-      background: rgba(255,255,255,0.15);
-      color: white;
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .contact-switch .contact-btn:hover {
-      background: rgba(255,255,255,0.3);
-      transform: scale(1.05);
-    }
-
     .smooth-switch {
       animation: smoothFadeSlide 0.9s ease;
     }
@@ -165,8 +133,8 @@
 
     @keyframes fadeInUp {to {opacity:1;transform:translateY(0)}}
     @keyframes glowPulse {
-      0%,100% {text-shadow:0 0 10px rgba(255,200,255,0.7),0 0 16px rgba(200,150,255,0.5);}
-      50% {text-shadow:0 0 20px rgba(255,200,255,1),0 0 28px rgba(200,150,255,0.9);}
+      0%,100%{text-shadow:0 0 8px rgba(200,150,255,0.6)}
+      50%{text-shadow:0 0 14px rgba(200,150,255,1)}
     }
 
     @media(max-width:480px){
@@ -182,20 +150,20 @@
 <body>
   <canvas id="particles"></canvas>
 
-  <!-- دکمه‌های تغییر زبان -->
   <div class="lang-switch">
     <button id="btn-fa">Fa</button>
     <button id="btn-en">En</button>
   </div>
 
-  <!-- دکمه‌های تماس و ایمیل -->
-  <div class="contact-switch">
-    <a href="mailto:your-email@gmail.com" class="contact-btn" title="ارسال ایمیل">✉️</a>
-    <a href="tel:+989123456789" class="contact-btn" title="تماس تلفنی">📞</a>
-  </div>
-
   <div class="profile-container">
-    <img src="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" alt="Saeed Mojtabazadeh">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <clipPath id="circleView">
+          <circle cx="50" cy="50" r="50"/>
+        </clipPath>
+      </defs>
+      <image clip-path="url(#circleView)" href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
+    </svg>
   </div>
 
   <div class="title-wrapper">
@@ -315,7 +283,7 @@
           const dist=Math.sqrt(dx*dx+dy*dy);
           if(dist<120){
             ctx.beginPath();
-            ctx.moveTo(particles[i].x,p.y);
+            ctx.moveTo(particles[i].x,particles[i].y);
             ctx.lineTo(particles[j].x,particles[j].y);
             ctx.stroke();
           }
