@@ -37,9 +37,9 @@
 
     .profile-container {
       width:150px;
-      height:150px; /* ✅ اصلاح شد */
+      aspect-ratio:1 / 1; 
       margin:25px auto 16px;
-      border-radius:50%;
+      clip-path:circle(50% at 50% 50%); /* ✅ دایره‌ای مطلق */
       overflow:hidden;
       box-shadow:0 8px 22px rgba(255,220,150,0.5);
       animation:floatMove 6s ease-in-out infinite;
@@ -49,7 +49,6 @@
       height:100%;
       object-fit:cover;
       display:block;
-      border-radius:50%; /* ✅ اضافه شد */
     }
     @keyframes floatMove {
       0%,100%{transform:translateY(0)}
@@ -140,7 +139,8 @@
     @media(max-width:480px){
       .profile-container{
         width:120px;
-        height:120px; /* ✅ اصلاح شد */
+        aspect-ratio:1 / 1;
+        clip-path:circle(50% at 50% 50%);
       }
       .link-bar{gap:6px}
       .link-bar a{padding:6px 10px}
