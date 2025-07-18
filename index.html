@@ -30,7 +30,6 @@
       flex-direction:column;
       align-items:center;
       padding:20px 10px 40px;
-      /* ❌ هیچ transform یا scale روی body اعمال نشود */
     }
     body.lang-en{font-family:'Poppins',sans-serif;direction:ltr;text-align:center}
 
@@ -38,7 +37,7 @@
 
     .profile-container {
       width:150px;
-      aspect-ratio:1 / 1; /* ✅ دایره‌ای ماندن حتی با زوم */
+      height:150px; /* ✅ اصلاح شد */
       margin:25px auto 16px;
       border-radius:50%;
       overflow:hidden;
@@ -50,6 +49,7 @@
       height:100%;
       object-fit:cover;
       display:block;
+      border-radius:50%; /* ✅ اضافه شد */
     }
     @keyframes floatMove {
       0%,100%{transform:translateY(0)}
@@ -121,7 +121,6 @@
       background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    /* ✅ افکت تغییر زبان */
     .smooth-switch {
       animation: smoothFadeSlide 0.9s ease;
     }
@@ -141,7 +140,7 @@
     @media(max-width:480px){
       .profile-container{
         width:120px;
-        aspect-ratio:1 / 1; /* ✅ برای موبایل هم اضافه شد */
+        height:120px; /* ✅ اصلاح شد */
       }
       .link-bar{gap:6px}
       .link-bar a{padding:6px 10px}
@@ -184,7 +183,7 @@
         {text:"پایگاه مطالعات",href:"http://www.smojtabazadeh.ir/"},
         {text:"پایگاه اینستاگالری",href:"http://www.instagallery.ir/"},
         {text:"پایگاه اَپرچِر",href:"http://www.mojtabazadeh-hasanlouei.ir/"},
-        {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"},
+        {text:"پایگاه انگلیسی",href:"https://www.mojtabade.ir/"},
         {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
         {text:"پایگاه اورکید",href:"https://orcid.org/0000-0001-8508-4837"},
       ]},
@@ -194,7 +193,7 @@
         {text:"Study Hub",href:"http://www.smojtabazadeh.ir/"},
         {text:"Instagallery",href:"http://www.instagallery.ir/"},
         {text:"Aperture Hub",href:"http://www.mojtabazadeh-hasanlouei.ir/"},
-        {text:"English Site",href:"https://www.mojtabazade.ir/"},
+        {text:"English Site",href:"https://www.mojtabade.ir/"},
         {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
         {text:"ORCID Profile",href:"https://orcid.org/0000-0001-8508-4837"},
       ]}
@@ -236,7 +235,6 @@
     document.getElementById("btn-fa").onclick=()=>switchLang("fa");
     document.getElementById("btn-en").onclick=()=>switchLang("en");
 
-    // ✅ ذرات پس‌زمینه (ضد زوم + خطوط اتصال)
     const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
     let particles=[];
     function createParticles(){
@@ -269,7 +267,6 @@
         if(p.x<0||p.x>window.innerWidth)p.dx*=-1;
         if(p.y<0||p.y>window.innerHeight)p.dy*=-1;
       });
-      // ✅ خطوط اتصال
       ctx.strokeStyle="rgba(255,220,150,0.2)";
       ctx.lineWidth=0.5;
       for(let i=0;i<particles.length;i++){
