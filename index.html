@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <title>دکتر سعید مجتبی‌زاده</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
-  <link rel="icon" type="image/png" sizes="512x512" href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
   <style>
     * {
       box-sizing: border-box;
@@ -19,7 +21,7 @@
       overflow-x: hidden;
     }
     body {
-      font-family: 'Vazirmatn', sans-serif;
+      font-family: "Vazirmatn", sans-serif;
       background: linear-gradient(135deg, #1a0033, #3b0066, #660099, #9933cc);
       background-attachment: fixed;
       color: white;
@@ -28,12 +30,9 @@
       flex-direction: column;
       align-items: center;
       padding: 20px 10px 40px;
-      position: relative;
-      min-height: 100vh;
-      padding-bottom: 50px; /* footer space */
     }
     body.lang-en {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       direction: ltr;
       text-align: center;
     }
@@ -145,71 +144,57 @@
     }
 
     .footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
       font-size: 0.8rem;
-      padding: 6px 12px;
-      opacity: 0.8;
-      text-align: center;
-      z-index: 999;
+      margin-top: 18px;
+      opacity: 0.7;
     }
     .footer a {
       color: white;
       text-decoration: none;
-      font-weight: 600;
-    }
-    .footer a:hover {
-      text-decoration: underline;
     }
 
-    .lang-switch,
-    .about-switch,
-    .contact-switch {
+    /* دکمه‌های زبان سمت چپ */
+    .lang-switch {
       position: fixed;
       top: 12px;
+      left: 12px;
       display: flex;
       gap: 6px;
       z-index: 99;
       font-size: 0.8rem;
     }
-    .lang-switch {
-      left: 12px;
-    }
-    .about-switch,
-    .contact-switch {
+    /* دکمه‌های درباره من و تماس کنار هم سمت راست */
+    .top-right-buttons {
+      position: fixed;
+      top: 12px;
       right: 12px;
+      display: flex;
+      gap: 10px;
+      z-index: 99;
+      font-size: 0.8rem;
     }
 
-    .about-switch {
-      margin-left: 10px;
-    }
-
+    /* استایل دکمه‌ها هماهنگ و هم اندازه */
     .lang-switch button,
-    .about-switch button,
-    .contact-switch button {
+    .top-right-buttons button {
       background: rgba(255, 255, 255, 0.15);
       color: white;
       border: none;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 50px;
       cursor: pointer;
       font-size: 0.8rem;
       transition: all 0.3s ease;
       min-width: 70px;
-      text-align: center;
       white-space: nowrap;
     }
     .lang-switch button:hover,
-    .about-switch button:hover,
-    .contact-switch button:hover {
+    .top-right-buttons button:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: scale(1.05);
     }
 
-    /* پس‌زمینه نیمه‌شفاف */
+    /* پس‌زمینه نیمه‌شفاف برای مودال */
     #modal-overlay {
       position: fixed;
       top: 0;
@@ -275,15 +260,12 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
-      min-width: 70px;
-      font-size: 0.9rem;
     }
     #about-close:hover,
     #contact-close:hover {
       background: rgba(255, 255, 255, 0.35);
     }
 
-    /* موبایل */
     @media (max-width: 480px) {
       .profile-container {
         width: 120px;
@@ -295,17 +277,11 @@
       .link-bar a {
         padding: 6px 10px;
       }
-      .lang-switch,
-      .about-switch,
-      .contact-switch {
-        font-size: 0.7rem;
-      }
       .lang-switch button,
-      .about-switch button,
-      .contact-switch button {
+      .top-right-buttons button {
         min-width: 60px;
-        padding: 5px 10px;
-        font-size: 0.7rem;
+        padding: 6px 10px;
+        font-size: 0.75rem;
       }
     }
 
@@ -334,10 +310,8 @@
     <button id="btn-en">English</button>
   </div>
 
-  <div class="about-switch">
+  <div class="top-right-buttons">
     <button id="about-btn">درباره من</button>
-  </div>
-  <div class="contact-switch">
     <button id="contact-btn">تماس</button>
   </div>
 
@@ -374,17 +348,19 @@
   </div>
 
   <div class="footer">
-    © Saeed Mojtabazadeh | <a href="http://www.mojtabazadeh.ir/" target="_blank">www.mojtabazadeh.ir</a>
+    © Saeed Mojtabazadeh | www.mojtabazadeh.ir
   </div>
 
   <div id="modal-overlay"></div>
 
+  <!-- مودال درباره من -->
   <div id="about-modal">
     <h3 id="about-title"></h3>
     <p id="about-text"></p>
     <button id="about-close">بستن</button>
   </div>
 
+  <!-- مودال تماس -->
   <div id="contact-modal">
     <h3 id="contact-title"></h3>
     <p id="contact-text"></p>
@@ -408,8 +384,8 @@
         ],
         aboutTitle: "درباره من",
         aboutText: `دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.`,
-        contactTitle: "تماس",
-        contactText: `ایمیل: <a href="mailto:mojtabazadeh@outlook.com" style="color:#ffccff;text-decoration:underline;">mojtabazadeh@outlook.com</a><br>شماره تماس: <a href="tel:+989334115773" style="color:#ffccff;text-decoration:underline;">+989334115773</a>`,
+        contactTitle: "تماس با من",
+        contactText: `ایمیل: <a href="mailto:mojtabazadeh@outlook.com" style="color:#cc99ff; text-decoration:underline;">mojtabazadeh@outlook.com</a><br>شماره تماس: <a href="tel:+989334115773" style="color:#cc99ff; text-decoration:underline;">+989334115773</a>`,
         closeText: "بستن",
       },
       en: {
@@ -427,8 +403,8 @@
         ],
         aboutTitle: "About Me",
         aboutText: `Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
-        contactTitle: "Contact",
-        contactText: `Email: <a href="mailto:mojtabazadeh@outlook.com" style="color:#cc99ff;text-decoration:underline;">mojtabazadeh@outlook.com</a><br>Phone: <a href="tel:+989334115773" style="color:#cc99ff;text-decoration:underline;">+989334115773</a>`,
+        contactTitle: "Contact Me",
+        contactText: `Email: <a href="mailto:mojtabazadeh@outlook.com" style="color:#cc99ff; text-decoration:underline;">mojtabazadeh@outlook.com</a><br>Phone: <a href="tel:+989334115773" style="color:#cc99ff; text-decoration:underline;">+989334115773</a>`,
         closeText: "Close",
       },
     };
@@ -463,7 +439,8 @@
       buildLinks(lang);
       document.getElementById("about-btn").textContent = lang === "fa" ? "درباره من" : "About Me";
       document.getElementById("contact-btn").textContent = lang === "fa" ? "تماس" : "Contact";
-
+      aboutClose.textContent = data[lang].closeText;
+      contactClose.textContent = data[lang].closeText;
       if (lang === "en") {
         document.body.classList.add("lang-en");
         document.documentElement.dir = "ltr";
@@ -481,19 +458,19 @@
     document.getElementById("about-btn").onclick = () => {
       const lang = localStorage.getItem("lang") || "fa";
       aboutTitle.textContent = data[lang].aboutTitle;
-      aboutText.innerHTML = data[lang].aboutText;
-      aboutClose.textContent = data[lang].closeText;
+      aboutText.textContent = data[lang].aboutText;
       aboutModal.classList.add("show");
       overlay.classList.add("show");
     };
+
     document.getElementById("contact-btn").onclick = () => {
       const lang = localStorage.getItem("lang") || "fa";
       contactTitle.textContent = data[lang].contactTitle;
       contactText.innerHTML = data[lang].contactText;
-      contactClose.textContent = data[lang].closeText;
       contactModal.classList.add("show");
       overlay.classList.add("show");
     };
+
     function closeModal() {
       aboutModal.classList.remove("show");
       contactModal.classList.remove("show");
