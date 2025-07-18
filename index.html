@@ -4,7 +4,27 @@
   <meta charset="UTF-8" />
   <title>دکتر سعید مجتبی‌زاده</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="فوق‌دکتری مهندسی عمران-ژئوتکنیک لرزه‌ای" />
+  <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی" />
+  <meta name="author" content="Saeed Mojtabazadeh" />
+
+  <meta property="og:title" content="دکتر سعید مجتبی‌زاده" />
+  <meta property="og:description" content="پایگاه دکتر سعید مجتبی‌زاده" />
+  <meta property="og:image" content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" />
+  <meta property="og:url" content="http://www.mojtabazadeh.ir/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     * {
       box-sizing: border-box;
@@ -18,7 +38,7 @@
       overflow-x: hidden;
     }
     body {
-      font-family: 'Vazirmatn', sans-serif;
+      font-family: "Vazirmatn", sans-serif;
       background: linear-gradient(135deg, #1a0033, #3b0066, #660099, #9933cc);
       background-attachment: fixed;
       color: white;
@@ -27,10 +47,9 @@
       flex-direction: column;
       align-items: center;
       padding: 20px 10px 40px;
-      position: relative;
     }
     body.lang-en {
-      font-family: 'Vazirmatn', 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       direction: ltr;
       text-align: center;
     }
@@ -146,69 +165,78 @@
       margin-top: 18px;
       opacity: 0.7;
       user-select: none;
-      white-space: nowrap;
     }
     .footer a {
       color: white;
       text-decoration: none;
+      pointer-events: none;
     }
 
-    /* دکمه‌های بالا راست */
-    .top-right-buttons {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      display: flex;
-      gap: 8px;
-      z-index: 99;
-      flex-wrap: nowrap;
-    }
-
+    /* دکمه‌های تغییر زبان (بالا سمت چپ) */
     .lang-switch {
       position: fixed;
       top: 12px;
       left: 12px;
       display: flex;
-      gap: 8px;
+      gap: 6px;
       z-index: 99;
       flex-wrap: nowrap;
     }
-
-    .lang-switch button,
-    .top-right-buttons button {
+    .lang-switch button {
       background: rgba(255, 255, 255, 0.15);
       color: white;
       border: none;
-      padding: 8px 20px;
-      border-radius: 30px;
+      padding: 6px 12px;
+      border-radius: 50px;
       cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      min-width: 90px;
-      white-space: nowrap;
-      font-family: 'Vazirmatn', 'Poppins', sans-serif;
+      font-size: 0.8rem;
       transition: all 0.3s ease;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      min-width: 45px;
+      user-select: none;
     }
-    .lang-switch button:hover,
-    .top-right-buttons button:hover {
+    .lang-switch button:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: scale(1.05);
     }
 
-    /* پس‌زمینه نیمه‌شفاف */
+    /* دکمه‌های بالا سمت راست (درباره من و تماس) */
+    .top-right-buttons {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      gap: 10px;
+      z-index: 99;
+      flex-wrap: nowrap;
+      user-select: none;
+    }
+    .top-right-buttons button {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      min-width: 100px;
+      transition: all 0.3s ease;
+    }
+    .top-right-buttons button:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(1.05);
+    }
+
+    /* مودال و پس‌زمینه */
     #modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       background: rgba(0, 0, 0, 0.5);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.3s ease;
       z-index: 98;
     }
     #modal-overlay.show {
@@ -216,65 +244,56 @@
       pointer-events: auto;
     }
 
-    /* مودال با افکت محو شونده */
-    #about-modal,
-    #contact-modal {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
+    .modal {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background: rgba(40, 0, 70, 0.95);
       color: white;
-      padding: 20px;
+      padding: 20px 25px;
       width: 90%;
-      max-width: 500px;
+      max-width: 460px;
       max-height: 75vh;
       overflow-y: auto;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(200, 150, 255, 0.6);
-      z-index: 100;
       text-align: justify;
-      line-height: 1.8;
       font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 99;
       user-select: text;
     }
-    #about-modal.show,
-    #contact-modal.show {
+    .modal.show {
       opacity: 1;
       pointer-events: auto;
     }
-    #about-modal h3,
-    #contact-modal h3 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+    .modal h3 {
+      margin-bottom: 14px;
+      font-size: 1.15rem;
       color: #ffccff;
       text-align: center;
       user-select: none;
     }
-    #about-close,
-    #contact-close {
-      background: rgba(255, 255, 255, 0.2);
+    .modal button.close-btn {
+      background: rgba(255, 255, 255, 0.25);
       border: none;
       color: white;
-      padding: 4px 10px;
-      border-radius: 8px;
-      margin-top: 10px;
+      padding: 8px 20px;
+      border-radius: 12px;
+      margin: 10px auto 0;
       cursor: pointer;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
-      min-width: 70px;
-      font-weight: 600;
-      font-family: 'Vazirmatn', 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      min-width: 100px;
       transition: background 0.3s ease;
       user-select: none;
     }
-    #about-close:hover,
-    #contact-close:hover {
-      background: rgba(255, 255, 255, 0.35);
+    .modal button.close-btn:hover {
+      background: rgba(255, 255, 255, 0.45);
     }
 
     @media (max-width: 480px) {
@@ -288,12 +307,18 @@
       .link-bar a {
         padding: 6px 10px;
       }
-
-      .lang-switch button,
+      .lang-switch button {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+        min-width: 40px;
+      }
       .top-right-buttons button {
-        min-width: 70px;
-        padding: 6px 12px;
         font-size: 0.8rem;
+        min-width: 85px;
+        padding: 6px 10px;
+      }
+      .modal {
+        max-width: 90vw;
       }
     }
 
@@ -317,18 +342,19 @@
 <body>
   <canvas id="particles"></canvas>
 
-  <div class="lang-switch">
-    <button id="btn-fa">فارسی</button>
-    <button id="btn-en">English</button>
+  <!-- دکمه‌های تغییر زبان -->
+  <div class="lang-switch" role="group" aria-label="Language switch">
+    <button id="btn-fa" aria-pressed="true" aria-label="زبان فارسی">Fa</button>
+    <button id="btn-en" aria-pressed="false" aria-label="English language">En</button>
   </div>
 
-  <div class="top-right-buttons">
-    <button id="about-btn">درباره من</button>
-    <button id="contact-btn">تماس</button>
+  <!-- دکمه‌های درباره من و تماس -->
+  <div class="top-right-buttons" role="group" aria-label="About and Contact buttons">
+    <!-- دکمه‌ها با جاوااسکریپت ساخته می‌شوند -->
   </div>
 
-  <div class="profile-container">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+  <div class="profile-container" aria-label="Profile picture of Saeed Mojtabazadeh">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
       <defs>
         <clipPath id="circleView">
           <circle cx="50" cy="50" r="50" />
@@ -340,6 +366,7 @@
         width="100"
         height="100"
         preserveAspectRatio="xMidYMid slice"
+        alt="تصویر دکتر سعید مجتبی‌زاده"
       />
     </svg>
   </div>
@@ -349,35 +376,53 @@
     <h2 class="title-sub" id="sub-title">فوق‌دکتری مهندسی عمران-ژئوتکنیک لرزه‌ای</h2>
   </div>
 
-  <div class="link-bar" id="links"></div>
+  <div class="link-bar" id="links" aria-label="Personal and academic links"></div>
 
   <div class="frame-wrapper">
     <iframe
       src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
       allow="autoplay; fullscreen"
       allowfullscreen
+      title="ویدیو معرفی دکتر سعید مجتبی‌زاده"
     ></iframe>
   </div>
 
-  <div class="footer" id="footer-text">
-    © Saeed Mojtabazadeh | www.mojtabazadeh.ir
+  <div class="footer" role="contentinfo">
+    © <a href="http://www.mojtabazadeh.ir/" target="_blank" rel="noopener noreferrer">Saeed Mojtabazadeh | www.mojtabazadeh.ir</a>
   </div>
 
-  <div id="modal-overlay"></div>
+  <!-- پس‌زمینه مودال -->
+  <div id="modal-overlay" tabindex="-1"></div>
 
-  <div id="about-modal">
+  <!-- مودال درباره من -->
+  <div
+    id="about-modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="about-title"
+    aria-describedby="about-text"
+  >
     <h3 id="about-title"></h3>
     <p id="about-text"></p>
-    <button id="about-close">بستن</button>
+    <button id="about-close" class="close-btn" aria-label="Close About Modal"></button>
   </div>
 
-  <div id="contact-modal">
+  <!-- مودال تماس -->
+  <div
+    id="contact-modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contact-title"
+    aria-describedby="contact-text"
+  >
     <h3 id="contact-title"></h3>
-    <p id="contact-text" style="white-space: pre-line;"></p>
-    <button id="contact-close">بستن</button>
+    <p id="contact-text"></p>
+    <button id="contact-close" class="close-btn" aria-label="Close Contact Modal"></button>
   </div>
 
-  <script>
+  <script defer>
     const data = {
       fa: {
         title: "دکتر سعید مجتبی‌زاده",
@@ -390,14 +435,14 @@
           { text: "پایگاه اَپرچِر", href: "http://mojtabazadeh-hasanlouei.ir/" },
           { text: "گوگل اسکالر", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
           { text: "پروفایل اُرکید", href: "https://orcid.org/0000-0001-8508-4837" },
-          { text: "پایگاه انگلیسی", href: "https://www.mojtabazade.ir/" }
+          { text: "پایگاه انگلیسی", href: "https://www.mojtabazade.ir/" },
         ],
         aboutTitle: "درباره من",
-        aboutText: `دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.`,
-        contactTitle: "تماس",
-        contactText: `شماره تماس: +989334115773
-ایمیل: mojtabazadeh@outlook.com`,
-        closeText: "بستن"
+        aboutText: `دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در خاک و سازه‌های زیرسطحی اختصاص داده است.`,
+        contactTitle: "تماس با من",
+        contactText: `برای ارتباط با دکتر سعید مجتبی‌زاده، می‌توانید از ایمیل <a href="mailto:saeed@mojtabazadeh.ir" style="color:#cc99ff; text-decoration: underline;">saeed@mojtabazadeh.ir</a> استفاده کنید یا با شماره تلفن <a href="tel:+989123456789" style="color:#cc99ff; text-decoration: underline;">+98 912 345 6789</a> تماس بگیرید.`,
+        aboutBtn: "درباره من",
+        contactBtn: "تماس",
       },
       en: {
         title: "Dr. Saeed Mojtabazadeh",
@@ -410,119 +455,194 @@
           { text: "Aperture", href: "http://mojtabazadeh-hasanlouei.ir/" },
           { text: "Google Scholar", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
           { text: "ORCID", href: "https://orcid.org/0000-0001-8508-4837" },
-          { text: "English Website", href: "https://www.mojtabazade.ir/" }
+          { text: "English Website", href: "https://www.mojtabazade.ir/" },
         ],
         aboutTitle: "About Me",
-        aboutText: `Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
-        contactTitle: "Contact",
-        contactText: `Phone: +989334115773
-Email: mojtabazadeh@outlook.com`,
-        closeText: "Close"
-      }
+        aboutText: `Dr. Saeed Mojtabazadeh Hasanlouei is Iran's pioneering postdoctoral researcher in Civil Engineering - Geotechnical Earthquake Engineering since 2015. His PhD thesis and postdoctoral research focus on seismic wave propagation and scattering in soil and underground structures with advanced numerical modeling and computational algorithms.`,
+        contactTitle: "Contact Me",
+        contactText: `You can reach Dr. Saeed Mojtabazadeh via email at <a href="mailto:saeed@mojtabazadeh.ir" style="color:#cc99ff; text-decoration: underline;">saeed@mojtabazadeh.ir</a> or call at <a href="tel:+989123456789" style="color:#cc99ff; text-decoration: underline;">+98 912 345 6789</a>.`,
+        aboutBtn: "About Me",
+        contactBtn: "Contact",
+      },
     };
 
-    // المان‌ها
     const mainTitle = document.getElementById("main-title"),
       subTitle = document.getElementById("sub-title"),
       linksContainer = document.getElementById("links"),
-      aboutModal = document.getElementById("about-modal"),
-      aboutTitle = document.getElementById("about-title"),
-      aboutText = document.getElementById("about-text"),
-      aboutClose = document.getElementById("about-close"),
-      contactModal = document.getElementById("contact-modal"),
-      contactTitle = document.getElementById("contact-title"),
-      contactText = document.getElementById("contact-text"),
-      contactClose = document.getElementById("contact-close"),
+      topRightButtons = document.querySelector(".top-right-buttons"),
       modalOverlay = document.getElementById("modal-overlay"),
-      aboutBtn = document.getElementById("about-btn"),
-      contactBtn = document.getElementById("contact-btn"),
+      aboutModal = document.getElementById("about-modal"),
+      contactModal = document.getElementById("contact-modal"),
+      aboutTitleEl = document.getElementById("about-title"),
+      aboutTextEl = document.getElementById("about-text"),
+      aboutCloseBtn = document.getElementById("about-close"),
+      contactTitleEl = document.getElementById("contact-title"),
+      contactTextEl = document.getElementById("contact-text"),
+      contactCloseBtn = document.getElementById("contact-close"),
       btnFa = document.getElementById("btn-fa"),
-      btnEn = document.getElementById("btn-en"),
-      footerText = document.getElementById("footer-text"),
-      body = document.body;
+      btnEn = document.getElementById("btn-en");
 
-    // زبان پیش‌فرض
-    let currentLang = "fa";
+    // ساخت دکمه‌های بالا سمت راست
+    function buildTopButtons(lang) {
+      topRightButtons.innerHTML = "";
 
-    // رندر لینک‌ها
-    function renderLinks(links) {
+      // ساخت دکمه‌ها طبق زبان و ترتیب متفاوت
+      const buttonsOrder =
+        lang === "fa"
+          ? ["aboutBtn", "contactBtn"]
+          : ["contactBtn", "aboutBtn"];
+
+      buttonsOrder.forEach((key) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = data[lang][key];
+        btn.setAttribute("aria-label", btn.textContent);
+        btn.classList.add(key + "-btn");
+
+        // رویداد باز کردن مودال مربوطه
+        btn.onclick = () => {
+          openModal(key === "aboutBtn" ? "about" : "contact");
+        };
+        topRightButtons.appendChild(btn);
+      });
+    }
+
+    function buildLinks(lang) {
       linksContainer.innerHTML = "";
-      links.forEach(({ text, href }) => {
+      data[lang].links.forEach((l) => {
         const a = document.createElement("a");
-        a.href = href;
+        a.href = l.href;
         a.target = "_blank";
         a.rel = "noopener noreferrer";
-        a.textContent = text;
+        a.textContent = l.text;
         linksContainer.appendChild(a);
       });
     }
 
-    // تغییر زبان
-    function changeLanguage(lang) {
+    function openModal(modalName) {
+      modalOverlay.classList.add("show");
+      if (modalName === "about") {
+        aboutTitleEl.textContent = data[currentLang].aboutTitle;
+        aboutTextEl.innerHTML = data[currentLang].aboutText;
+        aboutModal.classList.add("show");
+        aboutCloseBtn.focus();
+      } else if (modalName === "contact") {
+        contactTitleEl.textContent = data[currentLang].contactTitle;
+        contactTextEl.innerHTML = data[currentLang].contactText;
+        contactModal.classList.add("show");
+        contactCloseBtn.focus();
+      }
+      // کلید ESC برای بستن مودال‌ها
+      document.addEventListener("keydown", escKeyHandler);
+    }
+    function closeModal() {
+      modalOverlay.classList.remove("show");
+      aboutModal.classList.remove("show");
+      contactModal.classList.remove("show");
+      document.removeEventListener("keydown", escKeyHandler);
+    }
+    function escKeyHandler(e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    }
+
+    // بستن مودال با کلیک روی پس‌زمینه
+    modalOverlay.onclick = closeModal;
+
+    aboutCloseBtn.onclick = closeModal;
+    contactCloseBtn.onclick = closeModal;
+
+    // تغییر زبان و به‌روزرسانی UI
+    let currentLang = localStorage.getItem("lang") || "fa";
+
+    function switchLang(lang) {
       if (lang === currentLang) return;
       currentLang = lang;
+      localStorage.setItem("lang", lang);
+      document.body.classList.add("smooth-switch");
+      setTimeout(() => {
+        mainTitle.textContent = data[lang].title;
+        subTitle.textContent = data[lang].sub;
+        buildLinks(lang);
+        buildTopButtons(lang);
+        if (lang === "en") {
+          document.body.classList.add("lang-en");
+          document.documentElement.dir = "ltr";
+          btnFa.setAttribute("aria-pressed", "false");
+          btnEn.setAttribute("aria-pressed", "true");
+        } else {
+          document.body.classList.remove("lang-en");
+          document.documentElement.dir = "rtl";
+          btnFa.setAttribute("aria-pressed", "true");
+          btnEn.setAttribute("aria-pressed", "false");
+        }
+      }, 300);
+      setTimeout(() => document.body.classList.remove("smooth-switch"), 900);
+      closeModal(); // بستن مودال در صورت باز بودن هنگام تغییر زبان
+    }
 
-      if (lang === "fa") {
-        body.classList.remove("lang-en");
-        body.setAttribute("lang", "fa");
-        body.setAttribute("dir", "rtl");
-        aboutBtn.textContent = "درباره من";
-        contactBtn.textContent = "تماس";
-      } else {
-        body.classList.add("lang-en");
-        body.setAttribute("lang", "en");
-        body.setAttribute("dir", "ltr");
-        aboutBtn.textContent = "About";
-        contactBtn.textContent = "Contact";
+    btnFa.onclick = () => switchLang("fa");
+    btnEn.onclick = () => switchLang("en");
+
+    // شروع با زبان ذخیره‌شده یا فارسی
+    switchLang(currentLang);
+
+    // کد مربوط به ذرات پس‌زمینه
+    const canvas = document.getElementById("particles"),
+      ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function createParticles() {
+      const count = Math.floor((window.innerWidth * window.innerHeight) / 12000);
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 1.8 + 1,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+      }));
+    }
+    function resizeParticles() {
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * ratio;
+      canvas.height = window.innerHeight * ratio;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(ratio, ratio);
+      createParticles();
+    }
+    resizeParticles();
+    window.addEventListener("resize", resizeParticles);
+
+    (function draw() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.fillStyle = "rgba(200,150,255,0.8)";
+      particles.forEach((p) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > window.innerWidth) p.dx *= -1;
+        if (p.y < 0 || p.y > window.innerHeight) p.dy *= -1;
+      });
+      ctx.strokeStyle = "rgba(200,150,255,0.2)";
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
       }
-
-      mainTitle.textContent = data[lang].title;
-      subTitle.textContent = data[lang].sub;
-      renderLinks(data[lang].links);
-
-      aboutTitle.textContent = data[lang].aboutTitle;
-      aboutText.textContent = data[lang].aboutText;
-      aboutClose.textContent = data[lang].closeText;
-
-      contactTitle.textContent = data[lang].contactTitle;
-      contactText.textContent = data[lang].contactText;
-      contactClose.textContent = data[lang].closeText;
-
-      // متن فوتر بدون تغییر در دو زبان
-      footerText.textContent = "© Saeed Mojtabazadeh | www.mojtabazadeh.ir";
-    }
-
-    // باز/بستن مودال
-    function openModal(modal) {
-      modal.classList.add("show");
-      modalOverlay.classList.add("show");
-    }
-    function closeModal(modal) {
-      modal.classList.remove("show");
-      modalOverlay.classList.remove("show");
-    }
-
-    // رویدادهای دکمه‌ها
-    aboutBtn.addEventListener("click", () => openModal(aboutModal));
-    contactBtn.addEventListener("click", () => openModal(contactModal));
-
-    aboutClose.addEventListener("click", () => closeModal(aboutModal));
-    contactClose.addEventListener("click", () => closeModal(contactModal));
-
-    modalOverlay.addEventListener("click", () => {
-      closeModal(aboutModal);
-      closeModal(contactModal);
-    });
-
-    btnFa.addEventListener("click", () => changeLanguage("fa"));
-    btnEn.addEventListener("click", () => changeLanguage("en"));
-
-    // شروع
-    changeLanguage(currentLang);
-
-    // افکت شناور ذرات (اختیاری)
-    // اگر دوست داشتید میتونم برای شما یه کد ذرات اضافه کنم
-
+      requestAnimationFrame(draw);
+    })();
   </script>
 </body>
 </html>
