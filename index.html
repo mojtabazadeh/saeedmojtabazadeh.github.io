@@ -8,7 +8,6 @@
   <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی">
   <meta name="author" content="Saeed Mojtabazadeh">
 
-  <!-- ✅ Open Graph for SEO & Social Sharing -->
   <meta property="og:title" content="دکتر سعید مجتبی‌زاده">
   <meta property="og:description" content="پایگاه رسمی دکتر سعید مجتبی‌زاده | روایت مسیر علم و زندگی در پژوهش و نوآوری.">
   <meta property="og:image" content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg">
@@ -18,7 +17,7 @@
   <link rel="icon" type="image/png" sizes="512x512" href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>   
+  <style>
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{width:100%;height:100%;overflow-x:hidden}
     body {
@@ -35,19 +34,21 @@
 
     #particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
 
+    /* ✅ تصویر پروفایل دایره‌ای با SVG ماسک */
     .profile-container {
       width:150px;
-      height:150px;  /* ✅ مربع واقعی (دایره‌ای می‌مونه حتی در زوم) */
+      height:150px;
       margin:25px auto 16px;
       border-radius:50%;
-      overflow:hidden;
-      box-shadow:0 8px 22px rgba(255,220,150,0.5); /* ✅ هاله طلایی */
+      box-shadow:0 8px 22px rgba(255,220,150,0.5);
       animation:floatMove 6s ease-in-out infinite;
+      background:rgba(255,255,255,0.05);
+      position:relative;
+      overflow:visible;
     }
-    .profile-container img {
+    .profile-container svg {
       width:100%;
       height:100%;
-      object-fit:cover;
       display:block;
     }
     @keyframes floatMove {
@@ -139,7 +140,7 @@
     @media(max-width:480px){
       .profile-container{
         width:120px;
-        height:120px; /* ✅ مربع واقعی برای موبایل */
+        height:120px;
       }
       .link-bar{gap:6px}
       .link-bar a{padding:6px 10px}
@@ -155,7 +156,14 @@
   </div>
 
   <div class="profile-container">
-    <img src="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" alt="Dr. Saeed Mojtabazadeh">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <clipPath id="circleView">
+          <circle cx="50" cy="50" r="50"/>
+        </clipPath>
+      </defs>
+      <image clip-path="url(#circleView)" href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
+    </svg>
   </div>
 
   <div class="title-wrapper">
