@@ -1,113 +1,328 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>دکتر سعید مجتبی‌زاده</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{width:100%;height:100%;overflow-x:hidden}
-    body {
-      font-family:'Vazirmatn',sans-serif;
-      background:linear-gradient(135deg,#1a0033,#3b0066,#660099,#9933cc);
-      background-attachment: fixed;
-      color:white;text-align:center;
-      display:flex;flex-direction:column;align-items:center;
-      padding:20px 10px 40px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    body.lang-en{font-family:'Poppins',sans-serif;direction:ltr;text-align:center}
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #1a0033, #3b0066, #660099, #9933cc);
+      background-attachment: fixed;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px 40px;
+      position: relative;
+      min-height: 100vh;
+      padding-bottom: 50px; /* footer space */
+    }
+    body.lang-en {
+      font-family: 'Poppins', sans-serif;
+      direction: ltr;
+      text-align: center;
+    }
 
-    #particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
     .profile-container {
-      width:150px;height:150px;margin:25px auto 16px;border-radius:50%;
-      box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
-      animation:floatMove 6s ease-in-out infinite;
-      background:rgba(255,255,255,0.05);position:relative;overflow:visible;
+      width: 150px;
+      height: 150px;
+      margin: 25px auto 16px;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(255, 120, 255, 0.6), 0 0 45px rgba(140, 70, 255, 0.3);
+      animation: floatMove 6s ease-in-out infinite;
+      background: rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: visible;
     }
-    .profile-container svg {width:100%;height:100%;display:block}
-    @keyframes floatMove {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    .profile-container svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    @keyframes floatMove {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
 
-    .title-wrapper {max-width:90vw;margin-bottom:20px;animation:fadeInUp 1s ease forwards;opacity:0;transform:translateY(10px)}
+    .title-wrapper {
+      max-width: 90vw;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(10px);
+    }
     .title-line {
-      font-size:clamp(1.6rem,5vw,2.4rem);font-weight:800;
-      background:linear-gradient(90deg,#ffccff,#cc99ff,#9966ff);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      text-shadow:0 0 12px rgba(200,150,255,0.6);animation:glowPulse 4s ease-in-out infinite;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, #ffccff, #cc99ff, #9966ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(200, 150, 255, 0.6);
+      animation: glowPulse 4s ease-in-out infinite;
     }
-    .title-sub {font-size:clamp(1rem,3vw,1.2rem);color:#e0c7ff;font-weight:600;margin-top:4px;text-shadow:0 1px 3px rgba(0,0,0,0.4)}
+    .title-sub {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: #e0c7ff;
+      font-weight: 600;
+      margin-top: 4px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
 
-    .link-bar {display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:95vw;margin-bottom:16px;
-      animation:fadeInUp 1.2s ease forwards;opacity:0;transform:translateY(10px);}
+    .link-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 95vw;
+      margin-bottom: 16px;
+      animation: fadeInUp 1.2s ease forwards;
+      opacity: 0;
+      transform: translateY(10px);
+    }
     .link-bar a {
-      background:rgba(255,255,255,0.1);color:white;
-      padding:8px 14px;border-radius:25px;
-      font-size:clamp(0.8rem,3vw,0.95rem);text-decoration:none;
-      transition:all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 25px;
+      font-size: clamp(0.8rem, 3vw, 0.95rem);
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
-    .link-bar a:hover {background:rgba(255,255,255,0.25);box-shadow:0 0 12px rgba(180,100,255,0.7);transform:translateY(-2px)}
-
-    .frame-wrapper {width:95%;max-width:900px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
-      margin-top:10px;background:rgba(0,0,0,0.25);backdrop-filter:blur(4px);
-      animation:fadeInUp 1.4s ease forwards;opacity:0;transform:translateY(10px)}
-    .frame-wrapper iframe {width:100%;height:100%;border:none;display:block;border-radius:16px}
-
-    .footer {font-size:0.8rem;margin-top:18px;opacity:0.7}
-    .footer a {color:white;text-decoration:none}
-
-    .lang-switch, .about-switch {
-      position:fixed;top:12px;display:flex;gap:6px;z-index:99
+    .link-bar a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 12px rgba(180, 100, 255, 0.7);
+      transform: translateY(-2px);
     }
-    .lang-switch {left:12px}
-    .about-switch {right:12px}
 
-    .lang-switch button,.about-switch button {
-      background:rgba(255,255,255,0.15);color:white;border:none;
-      padding:6px 12px;border-radius:50px;cursor:pointer;
-      font-size:0.8rem;transition:all 0.3s ease;
-      min-width:70px; /* ✅ هماهنگی اندازه دکمه‌ها */
-      text-align:center;
+    .frame-wrapper {
+      width: 95%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(4px);
+      animation: fadeInUp 1.4s ease forwards;
+      opacity: 0;
+      transform: translateY(10px);
     }
-    .lang-switch button:hover,.about-switch button:hover {background:rgba(255,255,255,0.3);transform:scale(1.05)}
+    .frame-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      border-radius: 16px;
+    }
 
-    /* ✅ پس‌زمینه نیمه‌شفاف */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      opacity: 0.8;
+      text-align: center;
+      z-index: 999;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .lang-switch,
+    .about-switch,
+    .contact-switch {
+      position: fixed;
+      top: 12px;
+      display: flex;
+      gap: 6px;
+      z-index: 99;
+      font-size: 0.8rem;
+    }
+    .lang-switch {
+      left: 12px;
+    }
+    .about-switch,
+    .contact-switch {
+      right: 12px;
+    }
+
+    .about-switch {
+      margin-left: 10px;
+    }
+
+    .lang-switch button,
+    .about-switch button,
+    .contact-switch button {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+      min-width: 70px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .lang-switch button:hover,
+    .about-switch button:hover,
+    .contact-switch button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    /* پس‌زمینه نیمه‌شفاف */
     #modal-overlay {
-      position:fixed;top:0;left:0;width:100%;height:100%;
-      background:rgba(0,0,0,0.5);
-      opacity:0;pointer-events:none;
-      transition:opacity 0.4s ease;
-      z-index:98;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 98;
     }
-    #modal-overlay.show {opacity:1;pointer-events:auto}
+    #modal-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-    /* ✅ مودال با افکت محو شونده */
-    #about-modal {
-      opacity:0;
-      pointer-events:none;
-      transition:opacity 0.4s ease;
-      position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-      background:rgba(40,0,70,0.95);color:white;
-      padding:20px;width:90%;max-width:500px;max-height:75vh;
-      overflow-y:auto;border-radius:12px;
-      box-shadow:0 0 20px rgba(200,150,255,0.6);
-      z-index:100;text-align:justify;line-height:1.8;font-size:0.9rem;
+    /* مودال با افکت محو شونده */
+    #about-modal,
+    #contact-modal {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(40, 0, 70, 0.95);
+      color: white;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      max-height: 75vh;
+      overflow-y: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(200, 150, 255, 0.6);
+      z-index: 100;
+      text-align: justify;
+      line-height: 1.8;
+      font-size: 0.9rem;
     }
-    #about-modal.show {opacity:1;pointer-events:auto}
-    #about-modal h3 {margin-bottom:10px;font-size:1.1rem;color:#ffccff;text-align:center}
-    #about-close {
-      background:rgba(255,255,255,0.2);border:none;color:white;
-      padding:4px 10px;border-radius:8px;margin-top:10px;
-      cursor:pointer;display:block;margin-left:auto;margin-right:auto
+    #about-modal.show,
+    #contact-modal.show {
+      opacity: 1;
+      pointer-events: auto;
     }
-    #about-close:hover {background:rgba(255,255,255,0.35)}
+    #about-modal h3,
+    #contact-modal h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: #ffccff;
+      text-align: center;
+    }
+    #about-close,
+    #contact-close {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 70px;
+      font-size: 0.9rem;
+    }
+    #about-close:hover,
+    #contact-close:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
 
-    @media(max-width:480px){
-      .profile-container{width:120px;height:120px}
-      .link-bar{gap:6px}.link-bar a{padding:6px 10px}
+    /* موبایل */
+    @media (max-width: 480px) {
+      .profile-container {
+        width: 120px;
+        height: 120px;
+      }
+      .link-bar {
+        gap: 6px;
+      }
+      .link-bar a {
+        padding: 6px 10px;
+      }
+      .lang-switch,
+      .about-switch,
+      .contact-switch {
+        font-size: 0.7rem;
+      }
+      .lang-switch button,
+      .about-switch button,
+      .contact-switch button {
+        min-width: 60px;
+        padding: 5px 10px;
+        font-size: 0.7rem;
+      }
     }
-    @keyframes fadeInUp {to {opacity:1;transform:translateY(0)}}
-    @keyframes glowPulse {0%,100%{text-shadow:0 0 8px rgba(200,150,255,0.6)}50%{text-shadow:0 0 14px rgba(200,150,255,1)}}
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes glowPulse {
+      0%,
+      100% {
+        text-shadow: 0 0 8px rgba(200, 150, 255, 0.6);
+      }
+      50% {
+        text-shadow: 0 0 14px rgba(200, 150, 255, 1);
+      }
+    }
   </style>
 </head>
 <body>
@@ -117,12 +332,28 @@
     <button id="btn-fa">فارسی</button>
     <button id="btn-en">English</button>
   </div>
-  <div class="about-switch"><button id="about-btn">درباره من</button></div>
+
+  <div class="about-switch">
+    <button id="about-btn">درباره من</button>
+  </div>
+  <div class="contact-switch">
+    <button id="contact-btn">تماس</button>
+  </div>
 
   <div class="profile-container">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-      <defs><clipPath id="circleView"><circle cx="50" cy="50" r="50"/></clipPath></defs>
-      <image clip-path="url(#circleView)" href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
+      <defs>
+        <clipPath id="circleView">
+          <circle cx="50" cy="50" r="50" />
+        </clipPath>
+      </defs>
+      <image
+        clip-path="url(#circleView)"
+        href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg"
+        width="100"
+        height="100"
+        preserveAspectRatio="xMidYMid slice"
+      />
     </svg>
   </div>
 
@@ -134,122 +365,192 @@
   <div class="link-bar" id="links"></div>
 
   <div class="frame-wrapper">
-    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <iframe
+      src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
   </div>
 
   <div class="footer">
-    © <a href="http://www.mojtabazadeh.ir/" target="_blank">Saeed Mojtabazadeh | www.mojtabazadeh.ir</a>
+    © Saeed Mojtabazadeh | <a href="http://www.mojtabazadeh.ir/" target="_blank">www.mojtabazadeh.ir</a>
   </div>
 
   <div id="modal-overlay"></div>
+
   <div id="about-modal">
     <h3 id="about-title"></h3>
     <p id="about-text"></p>
     <button id="about-close">بستن</button>
   </div>
 
+  <div id="contact-modal">
+    <h3 id="contact-title"></h3>
+    <p id="contact-text"></p>
+    <button id="contact-close">بستن</button>
+  </div>
+
   <script>
     const data = {
-      fa:{title:"دکتر سعید مجتبی‌زاده",sub:"فوق‌دکتری مهندسی عمران-ژئوتکنیک لرزه‌ای",links:[
-        {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
-        {text:"پایگاه مقالات",href:"http://www.drmojtabazadeh.ir/"},
-        {text:"پایگاه مطالعات",href:"http://www.smojtabazadeh.ir/"},
-        {text:"اینستاگالری",href:"https://www.instagallery.ir/"},
-        {text:"پایگاه اَپرچِر",href:"http://mojtabazadeh-hasanlouei.ir/"},
-        {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
-        {text:"پروفایل اُرکید",href:"https://orcid.org/0000-0001-8508-4837"},
-        {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"},
-      ],
-      aboutTitle:"درباره من",
-      aboutText:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.`},
-      en:{title:"Dr. Saeed Mojtabazadeh",sub:"Postdoc Fellow in Geotechnical Engineering",links:[
-        {text:"Website",href:"http://mojtabazadeh.ir/"},
-        {text:"Researches",href:"http://www.drmojtabazadeh.ir/"},
-        {text:"Study Hub",href:"http://www.smojtabazadeh.ir/"},
-        {text:"Instagallery",href:"https://www.instagallery.ir/"},
-        {text:"Aperture",href:"http://mojtabazadeh-hasanlouei.ir/"},
-        {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
-        {text:"ORCID",href:"https://orcid.org/0000-0001-8508-4837"},
-        {text:"English Website",href:"https://www.mojtabazade.ir/"},
-      ],
-      aboutTitle:"About Me",
-      aboutText:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`}
+      fa: {
+        title: "دکتر سعید مجتبی‌زاده",
+        sub: "فوق‌دکتری مهندسی عمران-ژئوتکنیک لرزه‌ای",
+        links: [
+          { text: "پایگاه شخصی", href: "http://mojtabazadeh.ir/" },
+          { text: "پایگاه مقالات", href: "http://www.drmojtabazadeh.ir/" },
+          { text: "پایگاه مطالعات", href: "http://www.smojtabazadeh.ir/" },
+          { text: "اینستاگالری", href: "https://www.instagallery.ir/" },
+          { text: "پایگاه اَپرچِر", href: "http://mojtabazadeh-hasanlouei.ir/" },
+          { text: "گوگل اسکالر", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
+          { text: "پروفایل اُرکید", href: "https://orcid.org/0000-0001-8508-4837" },
+          { text: "پایگاه انگلیسی", href: "https://www.mojtabazade.ir/" },
+        ],
+        aboutTitle: "درباره من",
+        aboutText: `دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.`,
+        contactTitle: "تماس",
+        contactText: `ایمیل: <a href="mailto:mojtabazadeh@outlook.com" style="color:#ffccff;text-decoration:underline;">mojtabazadeh@outlook.com</a><br>شماره تماس: <a href="tel:+989334115773" style="color:#ffccff;text-decoration:underline;">+989334115773</a>`,
+        closeText: "بستن",
+      },
+      en: {
+        title: "Dr. Saeed Mojtabazadeh",
+        sub: "Postdoc Fellow in Geotechnical Engineering",
+        links: [
+          { text: "Website", href: "http://mojtabazadeh.ir/" },
+          { text: "Researches", href: "http://www.drmojtabazadeh.ir/" },
+          { text: "Study Hub", href: "http://www.smojtabazadeh.ir/" },
+          { text: "Instagallery", href: "https://www.instagallery.ir/" },
+          { text: "Aperture", href: "http://mojtabazadeh-hasanlouei.ir/" },
+          { text: "Google Scholar", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
+          { text: "ORCID", href: "https://orcid.org/0000-0001-8508-4837" },
+          { text: "English Website", href: "https://www.mojtabazade.ir/" },
+        ],
+        aboutTitle: "About Me",
+        aboutText: `Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
+        contactTitle: "Contact",
+        contactText: `Email: <a href="mailto:mojtabazadeh@outlook.com" style="color:#cc99ff;text-decoration:underline;">mojtabazadeh@outlook.com</a><br>Phone: <a href="tel:+989334115773" style="color:#cc99ff;text-decoration:underline;">+989334115773</a>`,
+        closeText: "Close",
+      },
     };
 
-    const mainTitle=document.getElementById("main-title"),
-          subTitle=document.getElementById("sub-title"),
-          linksContainer=document.getElementById("links"),
-          aboutModal=document.getElementById("about-modal"),
-          aboutTitle=document.getElementById("about-title"),
-          aboutText=document.getElementById("about-text"),
-          aboutClose=document.getElementById("about-close"),
-          overlay=document.getElementById("modal-overlay");
+    const mainTitle = document.getElementById("main-title"),
+      subTitle = document.getElementById("sub-title"),
+      linksContainer = document.getElementById("links"),
+      aboutModal = document.getElementById("about-modal"),
+      aboutTitle = document.getElementById("about-title"),
+      aboutText = document.getElementById("about-text"),
+      aboutClose = document.getElementById("about-close"),
+      contactModal = document.getElementById("contact-modal"),
+      contactTitle = document.getElementById("contact-title"),
+      contactText = document.getElementById("contact-text"),
+      contactClose = document.getElementById("contact-close"),
+      overlay = document.getElementById("modal-overlay");
 
-    function buildLinks(lang){
-      linksContainer.innerHTML="";
-      data[lang].links.forEach(l=>{
-        const a=document.createElement("a");
-        a.href=l.href;a.target="_blank";a.textContent=l.text;
+    function buildLinks(lang) {
+      linksContainer.innerHTML = "";
+      data[lang].links.forEach((l) => {
+        const a = document.createElement("a");
+        a.href = l.href;
+        a.target = "_blank";
+        a.textContent = l.text;
         linksContainer.appendChild(a);
       });
     }
-    function switchLang(lang){
-      localStorage.setItem("lang",lang);
-      mainTitle.textContent=data[lang].title;
-      subTitle.textContent=data[lang].sub;
+    function switchLang(lang) {
+      localStorage.setItem("lang", lang);
+      mainTitle.textContent = data[lang].title;
+      subTitle.textContent = data[lang].sub;
       buildLinks(lang);
-      document.getElementById("about-btn").textContent = lang==="fa"?"درباره من":"About Me";
-      if(lang==="en"){document.body.classList.add("lang-en");document.documentElement.dir="ltr";}
-      else {document.body.classList.remove("lang-en");document.documentElement.dir="rtl";}
+      document.getElementById("about-btn").textContent = lang === "fa" ? "درباره من" : "About Me";
+      document.getElementById("contact-btn").textContent = lang === "fa" ? "تماس" : "Contact";
+
+      if (lang === "en") {
+        document.body.classList.add("lang-en");
+        document.documentElement.dir = "ltr";
+      } else {
+        document.body.classList.remove("lang-en");
+        document.documentElement.dir = "rtl";
+      }
     }
 
-    const savedLang=localStorage.getItem("lang")||"fa";
+    const savedLang = localStorage.getItem("lang") || "fa";
     switchLang(savedLang);
-    document.getElementById("btn-fa").onclick=()=>switchLang("fa");
-    document.getElementById("btn-en").onclick=()=>switchLang("en");
+    document.getElementById("btn-fa").onclick = () => switchLang("fa");
+    document.getElementById("btn-en").onclick = () => switchLang("en");
 
-    document.getElementById("about-btn").onclick=()=>{
-      const lang=localStorage.getItem("lang")||"fa";
-      aboutTitle.textContent=data[lang].aboutTitle;
-      aboutText.textContent=data[lang].aboutText;
-      aboutClose.textContent = (lang==="fa") ? "بستن" : "Close";
+    document.getElementById("about-btn").onclick = () => {
+      const lang = localStorage.getItem("lang") || "fa";
+      aboutTitle.textContent = data[lang].aboutTitle;
+      aboutText.innerHTML = data[lang].aboutText;
+      aboutClose.textContent = data[lang].closeText;
       aboutModal.classList.add("show");
       overlay.classList.add("show");
     };
-    function closeModal(){
+    document.getElementById("contact-btn").onclick = () => {
+      const lang = localStorage.getItem("lang") || "fa";
+      contactTitle.textContent = data[lang].contactTitle;
+      contactText.innerHTML = data[lang].contactText;
+      contactClose.textContent = data[lang].closeText;
+      contactModal.classList.add("show");
+      overlay.classList.add("show");
+    };
+    function closeModal() {
       aboutModal.classList.remove("show");
+      contactModal.classList.remove("show");
       overlay.classList.remove("show");
     }
-    aboutClose.onclick=closeModal;
-    overlay.onclick=closeModal;
+    aboutClose.onclick = closeModal;
+    contactClose.onclick = closeModal;
+    overlay.onclick = closeModal;
 
     // Particles
-    const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
-    let particles=[];
-    function createParticles(){
-      const count=Math.floor((window.innerWidth*window.innerHeight)/12000);
-      particles=Array.from({length:count},()=>({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.8+1,dx:(Math.random()-0.5)*0.4,dy:(Math.random()-0.5)*0.4}));
+    const canvas = document.getElementById("particles"),
+      ctx = canvas.getContext("2d");
+    let particles = [];
+    function createParticles() {
+      const count = Math.floor((window.innerWidth * window.innerHeight) / 12000);
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 1.8 + 1,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+      }));
     }
-    function resizeParticles(){
-      const ratio=window.devicePixelRatio||1;
-      canvas.width=window.innerWidth*ratio;canvas.height=window.innerHeight*ratio;
-      ctx.setTransform(1,0,0,1,0,0);ctx.scale(ratio,ratio);createParticles();
+    function resizeParticles() {
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * ratio;
+      canvas.height = window.innerHeight * ratio;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(ratio, ratio);
+      createParticles();
     }
-    resizeParticles();window.addEventListener("resize",resizeParticles);
-    (function draw(){
-      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
-      ctx.fillStyle="rgba(200,150,255,0.8)";
-      particles.forEach(p=>{
-        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
-        p.x+=p.dx;p.y+=p.dy;
-        if(p.x<0||p.x>window.innerWidth)p.dx*=-1;
-        if(p.y<0||p.y>window.innerHeight)p.dy*=-1;
+    resizeParticles();
+    window.addEventListener("resize", resizeParticles);
+    (function draw() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.fillStyle = "rgba(200,150,255,0.8)";
+      particles.forEach((p) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > window.innerWidth) p.dx *= -1;
+        if (p.y < 0 || p.y > window.innerHeight) p.dy *= -1;
       });
-      ctx.strokeStyle="rgba(200,150,255,0.2)";ctx.lineWidth=0.5;
-      for(let i=0;i<particles.length;i++){
-        for(let j=i+1;j<particles.length;j++){
-          const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<120){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();}
+      ctx.strokeStyle = "rgba(200,150,255,0.2)";
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x,
+            dy = particles[i].y - particles[j].y,
+            dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
         }
       }
       requestAnimationFrame(draw);
