@@ -116,7 +116,7 @@
     <button id="btn-fa">Fa</button>
     <button id="btn-en">En</button>
   </div>
-  <div class="right-buttons">
+  <div class="right-buttons" id="right-buttons">
     <button id="btn-about">درباره من</button>
     <button id="btn-contact">تماس</button>
   </div>
@@ -140,7 +140,7 @@
   </div>
 
   <div class="footer">
-    © <a href="http://www.mojtabazadeh.ir/" target="_blank" id="footer-name">سعید مجتبی زاده</a>
+    <span id="footer-text">© <a href="http://www.mojtabazadeh.ir/" target="_blank" id="footer-name">سعید مجتبی زاده</a></span>
   </div>
 
   <!-- Modals -->
@@ -159,7 +159,7 @@
     </div>
   </div>
 
-  <script defer>
+  <script>
     const data = {
       fa:{
         title:"دکتر سعید مجتبی‌زاده",
@@ -175,12 +175,13 @@
           {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"},
         ],
         aboutTitle:"درباره من",
-        about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود. `,
+        about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.`,
         contactTitle:"تماس",
-        contact:`ایمیل: mojtabazadeh@outlook.com<br>شماره تماس: 09334115773`,
-        footer:"سعید مجتبی زاده",
+        contact:`ایمیل: mojtabazadeh@outlook.com<br>تلفن: +989334115773`,
+        footer:"© <a href='http://www.mojtabazadeh.ir/' target='_blank'>سعید مجتبی زاده</a>",
         btnAbout:"درباره من",
-        btnContact:"تماس"
+        btnContact:"تماس",
+        buttonOrder:["about","contact"]
       },
       en:{
         title:"Dr. Saeed Mojtabazadeh",
@@ -199,18 +200,20 @@
         about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
         contactTitle:"Contact",
         contact:`Email: mojtabazadeh@outlook.com<br>Phone: +989334115773`,
-        footer:"Saeed Mojtabazadeh",
+        footer:"<a href='http://www.mojtabazadeh.ir/' target='_blank'>Saeed Mojtabazadeh</a> ©",
         btnAbout:"About Me",
-        btnContact:"Contact"
+        btnContact:"Contact",
+        buttonOrder:["contact","about"]
       }
     };
 
     const mainTitle=document.getElementById("main-title"),
           subTitle=document.getElementById("sub-title"),
           linksContainer=document.getElementById("links"),
-          footerName=document.getElementById("footer-name"),
+          footerText=document.getElementById("footer-text"),
           btnAbout=document.getElementById("btn-about"),
-          btnContact=document.getElementById("btn-contact");
+          btnContact=document.getElementById("btn-contact"),
+          rightButtons=document.getElementById("right-buttons");
 
     function buildLinks(lang){
       linksContainer.innerHTML="";
@@ -227,10 +230,18 @@
       setTimeout(()=>{
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
-        footerName.textContent=data[lang].footer;
+        footerText.innerHTML=data[lang].footer;
         btnAbout.textContent=data[lang].btnAbout;
         btnContact.textContent=data[lang].btnContact;
         buildLinks(lang);
+
+        // تغییر ترتیب دکمه‌ها
+        rightButtons.innerHTML="";
+        data[lang].buttonOrder.forEach(btn=>{
+          if(btn==="about") rightButtons.appendChild(btnAbout);
+          else rightButtons.appendChild(btnContact);
+        });
+
         if(lang==="en"){document.body.classList.add("lang-en");document.documentElement.dir="ltr";}
         else{document.body.classList.remove("lang-en");document.documentElement.dir="rtl";}
       },300);
@@ -279,33 +290,6 @@
     }
     resizeParticles();
     window.addEventListener("resize",resizeParticles);
-
-    (function draw(){
-      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
-      ctx.fillStyle="rgba(200,150,255,0.8)";
-      particles.forEach(p=>{
-        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
-        p.x+=p.dx;p.y+=p.dy;
-        if(p.x<0||p.x>window.innerWidth)p.dx*=-1;
-        if(p.y<0||p.y>window.innerHeight)p.dy*=-1;
-      });
-      ctx.strokeStyle="rgba(200,150,255,0.2)";
-      ctx.lineWidth=0.5;
-      for(let i=0;i<particles.length;i++){
-        for(let j=i+1;j<particles.length;j++){
-          const dx=particles[i].x-particles[j].x;
-          const dy=particles[i].y-particles[j].y;
-          const dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<120){
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x,particles[i].y);
-            ctx.lineTo(particles[j].x,particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(draw);
-    })();
   </script>
 </body>
 </html>
