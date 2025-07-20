@@ -116,7 +116,7 @@
     <button id="btn-fa">Fa</button>
     <button id="btn-en">En</button>
   </div>
-  <div class="right-buttons">
+  <div class="right-buttons" id="right-buttons">
     <button id="btn-about">درباره من</button>
     <button id="btn-contact">تماس</button>
   </div>
@@ -175,7 +175,7 @@
           {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"},
         ],
         aboutTitle:"درباره من",
-        about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری...`,
+        about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران...`,
         contactTitle:"تماس",
         contact:`ایمیل: mojtabazadeh@outlook.com<br>تلفن: +989334115773`,
         footer:"سعید مجتبی زاده ©",
@@ -196,7 +196,7 @@
           {text:"English Website",href:"https://www.mojtabazade.ir/"},
         ],
         aboutTitle:"About Me",
-        about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical...`,
+        about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran...`,
         contactTitle:"Contact",
         contact:`Email: mojtabazadeh@outlook.com<br>Phone: +989334115773`,
         footer:"Saeed Mojtabazadeh ©",
@@ -210,7 +210,8 @@
           linksContainer=document.getElementById("links"),
           footerName=document.getElementById("footer-name"),
           btnAbout=document.getElementById("btn-about"),
-          btnContact=document.getElementById("btn-contact");
+          btnContact=document.getElementById("btn-contact"),
+          rightButtons=document.getElementById("right-buttons");
 
     function buildLinks(lang){
       linksContainer.innerHTML="";
@@ -227,12 +228,26 @@
       setTimeout(()=>{
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
+        footerName.textContent=data[lang].footer;
         btnAbout.textContent=data[lang].btnAbout;
         btnContact.textContent=data[lang].btnContact;
-        footerName.textContent=data[lang].footer;
         buildLinks(lang);
-        if(lang==="en"){document.body.classList.add("lang-en");document.documentElement.dir="ltr";}
-        else{document.body.classList.remove("lang-en");document.documentElement.dir="rtl";}
+
+        if(lang==="en"){
+          document.body.classList.add("lang-en");
+          document.documentElement.dir="ltr";
+          // جابه‌جایی دکمه‌ها در حالت انگلیسی
+          rightButtons.innerHTML="";
+          rightButtons.appendChild(btnContact);
+          rightButtons.appendChild(btnAbout);
+        } else {
+          document.body.classList.remove("lang-en");
+          document.documentElement.dir="rtl";
+          // حالت فارسی به ترتیب اصلی
+          rightButtons.innerHTML="";
+          rightButtons.appendChild(btnAbout);
+          rightButtons.appendChild(btnContact);
+        }
       },300);
       setTimeout(()=>document.body.classList.remove("smooth-switch"),900);
     }
@@ -298,8 +313,8 @@
           const dist=Math.sqrt(dx*dx+dy*dy);
           if(dist<120){
             ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.moveTo(particles[i].x,particles[i].y);
+            ctx.lineTo(particles[j].x,particles[j].y);
             ctx.stroke();
           }
         }
@@ -309,4 +324,3 @@
   </script>
 </body>
 </html>
-
