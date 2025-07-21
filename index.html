@@ -8,12 +8,6 @@
   <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی">
   <meta name="author" content="Saeed Mojtabazadeh">
 
-  <meta property="og:title" content="دکتر سعید مجتبی‌زاده">
-  <meta property="og:description" content="پایگاه دکتر سعید مجتبی‌زاده">
-  <meta property="og:image" content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg">
-  <meta property="og:url" content="http://www.mojtabazadeh.ir/">
-  <meta name="twitter:card" content="summary_large_image">
-
   <link rel="icon" type="image/png" sizes="512x512" href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -36,15 +30,13 @@
     #particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
 
     .profile-container {
-      width:150px;
-      height:150px;
+      width:150px;height:150px;
       margin:35px auto 16px;
       border-radius:50%;
       box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
       animation:floatMove 6s ease-in-out infinite;
       background:rgba(255,255,255,0.05);
-      position:relative;
-      overflow:visible;
+      position:relative;overflow:visible;
     }
     .profile-container svg {width:100%;height:100%;display:block;}
     @keyframes floatMove {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
@@ -63,10 +55,8 @@
     }
     .title-sub {
       font-size:clamp(1rem,3vw,1.2rem);
-      color:#e0c7ff;
-      font-weight:600;
-      margin-top:4px;
-      text-shadow:0 1px 3px rgba(0,0,0,0.4);
+      color:#e0c7ff;font-weight:600;
+      margin-top:4px;text-shadow:0 1px 3px rgba(0,0,0,0.4);
     }
 
     .link-bar {
@@ -76,14 +66,11 @@
     }
     .link-bar a {
       background:rgba(255,255,255,0.1);
-      color:white;
-      padding:8px 14px;
-      min-width:90px;
-      text-align:center;
+      color:white;padding:8px 14px;
+      min-width:95px;text-align:center;
       border-radius:25px;
       font-size:clamp(0.8rem,3vw,0.95rem);
-      text-decoration:none;
-      transition:all 0.3s ease;
+      text-decoration:none;transition:all 0.3s ease;
     }
     .link-bar a:hover {
       background:rgba(255,255,255,0.25);
@@ -95,31 +82,57 @@
       width:95%;max-width:900px;
       background:rgba(255,255,255,0.08);
       backdrop-filter:blur(6px);
-      border-radius:16px;
-      padding:18px 14px;
-      line-height:1.8;
-      text-align:justify;
+      border-radius:20px;
+      padding:20px 16px;
+      line-height:1.8;text-align:justify;
       font-size:clamp(0.9rem,2.5vw,1rem);
-      box-shadow:0 0 14px rgba(180,120,255,0.3);
+      box-shadow:0 0 16px rgba(180,120,255,0.3);
       animation:fadeInUp 1.4s ease forwards;opacity:0;transform:translateY(10px);
+      margin-top:8px;
     }
     .about-wrapper p {margin-bottom:10px;color:#f3e8ff}
+
+    .contact-bar {
+      margin-top:16px;
+      display:flex;flex-direction:column;align-items:center;
+      gap:8px;
+      animation:fadeInUp 1.6s ease forwards;opacity:0;transform:translateY(10px);
+    }
+    .contact-item {
+      background:rgba(255,255,255,0.1);
+      padding:8px 16px;
+      border-radius:30px;
+      color:#fff;
+      font-size:clamp(0.85rem,2.5vw,0.95rem);
+      text-decoration:none;
+      display:inline-flex;align-items:center;gap:6px;
+      transition:all 0.4s ease;
+      animation: pulseGlow 3s infinite;
+    }
+    .contact-item:hover {
+      background:rgba(255,255,255,0.25);
+      transform:translateY(-2px) scale(1.03);
+      box-shadow:0 0 10px rgba(200,150,255,0.6);
+    }
+    @keyframes pulseGlow {
+      0%,100% {box-shadow:0 0 8px rgba(200,150,255,0.4);}
+      50% {box-shadow:0 0 14px rgba(200,150,255,0.9);}
+    }
 
     .footer {font-size:0.8rem;margin-top:18px;opacity:0.7}
     .footer a {color:white;text-decoration:none}
 
     .lang-switch {
-      position:fixed;top:12px;left:12px;display:flex;gap:6px;z-index:99;
+      position:fixed;top:12px;left:12px;
+      display:flex;gap:6px;z-index:99;
     }
     .lang-switch button {
       background:rgba(255,255,255,0.15);
       color:white;border:none;
-      min-width:65px;
+      min-width:72px;
       padding:6px 12px;
       border-radius:50px;
-      cursor:pointer;
-      font-size:0.8rem;
-      text-align:center;
+      cursor:pointer;font-size:0.8rem;text-align:center;
       transition:all 0.3s ease;
     }
     .lang-switch button:hover {
@@ -133,9 +146,9 @@
 
     @media(max-width:480px){
       .profile-container{width:120px;height:120px;margin-top:30px}
-      .title-line{text-shadow:0 0 16px rgba(220,170,255,0.9);}
       .link-bar{gap:6px}
       .link-bar a{padding:6px 10px}
+      .about-wrapper{padding:16px 12px}
     }
   </style>
 </head>
@@ -155,19 +168,21 @@
   </div>
 
   <div class="title-wrapper">
-    <h1 class="title-line" id="main-title">دکتر سعید مجتبی‌زاده</h1>
-    <h2 class="title-sub" id="sub-title">اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران</h2>
+    <h1 class="title-line" id="main-title"></h1>
+    <h2 class="title-sub" id="sub-title"></h2>
   </div>
 
   <div class="link-bar" id="links"></div>
 
   <div class="about-wrapper" id="about-text"></div>
 
+  <div class="contact-bar" id="contact-bar"></div>
+
   <div class="footer">
     © <a href="http://www.mojtabazadeh.ir/" target="_blank">Saeed Mojtabazadeh | www.mojtabazadeh.ir</a>
   </div>
 
-  <script defer>
+  <script>
     const data = {
       fa:{
         title:"دکتر سعید مجتبی‌زاده",
@@ -183,6 +198,10 @@
           {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
           {text:"پروفایل اورکید",href:"https://orcid.org/0000-0001-8508-4837"},
           {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"}
+        ],
+        contact:[
+          {text:"mojtabazadeh@outlook.com",href:"mailto:mojtabazadeh@outlook.com"},
+          {text:"+989334115773",href:"tel:+989334115773"}
         ]
       },
       en:{
@@ -199,6 +218,10 @@
           {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
           {text:"ORCID",href:"https://orcid.org/0000-0001-8508-4837"},
           {text:"English Website",href:"https://www.mojtabazade.ir/"}
+        ],
+        contact:[
+          {text:"mojtabazadeh@outlook.com",href:"mailto:mojtabazadeh@outlook.com"},
+          {text:"+989334115773",href:"tel:+989334115773"}
         ]
       }
     };
@@ -206,7 +229,8 @@
     const mainTitle=document.getElementById("main-title"),
           subTitle=document.getElementById("sub-title"),
           linksContainer=document.getElementById("links"),
-          aboutText=document.getElementById("about-text");
+          aboutText=document.getElementById("about-text"),
+          contactBar=document.getElementById("contact-bar");
 
     function buildLinks(lang){
       linksContainer.innerHTML="";
@@ -214,6 +238,16 @@
         const a=document.createElement("a");
         a.href=l.href;a.target="_blank";a.textContent=l.text;
         linksContainer.appendChild(a);
+      });
+    }
+
+    function buildContacts(lang){
+      contactBar.innerHTML="";
+      data[lang].contact.forEach(c=>{
+        const a=document.createElement("a");
+        a.href=c.href;a.textContent=c.text;
+        a.className="contact-item";
+        contactBar.appendChild(a);
       });
     }
 
@@ -225,6 +259,7 @@
         subTitle.textContent=data[lang].sub;
         aboutText.innerHTML=data[lang].about;
         buildLinks(lang);
+        buildContacts(lang);
         if(lang==="en"){
           document.body.classList.add("lang-en");
           document.documentElement.dir="ltr";
@@ -244,7 +279,7 @@
     const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
     let particles=[];
     function createParticles(){
-      const count=Math.min(120,Math.floor((window.innerWidth*window.innerHeight)/12000));
+      const count=Math.min(150,Math.floor((window.innerWidth*window.innerHeight)/10000));
       particles=Array.from({length:count},()=>({
         x:Math.random()*window.innerWidth,
         y:Math.random()*window.innerHeight,
