@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <title>دکتر سعید مجتبی‌زاده</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
+  />
   <meta name="description" content="فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران" />
-  <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی" />
+  <meta
+    name="keywords"
+    content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی"
+  />
   <meta name="author" content="Saeed Mojtabazadeh" />
 
   <meta property="og:title" content="دکتر سعید مجتبی‌زاده" />
   <meta property="og:description" content="پایگاه دکتر سعید مجتبی‌زاده" />
-  <meta property="og:image" content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" />
+  <meta
+    property="og:image"
+    content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg"
+  />
   <meta property="og:url" content="http://www.mojtabazadeh.ir/" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -26,6 +35,7 @@
   />
 
   <style>
+    /* Reset و تنظیمات پایه */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -36,17 +46,17 @@
       width: 100%;
       height: 100%;
       overflow-x: hidden;
-    }
-    body {
-      font-family: "Vazirmatn", sans-serif;
       background: linear-gradient(135deg, #1a0033, #3b0066, #660099, #9933cc);
       background-attachment: fixed;
       color: white;
+      font-family: "Vazirmatn", sans-serif;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 20px 10px 40px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     body.lang-en {
       font-family: "Poppins", sans-serif;
@@ -54,6 +64,7 @@
       text-align: center;
     }
 
+    /* کانواس ذرات پس زمینه */
     #particles {
       position: fixed;
       top: 0;
@@ -61,14 +72,19 @@
       width: 100%;
       height: 100%;
       z-index: -1;
+      user-select: none;
+      pointer-events: none;
     }
 
+    /* پروفایل دایره‌ای */
     .profile-container {
       width: 150px;
       height: 150px;
       margin: 25px auto 16px;
       border-radius: 50%;
-      box-shadow: 0 0 25px rgba(255, 120, 255, 0.6), 0 0 45px rgba(140, 70, 255, 0.3);
+      box-shadow:
+        0 0 25px rgba(255, 120, 255, 0.6),
+        0 0 45px rgba(140, 70, 255, 0.3);
       animation: floatMove 6s ease-in-out infinite;
       background: rgba(255, 255, 255, 0.05);
       overflow: visible;
@@ -77,10 +93,11 @@
       width: 100%;
       height: 100%;
       display: block;
+      border-radius: 50%;
+      user-select: none;
     }
     @keyframes floatMove {
-      0%,
-      100% {
+      0%, 100% {
         transform: translateY(0);
       }
       50% {
@@ -88,12 +105,14 @@
       }
     }
 
+    /* عنوان اصلی */
     .title-wrapper {
       max-width: 90vw;
       margin-bottom: 20px;
       animation: fadeInUp 1s ease forwards;
       opacity: 0;
       transform: translateY(10px);
+      user-select: none;
     }
     .title-line {
       font-size: clamp(1.6rem, 5vw, 2.4rem);
@@ -103,6 +122,7 @@
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 12px rgba(200, 150, 255, 0.6);
       animation: glowPulse 4s ease-in-out infinite;
+      user-select: none;
     }
     .title-sub {
       font-size: clamp(1rem, 3vw, 1.2rem);
@@ -110,8 +130,10 @@
       font-weight: 600;
       margin-top: 4px;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      user-select: none;
     }
 
+    /* نوار لینک‌ها */
     .link-bar {
       display: flex;
       flex-wrap: wrap;
@@ -122,6 +144,7 @@
       animation: fadeInUp 1.2s ease forwards;
       opacity: 0;
       transform: translateY(10px);
+      user-select: none;
     }
     .link-bar a {
       background: rgba(255, 255, 255, 0.1);
@@ -131,6 +154,7 @@
       font-size: clamp(0.8rem, 3vw, 0.95rem);
       text-decoration: none;
       transition: all 0.3s ease;
+      user-select: none;
     }
     .link-bar a:hover {
       background: rgba(255, 255, 255, 0.25);
@@ -138,24 +162,28 @@
       transform: translateY(-2px);
     }
 
+    /* جعبه درباره من و تماس */
     .about-box,
     .contact-box {
       max-width: 900px;
       background: rgba(255, 255, 255, 0.08);
-      padding: 18px;
+      padding: 22px 24px;
       border-radius: 16px;
-      line-height: 1.8;
-      font-size: clamp(0.9rem, 3vw, 1rem);
+      line-height: 1.9;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
       text-align: justify;
       margin-bottom: 18px;
       opacity: 0;
       transform: translateY(30px);
       transition: all 1s ease;
-      box-shadow: 0 0 12px rgba(180, 100, 255, 0.3);
+      box-shadow: 0 0 15px rgba(180, 100, 255, 0.3);
       position: relative;
-      overflow: hidden; /* مهم: باعث می‌شود افکت shine محدود شود */
+      overflow: hidden; /* برای افکت شاین */
       overflow-wrap: break-word;
       word-spacing: 0.5px;
+      color: #e8dbff;
+      text-shadow: 0 0 7px rgba(180, 120, 255, 0.85);
+      user-select: text;
     }
     .about-box:before,
     .contact-box:before {
@@ -167,41 +195,33 @@
       height: 100%;
       background: linear-gradient(
         120deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0)
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0) 70%
       );
       transform: skewX(-25deg);
-      animation: shine 5s ease-in-out infinite;
+      animation: shine 3.5s ease-in-out infinite;
       pointer-events: none;
     }
-    @keyframes shine {
-      0% {
-        left: -50%;
-      }
-      50% {
-        left: 120%;
-      }
-      100% {
-        left: 120%;
-      }
-    }
+
+    /* ظاهر باکس وقتی visible */
     .visible {
       opacity: 1 !important;
       transform: translateY(0) !important;
     }
 
+    /* جعبه تماس */
     .contact-box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       text-align: left;
       animation: floatBox 6s ease-in-out infinite;
       max-width: 320px;
+      user-select: text;
     }
     @keyframes floatBox {
-      0%,
-      100% {
+      0%, 100% {
         transform: translateY(0);
       }
       50% {
@@ -212,29 +232,33 @@
       direction: ltr;
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.95rem;
+      gap: 8px;
+      font-size: 1rem;
       color: #f0e6ff;
       text-decoration: none;
       transition: all 0.3s ease;
+      user-select: text;
     }
     .contact-item:hover {
       color: #ffffff;
-      text-shadow: 0 0 6px rgba(200, 150, 255, 0.8);
+      text-shadow: 0 0 7px rgba(200, 150, 255, 0.8);
       transform: translateY(-2px);
     }
 
+    /* فوتر */
     .footer {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       margin-top: 18px;
-      opacity: 0.7;
+      opacity: 0.75;
       transition: opacity 0.3s;
+      user-select: none;
     }
     .footer a {
       color: white;
       text-decoration: none;
     }
 
+    /* سوئیچ زبان */
     .lang-switch {
       position: fixed;
       top: 12px;
@@ -242,6 +266,7 @@
       display: flex;
       gap: 6px;
       z-index: 99;
+      user-select: none;
     }
     .lang-switch button {
       background: rgba(255, 255, 255, 0.15);
@@ -258,25 +283,16 @@
       transform: scale(1.05);
     }
 
-    .smooth-switch {
-      animation: smoothFadeSlide 0.9s ease;
-    }
-    @keyframes smoothFadeSlide {
+    /* انیمیشن‌ها */
+    @keyframes shine {
       0% {
-        opacity: 1;
-        transform: translateY(0);
+        left: -50%;
       }
-      40% {
-        opacity: 0;
-        transform: translateY(-15px);
-      }
-      60% {
-        opacity: 0;
-        transform: translateY(15px);
+      50% {
+        left: 150%;
       }
       100% {
-        opacity: 1;
-        transform: translateY(0);
+        left: 150%;
       }
     }
     @keyframes fadeInUp {
@@ -286,8 +302,7 @@
       }
     }
     @keyframes glowPulse {
-      0%,
-      100% {
+      0%, 100% {
         text-shadow: 0 0 8px rgba(200, 150, 255, 0.6);
       }
       50% {
@@ -295,6 +310,7 @@
       }
     }
 
+    /* ریسپانسیو برای موبایل */
     @media (max-width: 480px) {
       .profile-container {
         width: 120px;
@@ -305,18 +321,47 @@
       }
       .link-bar a {
         padding: 6px 10px;
+        font-size: 0.9rem;
       }
       .contact-box {
         max-width: 95%;
-        padding: 10px;
+        padding: 14px 16px;
       }
       .contact-item {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
-      /* متن درباره من در موبایل راست‌چین و جاستیفای */
       .about-box {
-        text-align: justify !important;
-        direction: rtl;
+        font-size: 1.15rem;
+        line-height: 2.3;
+        text-align: center;
+        letter-spacing: 0.6px;
+        text-shadow: 0 0 12px rgba(220, 180, 255, 0.95);
+        padding: 25px 20px;
+        user-select: text;
+      }
+      .title-line {
+        font-size: clamp(2rem, 8vw, 3rem);
+        font-weight: 900;
+        background: linear-gradient(
+          90deg,
+          #ff99ff,
+          #cc66ff,
+          #9933ff,
+          #6600cc
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 18px rgba(220, 160, 255, 0.95);
+        animation: glowPulse 3s ease-in-out infinite;
+        user-select: none;
+      }
+      .title-sub {
+        font-size: clamp(1rem, 5vw, 1.4rem);
+        color: #f5e8ff;
+        font-weight: 700;
+        margin-top: 6px;
+        text-shadow: 0 0 10px rgba(180, 120, 255, 0.95);
+        user-select: none;
       }
     }
   </style>
@@ -329,8 +374,8 @@
     <button id="btn-en">English</button>
   </div>
 
-  <div class="profile-container">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+  <div class="profile-container" aria-label="عکس پروفایل دکتر سعید مجتبی‌زاده">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
       <defs>
         <clipPath id="circleView">
           <circle cx="50" cy="50" r="50" />
@@ -342,183 +387,192 @@
         width="100"
         height="100"
         preserveAspectRatio="xMidYMid slice"
+        alt="عکس دکتر سعید مجتبی‌زاده"
       />
     </svg>
   </div>
 
-  <div class="title-wrapper">
-    <h1 class="title-line" id="main-title">دکتر سعید مجتبی‌زاده</h1>
-    <h2 class="title-sub" id="sub-title">اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران</h2>
+  <div class="title-wrapper" role="banner">
+    <h1 class="title-line" id="main-title" lang="fa">دکتر سعید مجتبی‌زاده</h1>
+    <h2 class="title-sub" id="sub-title" lang="fa">اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران</h2>
   </div>
 
-  <div class="link-bar" id="links"></div>
+  <nav class="link-bar" id="links" aria-label="لینک‌های مهم"></nav>
 
-  <div class="about-box" id="about-text">
+  <section class="about-box" id="about-text" tabindex="0" aria-label="درباره دکتر سعید مجتبی‌زاده">
     دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.
-  </div>
+  </section>
 
-  <div class="contact-box" id="contact-box">
-    <a class="contact-item" href="mailto:mojtabazadeh@outlook.com">📧 mojtabazadeh@outlook.com</a>
-    <a class="contact-item" href="tel:+989334115773">📞 +98 933 411 5773</a>
-  </div>
+  <section class="contact-box" id="contact-box" aria-label="اطلاعات تماس">
+    <a class="contact-item" href="mailto:mojtabazadeh@outlook.com" aria-label="ارسال ایمیل به دکتر سعید مجتبی‌زاده">📧 mojtabazadeh@outlook.com</a>
+    <a class="contact-item" href="tel:+989334115773" aria-label="تماس تلفنی با دکتر سعید مجتبی‌زاده">📞 +98 933 411 5773</a>
+  </section>
 
-  <div class="footer" id="footer">سعید مجتبی‌زاده ©</div>
+  <footer class="footer" id="footer" role="contentinfo">سعید مجتبی‌زاده ©</footer>
 
   <script defer>
+    // داده‌های متنی برای دو زبان
     const data = {
       fa: {
         title: "دکتر سعید مجتبی‌زاده",
         sub: "اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",
         about: `دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.`,
         footer: "سعید مجتبی‌زاده ©",
-        links: [
-          { text: "پایگاه شخصی", href: "http://mojtabazadeh.ir/" },
-          { text: "پایگاه مقالات", href: "http://www.drmojtabazadeh.ir/" },
-          { text: "پایگاه مطالعات", href: "http://www.smojtabazadeh.ir/" },
-          { text: "اینستاگالری", href: "https://www.instagallery.ir/" },
-          { text: "پایگاه اَپرچِر", href: "http://mojtabazadeh-hasanlouei.ir/" },
-          { text: "گوگل اسکالر", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
-          { text: "پروفایل اورکید", href: "https://orcid.org/0000-0001-8508-4837" },
-          { text: "پایگاه انگلیسی", href: "https://www.mojtabazade.ir/" },
-        ],
+        contactEmail: "mojtabazadeh@outlook.com",
+        contactPhone: "+98 933 411 5773",
+        contactEmailLabel: "ارسال ایمیل به دکتر سعید مجتبی‌زاده",
+        contactPhoneLabel: "تماس تلفنی با دکتر سعید مجتبی‌زاده",
       },
       en: {
         title: "Dr. Saeed Mojtabazadeh",
-        sub: "Postdoc Fellow in Geotechnical Engineering",
-        about: `Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
-        footer: "Saeed Mojtabazadeh ©",
-        links: [
-          { text: "Website", href: "http://mojtabazadeh.ir/" },
-          { text: "Researches", href: "http://www.drmojtabazadeh.ir/" },
-          { text: "Studies", href: "http://www.smojtabazadeh.ir/" },
-          { text: "Instagallery", href: "https://www.instagallery.ir/" },
-          { text: "Aperture", href: "http://mojtabazadeh-hasanlouei.ir/" },
-          { text: "Google Scholar", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
-          { text: "ORCID Profile", href: "https://orcid.org/0000-0001-8508-4837" },
-          { text: "English Base", href: "https://www.mojtabazade.ir/" },
-        ],
+        sub: "The first postdoctoral researcher in seismic geotechnical engineering in Iran",
+        about: `Dr. Saeed Mojtabazadeh Hasanzadeh, as the first postdoctoral researcher in civil-geotechnical engineering in Iran, has focused since 2015 on developing computational algorithms and advanced numerical modeling in seismic geomechanics. His Ph.D. dissertation and postdoctoral research were devoted to the problem of propagation and scattering of seismic waves in orthotropic media including various topographical features using a time-domain direct half-space boundary element method. His research interests include developing numerical methods such as boundary element, finite element, and hybrid approaches for seismic numerical modeling and analysis, studying site effects due to surface and subsurface topographical features, nan/porous media mechanics, and seismic isolation.`,
+        footer: "© Saeed Mojtabazadeh",
+        contactEmail: "mojtabazadeh@outlook.com",
+        contactPhone: "+98 933 411 5773",
+        contactEmailLabel: "Send email to Dr. Saeed Mojtabazadeh",
+        contactPhoneLabel: "Call Dr. Saeed Mojtabazadeh",
       },
     };
 
-    const body = document.body;
+    // المان‌ها
+    const btnFa = document.getElementById("btn-fa");
+    const btnEn = document.getElementById("btn-en");
     const mainTitle = document.getElementById("main-title");
     const subTitle = document.getElementById("sub-title");
     const aboutText = document.getElementById("about-text");
-    const footerText = document.getElementById("footer");
-    const linksContainer = document.getElementById("links");
+    const footer = document.getElementById("footer");
     const contactBox = document.getElementById("contact-box");
-    const btnFa = document.getElementById("btn-fa");
-    const btnEn = document.getElementById("btn-en");
 
-    function createLinks(links) {
+    // لینک‌ها نمونه (می‌تونی دلخواه تغییر بدی)
+    const linksData = {
+      fa: [
+        { href: "https://mojtabazadeh.ir", text: "وب‌سایت" },
+        { href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ", text: "گوگل اسکولار" },
+        { href: "https://github.com/mojtabazadeh", text: "گیت‌هاب" },
+        { href: "https://www.linkedin.com/in/saeedmojtabazadeh", text: "لینکدین" },
+      ],
+      en: [
+        { href: "https://mojtabazadeh.ir", text: "Website" },
+        { href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ", text: "Google Scholar" },
+        { href: "https://github.com/mojtabazadeh", text: "GitHub" },
+        { href: "https://www.linkedin.com/in/saeedmojtabazadeh", text: "LinkedIn" },
+      ],
+    };
+
+    const linksContainer = document.getElementById("links");
+
+    // تابع نمایش لینک‌ها
+    function renderLinks(lang) {
       linksContainer.innerHTML = "";
-      links.forEach(({ text, href }) => {
+      linksData[lang].forEach((item) => {
         const a = document.createElement("a");
-        a.href = href;
+        a.href = item.href;
         a.target = "_blank";
         a.rel = "noopener noreferrer";
-        a.textContent = text;
+        a.textContent = item.text;
         linksContainer.appendChild(a);
       });
     }
 
-    function switchLang(lang) {
+    // تغییر زبان
+    function changeLanguage(lang) {
       if (lang === "fa") {
-        body.classList.remove("lang-en");
+        document.documentElement.lang = "fa";
+        document.body.classList.remove("lang-en");
+        mainTitle.lang = "fa";
+        subTitle.lang = "fa";
         mainTitle.textContent = data.fa.title;
         subTitle.textContent = data.fa.sub;
         aboutText.textContent = data.fa.about;
-        footerText.textContent = data.fa.footer;
-        createLinks(data.fa.links);
-        aboutText.style.textAlign = "justify";
-        aboutText.style.direction = "rtl";
+        footer.textContent = data.fa.footer;
+        contactBox.innerHTML = `
+          <a class="contact-item" href="mailto:${data.fa.contactEmail}" aria-label="${data.fa.contactEmailLabel}">📧 ${data.fa.contactEmail}</a>
+          <a class="contact-item" href="tel:${data.fa.contactPhone.replace(/[^+\d]/g, '')}" aria-label="${data.fa.contactPhoneLabel}">📞 ${data.fa.contactPhone}</a>
+        `;
+        renderLinks("fa");
       } else {
-        body.classList.add("lang-en");
+        document.documentElement.lang = "en";
+        document.body.classList.add("lang-en");
+        mainTitle.lang = "en";
+        subTitle.lang = "en";
         mainTitle.textContent = data.en.title;
         subTitle.textContent = data.en.sub;
         aboutText.textContent = data.en.about;
-        footerText.textContent = data.en.footer;
-        createLinks(data.en.links);
-        aboutText.style.textAlign = "left";
-        aboutText.style.direction = "ltr";
+        footer.textContent = data.en.footer;
+        contactBox.innerHTML = `
+          <a class="contact-item" href="mailto:${data.en.contactEmail}" aria-label="${data.en.contactEmailLabel}">📧 ${data.en.contactEmail}</a>
+          <a class="contact-item" href="tel:${data.en.contactPhone.replace(/[^+\d]/g, '')}" aria-label="${data.en.contactPhoneLabel}">📞 ${data.en.contactPhone}</a>
+        `;
+        renderLinks("en");
       }
-      // نمایش با انیمیشن ساده
-      aboutText.classList.remove("visible");
-      setTimeout(() => {
-        aboutText.classList.add("visible");
-      }, 50);
+      // افکت نمایش باکس درباره من و تماس
+      aboutText.classList.add("visible");
+      contactBox.classList.add("visible");
+      mainTitle.parentElement.style.opacity = "1";
+      mainTitle.parentElement.style.transform = "translateY(0)";
+      linksContainer.style.opacity = "1";
+      linksContainer.style.transform = "translateY(0)";
     }
 
-    btnFa.addEventListener("click", () => switchLang("fa"));
-    btnEn.addEventListener("click", () => switchLang("en"));
+    // رویداد دکمه‌ها
+    btnFa.addEventListener("click", () => changeLanguage("fa"));
+    btnEn.addEventListener("click", () => changeLanguage("en"));
 
     // مقدار اولیه
-    switchLang("fa");
-
-    // انیمیشن دیده شدن بخش ها
     window.addEventListener("load", () => {
-      document.querySelectorAll(".about-box, .contact-box, .title-wrapper, .link-bar").forEach((el) => {
-        el.classList.add("visible");
-      });
+      changeLanguage("fa");
     });
 
-    // کد ذرات پس‌زمینه ساده
+    // انیمیشن ذرات پس‌زمینه ساده و بهینه با کانواس
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
-    let width, height;
-    let particlesArray = [];
+    let width, height, particlesArray;
 
-    function resizeCanvas() {
+    function initCanvas() {
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
 
-    class Particle {
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.3;
-        this.speedY = (Math.random() - 0.5) * 0.3;
-        this.color = `rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1})`;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > width) this.speedX = -this.speedX;
-        if (this.y < 0 || this.y > height) this.speedY = -this.speedY;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.fillStyle = this.color;
-        ctx.shadowColor = "rgba(255, 255, 255, 0.7)";
-        ctx.shadowBlur = 6;
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function initParticles() {
       particlesArray = [];
-      let count = Math.floor((width * height) / 10000);
-      for (let i = 0; i < count; i++) {
-        particlesArray.push(new Particle());
+      const numParticles = Math.floor((width * height) / 8000);
+
+      for (let i = 0; i < numParticles; i++) {
+        particlesArray.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 1.4 + 0.4,
+          speedX: (Math.random() - 0.5) * 0.2,
+          speedY: (Math.random() - 0.5) * 0.2,
+          opacity: Math.random() * 0.6 + 0.2,
+        });
       }
     }
-    initParticles();
 
     function animateParticles() {
       ctx.clearRect(0, 0, width, height);
       particlesArray.forEach((p) => {
-        p.update();
-        p.draw();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200, 150, 255, ${p.opacity.toFixed(2)})`;
+        ctx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x > width) p.x = 0;
+        else if (p.x < 0) p.x = width;
+        if (p.y > height) p.y = 0;
+        else if (p.y < 0) p.y = height;
       });
       requestAnimationFrame(animateParticles);
     }
+
+    window.addEventListener("resize", () => {
+      initCanvas();
+    });
+
+    initCanvas();
     animateParticles();
   </script>
 </body>
