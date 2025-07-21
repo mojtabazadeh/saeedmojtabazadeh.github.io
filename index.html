@@ -1,186 +1,330 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>دکتر سعید مجتبی‌زاده</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-  <meta name="description" content="فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران">
-  <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی">
-  <meta name="author" content="Saeed Mojtabazadeh">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
+  />
+  <meta name="description" content="فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران" />
+  <meta
+    name="keywords"
+    content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی"
+  />
+  <meta name="author" content="Saeed Mojtabazadeh" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta property="og:title" content="دکتر سعید مجتبی‌زاده" />
+  <meta property="og:description" content="پایگاه دکتر سعید مجتبی‌زاده" />
+  <meta
+    property="og:image"
+    content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg"
+  />
+  <meta property="og:url" content="http://www.mojtabazadeh.ir/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{width:100%;height:100%;overflow-x:hidden}
-    body {
-      font-family:'Vazirmatn',sans-serif;
-      background:linear-gradient(135deg,#1a0033,#3b0066,#660099,#9933cc);
-      background-attachment: fixed;
-      color:white;
-      text-align:center;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:20px 10px 40px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    body.lang-en{font-family:'Poppins',sans-serif;direction:ltr;text-align:center}
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      /* دقت کن که overflow-y را تغییر ندادم */
+    }
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background: linear-gradient(135deg, #1a0033, #3b0066, #660099, #9933cc);
+      background-attachment: fixed;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px 40px;
+    }
+    body.lang-en {
+      font-family: "Poppins", sans-serif;
+      direction: ltr;
+      text-align: center;
+    }
 
-    #particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
     .profile-container {
-      width:150px;height:150px;
-      margin:25px auto 16px;
-      border-radius:50%;
-      box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
-      animation:floatMove 6s ease-in-out infinite;
-      background:rgba(255,255,255,0.05);
-      overflow:visible;
+      width: 150px;
+      height: 150px;
+      margin: 25px auto 16px;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(255, 120, 255, 0.6), 0 0 45px rgba(140, 70, 255, 0.3);
+      animation: floatMove 6s ease-in-out infinite;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: visible;
     }
-    .profile-container svg {width:100%;height:100%;display:block;}
+    .profile-container svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
     @keyframes floatMove {
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-6px)}
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
     }
 
     .title-wrapper {
-      max-width:90vw;margin-bottom:20px;
-      animation:fadeInUp 1s ease forwards;opacity:0;transform:translateY(10px);
+      max-width: 90vw;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(10px);
     }
     .title-line {
-      font-size:clamp(1.6rem,5vw,2.4rem);
-      font-weight:800;
-      background:linear-gradient(90deg,#ffccff,#cc99ff,#9966ff);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      text-shadow:0 0 12px rgba(200,150,255,0.6);
-      animation:glowPulse 4s ease-in-out infinite;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, #ffccff, #cc99ff, #9966ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(200, 150, 255, 0.6);
+      animation: glowPulse 4s ease-in-out infinite;
     }
     .title-sub {
-      font-size:clamp(1rem,3vw,1.2rem);
-      color:#e0c7ff;
-      font-weight:600;
-      margin-top:4px;
-      text-shadow:0 1px 3px rgba(0,0,0,0.4);
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: #e0c7ff;
+      font-weight: 600;
+      margin-top: 4px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
 
     .link-bar {
-      display:flex;flex-wrap:wrap;justify-content:center;
-      gap:10px;max-width:95vw;margin-bottom:16px;
-      animation:fadeInUp 1.2s ease forwards;opacity:0;transform:translateY(10px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 95vw;
+      margin-bottom: 16px;
+      animation: fadeInUp 1.2s ease forwards;
+      opacity: 0;
+      transform: translateY(10px);
     }
     .link-bar a {
-      background:rgba(255,255,255,0.1);
-      color:white;
-      padding:8px 14px;
-      border-radius:25px;
-      font-size:clamp(0.8rem,3vw,0.95rem);
-      text-decoration:none;
-      transition:all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 25px;
+      font-size: clamp(0.8rem, 3vw, 0.95rem);
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
     .link-bar a:hover {
-      background:rgba(255,255,255,0.25);
-      box-shadow:0 0 12px rgba(180,100,255,0.7);
-      transform:translateY(-2px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 12px rgba(180, 100, 255, 0.7);
+      transform: translateY(-2px);
     }
 
-    .about-box {
-      max-width:900px;
-      background:rgba(255,255,255,0.08);
-      padding:18px;
-      border-radius:16px;
-      line-height:1.9;
-      font-size:clamp(0.9rem,3.5vw,1rem);
-      text-align:justify;
-      word-wrap:break-word;
-      overflow-wrap:break-word;
-      margin-bottom:18px;
-      opacity:0;
-      transform:translateY(30px);
-      transition:all 1s ease;
-      box-shadow:0 0 12px rgba(180,100,255,0.3);
-      position:relative;
-      overflow:hidden;
+    .about-box,
+    .contact-box {
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 18px;
+      border-radius: 16px;
+      line-height: 1.8;
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      text-align: justify;
+      margin-bottom: 18px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+      box-shadow: 0 0 12px rgba(180, 100, 255, 0.3);
+      position: relative;
+      overflow-wrap: break-word;
+      word-spacing: 0.5px;
+      overflow: visible;
     }
-    .about-box:before {
-      content:"";
-      position:absolute;
-      top:0;left:-50%;
-      width:50%;height:100%;
-      background:linear-gradient(120deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
-      transform:skewX(-25deg);
-      animation:shine 5s ease-in-out infinite;
+    .about-box:before,
+    .contact-box:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+      transform: skewX(-25deg);
+      animation: shine 5s ease-in-out infinite;
     }
     @keyframes shine {
-      0%{left:-50%}
-      50%{left:120%}
-      100%{left:120%}
+      0% {
+        left: -50%;
+      }
+      50% {
+        left: 120%;
+      }
+      100% {
+        left: 120%;
+      }
     }
-    .visible {opacity:1!important;transform:translateY(0)!important}
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
 
     .contact-box {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      background:rgba(255,255,255,0.08);
-      padding:14px;
-      border-radius:16px;
-      box-shadow:0 0 12px rgba(180,100,255,0.3);
-      max-width:350px;
-      width:90%;
-      animation:floatBox 6s ease-in-out infinite;
-    }
-    .contact-item {
-      direction:ltr;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:6px;
-      font-size:clamp(0.9rem,3.2vw,1rem);
-      color:#f0e6ff;
-      text-decoration:none;
-      transition:all 0.3s ease;
-      background:rgba(255,255,255,0.05);
-      padding:6px 10px;
-      border-radius:10px;
-      width:100%;
-    }
-    .contact-item:hover {
-      color:#ffffff;
-      text-shadow:0 0 6px rgba(200,150,255,0.8);
-      transform:translateY(-2px);
-      background:rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+      animation: floatBox 6s ease-in-out infinite;
+      max-width: 320px;
     }
     @keyframes floatBox {
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-4px)}
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+    .contact-item {
+      direction: ltr;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+      color: #f0e6ff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .contact-item:hover {
+      color: #ffffff;
+      text-shadow: 0 0 6px rgba(200, 150, 255, 0.8);
+      transform: translateY(-2px);
     }
 
     .footer {
-      font-size:0.85rem;
-      margin-top:18px;
-      opacity:0.7;
+      font-size: 0.85rem;
+      margin-top: 18px;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
     }
 
     .lang-switch {
-      position:fixed;top:12px;left:12px;display:flex;gap:6px;z-index:99;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      gap: 6px;
+      z-index: 99;
     }
     .lang-switch button {
-      background:rgba(255,255,255,0.15);
-      color:white;border:none;padding:7px 14px;
-      border-radius:50px;cursor:pointer;font-size:0.8rem;
-      transition:all 0.3s ease;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
     }
     .lang-switch button:hover {
-      background:rgba(255,255,255,0.3);transform:scale(1.05);
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
     }
 
-    @media(max-width:480px){
-      .profile-container{width:120px;height:120px}
-      .link-bar{gap:6px}
-      .link-bar a{padding:6px 10px}
-      .contact-box{padding:12px;max-width:95%}
-      .about-box{padding:14px;font-size:0.95rem;line-height:1.85}
+    .smooth-switch {
+      animation: smoothFadeSlide 0.9s ease;
+    }
+    @keyframes smoothFadeSlide {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      40% {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+      60% {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes glowPulse {
+      0%,
+      100% {
+        text-shadow: 0 0 8px rgba(200, 150, 255, 0.6);
+      }
+      50% {
+        text-shadow: 0 0 14px rgba(200, 150, 255, 1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-container {
+        width: 120px;
+        height: 120px;
+      }
+      .link-bar {
+        gap: 6px;
+      }
+      .link-bar a {
+        padding: 6px 10px;
+      }
+      .contact-box {
+        max-width: 95%;
+        padding: 10px;
+      }
+      .contact-item {
+        font-size: 0.9rem;
+      }
+      .about-box {
+        text-align: justify;
+        line-height: 2;
+        font-size: 1rem;
+        overflow-wrap: break-word;
+        word-spacing: 0.5px;
+      }
     }
   </style>
 </head>
@@ -194,8 +338,18 @@
 
   <div class="profile-container">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-      <defs><clipPath id="circleView"><circle cx="50" cy="50" r="50"/></clipPath></defs>
-      <image clip-path="url(#circleView)" href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
+      <defs>
+        <clipPath id="circleView">
+          <circle cx="50" cy="50" r="50" />
+        </clipPath>
+      </defs>
+      <image
+        clip-path="url(#circleView)"
+        href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg"
+        width="100"
+        height="100"
+        preserveAspectRatio="xMidYMid slice"
+      />
     </svg>
   </div>
 
@@ -210,64 +364,153 @@
     دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.
   </div>
 
-  <div class="contact-box">
+  <div class="contact-box" id="contact-box">
     <a class="contact-item" href="mailto:mojtabazadeh@outlook.com">📧 mojtabazadeh@outlook.com</a>
     <a class="contact-item" href="tel:+989334115773">📞 +98 933 411 5773</a>
   </div>
 
-  <div class="footer">سعید مجتبی‌زاده ©</div>
+  <div class="footer" id="footer">سعید مجتبی‌زاده ©</div>
 
-<script>
-  const data={
-    fa:{
-      title:"دکتر سعید مجتبی‌زاده",
-      sub:"اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",
-      links:[
-        {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
-        {text:"پایگاه مقالات",href:"http://www.drmojtabazadeh.ir/"},
-        {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"}
-      ]
-    },
-    en:{
-      title:"Dr. Saeed Mojtabazadeh",
-      sub:"Postdoc Fellow in Geotechnical Engineering",
-      links:[
-        {text:"Website",href:"http://mojtabazadeh.ir/"},
-        {text:"Researches",href:"http://www.drmojtabazadeh.ir/"},
-        {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"}
-      ]
+  <script defer>
+    const data = {
+      fa: {
+        title: "دکتر سعید مجتبی‌زاده",
+        sub: "اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",
+        about: `دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.`,
+        footer: "سعید مجتبی‌زاده ©",
+        links: [
+          { text: "پایگاه شخصی", href: "http://mojtabazadeh.ir/" },
+          { text: "پایگاه مقالات", href: "http://www.drmojtabazadeh.ir/" },
+          { text: "پایگاه مطالعات", href: "http://www.smojtabazadeh.ir/" },
+          { text: "اینستاگالری", href: "https://www.instagallery.ir/" },
+          { text: "پایگاه اَپرچِر", href: "http://mojtabazadeh-hasanlouei.ir/" },
+          { text: "گوگل اسکالر", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
+          { text: "پروفایل اورکید", href: "https://orcid.org/0000-0001-8508-4837" },
+          { text: "پایگاه انگلیسی", href: "https://www.mojtabazade.ir/" },
+        ],
+      },
+      en: {
+        title: "Dr. Saeed Mojtabazadeh",
+        sub: "Postdoc Fellow in Geotechnical Engineering",
+        about: `Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
+        footer: "Saeed Mojtabazadeh ©",
+        links: [
+          { text: "Website", href: "http://mojtabazadeh.ir/" },
+          { text: "Researches", href: "http://www.drmojtabazadeh.ir/" },
+          { text: "Studies", href: "http://www.smojtabazadeh.ir/" },
+          { text: "Instagallery", href: "https://www.instagallery.ir/" },
+          { text: "Aperture", href: "http://mojtabazadeh-hasanlouei.ir/" },
+          { text: "Google Scholar", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
+          { text: "ORCID", href: "https://orcid.org/0000-0001-8508-4837" },
+          { text: "English Hub", href: "https://www.mojtabazade.ir/" },
+        ],
+      },
+    };
+
+    const mainTitle = document.getElementById("main-title"),
+      subTitle = document.getElementById("sub-title"),
+      linksContainer = document.getElementById("links"),
+      aboutText = document.getElementById("about-text"),
+      footer = document.getElementById("footer");
+
+    function buildLinks(lang) {
+      linksContainer.innerHTML = "";
+      data[lang].links.forEach((l) => {
+        const a = document.createElement("a");
+        a.href = l.href;
+        a.target = "_blank";
+        a.textContent = l.text;
+        linksContainer.appendChild(a);
+      });
     }
-  };
-  const mainTitle=document.getElementById("main-title"),
-        subTitle=document.getElementById("sub-title"),
-        linksContainer=document.getElementById("links");
-  function buildLinks(lang){
-    linksContainer.innerHTML="";
-    data[lang].links.forEach(l=>{
-      const a=document.createElement("a");
-      a.href=l.href;a.target="_blank";a.textContent=l.text;
-      linksContainer.appendChild(a);
-    });
-  }
-  function switchLang(lang){
-    localStorage.setItem("lang",lang);
-    setTimeout(()=>{
-      mainTitle.textContent=data[lang].title;
-      subTitle.textContent=data[lang].sub;
-      buildLinks(lang);
-      if(lang==="en"){
-        document.body.classList.add("lang-en");
-        document.documentElement.dir="ltr";
-      }else{
-        document.body.classList.remove("lang-en");
-        document.documentElement.dir="rtl";
+    function switchLang(lang) {
+      localStorage.setItem("lang", lang);
+      document.body.classList.add("smooth-switch");
+      setTimeout(() => {
+        mainTitle.textContent = data[lang].title;
+        subTitle.textContent = data[lang].sub;
+        aboutText.textContent = data[lang].about;
+        footer.textContent = data[lang].footer;
+        buildLinks(lang);
+        if (lang === "en") {
+          document.body.classList.add("lang-en");
+          document.documentElement.dir = "ltr";
+        } else {
+          document.body.classList.remove("lang-en");
+          document.documentElement.dir = "rtl";
+        }
+      }, 300);
+      setTimeout(() => document.body.classList.remove("smooth-switch"), 900);
+    }
+    const savedLang = localStorage.getItem("lang") || "fa";
+    switchLang(savedLang);
+    document.getElementById("btn-fa").onclick = () => switchLang("fa");
+    document.getElementById("btn-en").onclick = () => switchLang("en");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(document.getElementById("about-text"));
+    observer.observe(document.getElementById("contact-box"));
+
+    const canvas = document.getElementById("particles"),
+      ctx = canvas.getContext("2d");
+    let particles = [];
+    function createParticles() {
+      const count = Math.floor((window.innerWidth * window.innerHeight) / 9000);
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 1.8 + 1,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+      }));
+    }
+    function resizeParticles() {
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * ratio;
+      canvas.height = window.innerHeight * ratio;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(ratio, ratio);
+      createParticles();
+    }
+    resizeParticles();
+    window.addEventListener("resize", resizeParticles);
+
+    (function draw() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.fillStyle = "rgba(200,150,255,0.8)";
+      particles.forEach((p) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > window.innerWidth) p.dx *= -1;
+        if (p.y < 0 || p.y > window.innerHeight) p.dy *= -1;
+      });
+      ctx.strokeStyle = "rgba(200,150,255,0.2)";
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
       }
-    },300);
-  }
-  const savedLang=localStorage.getItem("lang")||"fa";
-  switchLang(savedLang);
-  document.getElementById("btn-fa").onclick=()=>switchLang("fa");
-  document.getElementById("btn-en").onclick=()=>switchLang("en");
-</script>
+      requestAnimationFrame(draw);
+    })();
+  </script>
 </body>
 </html>
