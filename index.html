@@ -46,11 +46,7 @@
       position:relative;
       overflow:visible;
     }
-    .profile-container svg {
-      width:100%;
-      height:100%;
-      display:block;
-    }
+    .profile-container svg {width:100%;height:100%;display:block}
     @keyframes floatMove {
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-6px)}
@@ -128,7 +124,20 @@
       margin-bottom:18px;
       box-shadow:0 0 12px rgba(180,100,255,0.3);
       animation:floatBox 7s ease-in-out infinite;
+      overflow-y:auto;
+      max-height:none;
     }
+
+    /* ✅ چپ و راست چین شدن متن درباره من بر اساس زبان */
+    body.lang-en .about-box {
+      text-align:justify;
+      text-align-last:left;
+    }
+    body:not(.lang-en) .about-box {
+      text-align:justify;
+      text-align-last:right;
+    }
+
     @keyframes floatBox {
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-4px)}
@@ -203,7 +212,11 @@
       .link-bar a{padding:6px 10px}
       .contact-box{max-width:95%;padding:10px;}
       .contact-item{font-size:0.9rem;}
-      .about-box{text-align:right}
+      .about-box{
+        max-height:none !important;
+        overflow-y:visible !important;
+        padding:14px;
+      }
     }
   </style>
 </head>
@@ -230,7 +243,7 @@
   <div class="link-bar" id="links"></div>
 
   <div class="about-box" id="about-text">
-    دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود. 
+    دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران...
   </div>
 
   <div class="contact-box">
@@ -247,7 +260,7 @@
       fa:{
         title:"دکتر سعید مجتبی‌زاده",
         sub:"اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",
-        about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود. `,
+        about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران...`,
         footer:"سعید مجتبی‌زاده ©",
         links:[
           {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
@@ -263,7 +276,7 @@
       en:{
         title:"Dr. Saeed Mojtabazadeh",
         sub:"Postdoc Fellow in Geotechnical Engineering",
-        about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
+        about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran...`,
         footer:"Saeed Mojtabazadeh ©",
         links:[
           {text:"Website",href:"http://mojtabazadeh.ir/"},
@@ -298,7 +311,7 @@
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
         aboutText.textContent=data[lang].about;
-        document.getElementById("footer").textContent=data[lang].footer; // ✅ فوتر اصلاح شد
+        document.getElementById("footer").textContent=data[lang].footer;
         buildLinks(lang);
         if(lang==="en"){
           document.body.classList.add("lang-en");
@@ -354,7 +367,7 @@
           const dx=particles[i].x-particles[j].x;
           const dy=particles[i].y-particles[j].y;
           const dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<120){
+          if(dist<100){
             ctx.beginPath();
             ctx.moveTo(particles[i].x,particles[i].y);
             ctx.lineTo(particles[j].x,particles[j].y);
