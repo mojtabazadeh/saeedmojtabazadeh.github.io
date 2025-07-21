@@ -38,7 +38,7 @@
     .profile-container {
       width:150px;
       height:150px;
-      margin:25px auto 16px;
+      margin:35px auto 16px;
       border-radius:50%;
       box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
       animation:floatMove 6s ease-in-out infinite;
@@ -46,15 +46,8 @@
       position:relative;
       overflow:visible;
     }
-    .profile-container svg {
-      width:100%;
-      height:100%;
-      display:block;
-    }
-    @keyframes floatMove {
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-6px)}
-    }
+    .profile-container svg {width:100%;height:100%;display:block;}
+    @keyframes floatMove {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
     .title-wrapper {
       max-width:90vw;margin-bottom:20px;
@@ -65,7 +58,7 @@
       font-weight:800;
       background:linear-gradient(90deg,#ffccff,#cc99ff,#9966ff);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      text-shadow:0 0 12px rgba(200,150,255,0.6);
+      text-shadow:0 0 14px rgba(200,150,255,0.8);
       animation:glowPulse 4s ease-in-out infinite;
     }
     .title-sub {
@@ -85,6 +78,8 @@
       background:rgba(255,255,255,0.1);
       color:white;
       padding:8px 14px;
+      min-width:90px;
+      text-align:center;
       border-radius:25px;
       font-size:clamp(0.8rem,3vw,0.95rem);
       text-decoration:none;
@@ -96,14 +91,19 @@
       transform:translateY(-2px);
     }
 
-    .frame-wrapper {
-      width:95%;max-width:900px;aspect-ratio:16/9;
-      border-radius:16px;overflow:hidden;
-      margin-top:10px;
-      background:rgba(0,0,0,0.25);backdrop-filter:blur(4px);
+    .about-wrapper {
+      width:95%;max-width:900px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(6px);
+      border-radius:16px;
+      padding:18px 14px;
+      line-height:1.8;
+      text-align:justify;
+      font-size:clamp(0.9rem,2.5vw,1rem);
+      box-shadow:0 0 14px rgba(180,120,255,0.3);
       animation:fadeInUp 1.4s ease forwards;opacity:0;transform:translateY(10px);
     }
-    .frame-wrapper iframe {width:100%;height:100%;border:none;display:block;border-radius:16px}
+    .about-wrapper p {margin-bottom:10px;color:#f3e8ff}
 
     .footer {font-size:0.8rem;margin-top:18px;opacity:0.7}
     .footer a {color:white;text-decoration:none}
@@ -113,35 +113,27 @@
     }
     .lang-switch button {
       background:rgba(255,255,255,0.15);
-      color:white;border:none;padding:6px 12px;
-      border-radius:50px;cursor:pointer;font-size:0.8rem;
+      color:white;border:none;
+      min-width:65px;
+      padding:6px 12px;
+      border-radius:50px;
+      cursor:pointer;
+      font-size:0.8rem;
+      text-align:center;
       transition:all 0.3s ease;
     }
     .lang-switch button:hover {
       background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    .smooth-switch {
-      animation: smoothFadeSlide 0.9s ease;
-    }
-    @keyframes smoothFadeSlide {
-      0%{opacity:1;transform:translateY(0)}
-      40%{opacity:0;transform:translateY(-15px)}
-      60%{opacity:0;transform:translateY(15px)}
-      100%{opacity:1;transform:translateY(0)}
-    }
-
+    .smooth-switch {animation: smoothFadeSlide 0.9s ease;}
+    @keyframes smoothFadeSlide {0%{opacity:1;transform:translateY(0)}40%{opacity:0;transform:translateY(-15px)}60%{opacity:0;transform:translateY(15px)}100%{opacity:1;transform:translateY(0)}}
     @keyframes fadeInUp {to {opacity:1;transform:translateY(0)}}
-    @keyframes glowPulse {
-      0%,100%{text-shadow:0 0 8px rgba(200,150,255,0.6)}
-      50%{text-shadow:0 0 14px rgba(200,150,255,1)}
-    }
+    @keyframes glowPulse {0%,100%{text-shadow:0 0 8px rgba(200,150,255,0.6)}50%{text-shadow:0 0 14px rgba(200,150,255,1)}}
 
     @media(max-width:480px){
-      .profile-container{
-        width:120px;
-        height:120px;
-      }
+      .profile-container{width:120px;height:120px;margin-top:30px}
+      .title-line{text-shadow:0 0 16px rgba(220,170,255,0.9);}
       .link-bar{gap:6px}
       .link-bar a{padding:6px 10px}
     }
@@ -151,17 +143,13 @@
   <canvas id="particles"></canvas>
 
   <div class="lang-switch">
-    <button id="btn-fa">Fa</button>
-    <button id="btn-en">En</button>
+    <button id="btn-fa">فارسی</button>
+    <button id="btn-en">English</button>
   </div>
 
   <div class="profile-container">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <clipPath id="circleView">
-          <circle cx="50" cy="50" r="50"/>
-        </clipPath>
-      </defs>
+      <defs><clipPath id="circleView"><circle cx="50" cy="50" r="50"/></clipPath></defs>
       <image clip-path="url(#circleView)" href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
     </svg>
   </div>
@@ -173,10 +161,7 @@
 
   <div class="link-bar" id="links"></div>
 
-  <div class="frame-wrapper">
-    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
-      allow="autoplay; fullscreen" allowfullscreen></iframe>
-  </div>
+  <div class="about-wrapper" id="about-text"></div>
 
   <div class="footer">
     © <a href="http://www.mojtabazadeh.ir/" target="_blank">Saeed Mojtabazadeh | www.mojtabazadeh.ir</a>
@@ -184,31 +169,44 @@
 
   <script defer>
     const data = {
-      fa:{title:"دکتر سعید مجتبی‌زاده",sub:"اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",links:[
-        {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
-        {text:"پایگاه مقالات",href:"http://www.drmojtabazadeh.ir/"},
-        {text:"پایگاه مطالعات",href:"http://www.smojtabazadeh.ir/"},
-        {text:"اینستاگالری",href:"https://www.instagallery.ir/"},
-        {text:"پایگاه اَپرچِر",href:"http://mojtabazadeh-hasanlouei.ir/"},
-        {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
-        {text:"پروفایل اورکید",href:"https://orcid.org/0000-0001-8508-4837"},
-        {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"},
-      ]},
-      en:{title:"Dr. Saeed Mojtabazadeh",sub:"Postdoc Fellow in Geotechnical Engineering",links:[
-        {text:"Website",href:"http://mojtabazadeh.ir/"},
-        {text:"Researches",href:"http://www.drmojtabazadeh.ir/"},
-        {text:"Study Hub",href:"http://www.smojtabazadeh.ir/"},
-        {text:"Instagallery",href:"https://www.instagallery.ir/"},
-        {text:"Aperture",href:"http://mojtabazadeh-hasanlouei.ir/"},
-        {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
-        {text:"ORCID",href:"https://orcid.org/0000-0001-8508-4837"},
-        {text:"English Website",href:"https://www.mojtabazade.ir/"},
-      ]}
+      fa:{
+        title:"دکتر سعید مجتبی‌زاده",
+        sub:"اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",
+        about:`<p>دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است.</p>
+        <p>از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود.</p>`,
+        links:[
+          {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
+          {text:"پایگاه مقالات",href:"http://www.drmojtabazadeh.ir/"},
+          {text:"پایگاه مطالعات",href:"http://www.smojtabazadeh.ir/"},
+          {text:"اینستاگالری",href:"https://www.instagallery.ir/"},
+          {text:"پایگاه اَپرچِر",href:"http://mojtabazadeh-hasanlouei.ir/"},
+          {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
+          {text:"پروفایل اورکید",href:"https://orcid.org/0000-0001-8508-4837"},
+          {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"}
+        ]
+      },
+      en:{
+        title:"Dr. Saeed Mojtabazadeh",
+        sub:"Postdoc Fellow in Geotechnical Engineering",
+        about:`<p>Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method.</p>
+        <p>He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.</p>`,
+        links:[
+          {text:"Website",href:"http://mojtabazadeh.ir/"},
+          {text:"Researches",href:"http://www.drmojtabazadeh.ir/"},
+          {text:"Study Hub",href:"http://www.smojtabazadeh.ir/"},
+          {text:"Instagallery",href:"https://www.instagallery.ir/"},
+          {text:"Aperture",href:"http://mojtabazadeh-hasanlouei.ir/"},
+          {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
+          {text:"ORCID",href:"https://orcid.org/0000-0001-8508-4837"},
+          {text:"English Website",href:"https://www.mojtabazade.ir/"}
+        ]
+      }
     };
 
     const mainTitle=document.getElementById("main-title"),
           subTitle=document.getElementById("sub-title"),
-          linksContainer=document.getElementById("links");
+          linksContainer=document.getElementById("links"),
+          aboutText=document.getElementById("about-text");
 
     function buildLinks(lang){
       linksContainer.innerHTML="";
@@ -225,6 +223,7 @@
       setTimeout(()=>{
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
+        aboutText.innerHTML=data[lang].about;
         buildLinks(lang);
         if(lang==="en"){
           document.body.classList.add("lang-en");
@@ -245,7 +244,7 @@
     const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
     let particles=[];
     function createParticles(){
-      const count=Math.floor((window.innerWidth*window.innerHeight)/12000);
+      const count=Math.min(120,Math.floor((window.innerWidth*window.innerHeight)/12000));
       particles=Array.from({length:count},()=>({
         x:Math.random()*window.innerWidth,
         y:Math.random()*window.innerHeight,
@@ -263,7 +262,7 @@
       createParticles();
     }
     resizeParticles();
-    window.addEventListener("resize",resizeParticles);
+    window.addEventListener("resize",()=>{resizeParticles();createParticles();});
 
     (function draw(){
       ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
