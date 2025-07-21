@@ -3,23 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <title>دکتر سعید مجتبی‌زاده</title>
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
   <meta name="description" content="فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران" />
-  <meta
-    name="keywords"
-    content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی"
-  />
+  <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی" />
   <meta name="author" content="Saeed Mojtabazadeh" />
 
   <meta property="og:title" content="دکتر سعید مجتبی‌زاده" />
   <meta property="og:description" content="پایگاه دکتر سعید مجتبی‌زاده" />
-  <meta
-    property="og:image"
-    content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg"
-  />
+  <meta property="og:image" content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" />
   <meta property="og:url" content="http://www.mojtabazadeh.ir/" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -45,7 +36,6 @@
       width: 100%;
       height: 100%;
       overflow-x: hidden;
-      /* دقت کن که overflow-y را تغییر ندادم */
     }
     body {
       font-family: "Vazirmatn", sans-serif;
@@ -163,9 +153,9 @@
       transition: all 1s ease;
       box-shadow: 0 0 12px rgba(180, 100, 255, 0.3);
       position: relative;
+      overflow: hidden; /* مهم: باعث می‌شود افکت shine محدود شود */
       overflow-wrap: break-word;
       word-spacing: 0.5px;
-      overflow: visible;
     }
     .about-box:before,
     .contact-box:before {
@@ -175,9 +165,14 @@
       left: -50%;
       width: 50%;
       height: 100%;
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0)
+      );
       transform: skewX(-25deg);
       animation: shine 5s ease-in-out infinite;
+      pointer-events: none;
     }
     @keyframes shine {
       0% {
@@ -318,12 +313,10 @@
       .contact-item {
         font-size: 0.9rem;
       }
+      /* متن درباره من در موبایل راست‌چین و جاستیفای */
       .about-box {
-        text-align: justify;
-        line-height: 2;
-        font-size: 1rem;
-        overflow-wrap: break-word;
-        word-spacing: 0.5px;
+        text-align: justify !important;
+        direction: rtl;
       }
     }
   </style>
@@ -401,116 +394,132 @@
           { text: "Instagallery", href: "https://www.instagallery.ir/" },
           { text: "Aperture", href: "http://mojtabazadeh-hasanlouei.ir/" },
           { text: "Google Scholar", href: "https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en" },
-          { text: "ORCID", href: "https://orcid.org/0000-0001-8508-4837" },
-          { text: "English Hub", href: "https://www.mojtabazade.ir/" },
+          { text: "ORCID Profile", href: "https://orcid.org/0000-0001-8508-4837" },
+          { text: "English Base", href: "https://www.mojtabazade.ir/" },
         ],
       },
     };
 
-    const mainTitle = document.getElementById("main-title"),
-      subTitle = document.getElementById("sub-title"),
-      linksContainer = document.getElementById("links"),
-      aboutText = document.getElementById("about-text"),
-      footer = document.getElementById("footer");
+    const body = document.body;
+    const mainTitle = document.getElementById("main-title");
+    const subTitle = document.getElementById("sub-title");
+    const aboutText = document.getElementById("about-text");
+    const footerText = document.getElementById("footer");
+    const linksContainer = document.getElementById("links");
+    const contactBox = document.getElementById("contact-box");
+    const btnFa = document.getElementById("btn-fa");
+    const btnEn = document.getElementById("btn-en");
 
-    function buildLinks(lang) {
+    function createLinks(links) {
       linksContainer.innerHTML = "";
-      data[lang].links.forEach((l) => {
+      links.forEach(({ text, href }) => {
         const a = document.createElement("a");
-        a.href = l.href;
+        a.href = href;
         a.target = "_blank";
-        a.textContent = l.text;
+        a.rel = "noopener noreferrer";
+        a.textContent = text;
         linksContainer.appendChild(a);
       });
     }
+
     function switchLang(lang) {
-      localStorage.setItem("lang", lang);
-      document.body.classList.add("smooth-switch");
-      setTimeout(() => {
-        mainTitle.textContent = data[lang].title;
-        subTitle.textContent = data[lang].sub;
-        aboutText.textContent = data[lang].about;
-        footer.textContent = data[lang].footer;
-        buildLinks(lang);
-        if (lang === "en") {
-          document.body.classList.add("lang-en");
-          document.documentElement.dir = "ltr";
-        } else {
-          document.body.classList.remove("lang-en");
-          document.documentElement.dir = "rtl";
-        }
-      }, 300);
-      setTimeout(() => document.body.classList.remove("smooth-switch"), 900);
-    }
-    const savedLang = localStorage.getItem("lang") || "fa";
-    switchLang(savedLang);
-    document.getElementById("btn-fa").onclick = () => switchLang("fa");
-    document.getElementById("btn-en").onclick = () => switchLang("en");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.2 }
-    );
-    observer.observe(document.getElementById("about-text"));
-    observer.observe(document.getElementById("contact-box"));
-
-    const canvas = document.getElementById("particles"),
-      ctx = canvas.getContext("2d");
-    let particles = [];
-    function createParticles() {
-      const count = Math.floor((window.innerWidth * window.innerHeight) / 9000);
-      particles = Array.from({ length: count }, () => ({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        r: Math.random() * 1.8 + 1,
-        dx: (Math.random() - 0.5) * 0.4,
-        dy: (Math.random() - 0.5) * 0.4,
-      }));
-    }
-    function resizeParticles() {
-      const ratio = window.devicePixelRatio || 1;
-      canvas.width = window.innerWidth * ratio;
-      canvas.height = window.innerHeight * ratio;
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.scale(ratio, ratio);
-      createParticles();
-    }
-    resizeParticles();
-    window.addEventListener("resize", resizeParticles);
-
-    (function draw() {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.fillStyle = "rgba(200,150,255,0.8)";
-      particles.forEach((p) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > window.innerWidth) p.dx *= -1;
-        if (p.y < 0 || p.y > window.innerHeight) p.dy *= -1;
-      });
-      ctx.strokeStyle = "rgba(200,150,255,0.2)";
-      ctx.lineWidth = 0.5;
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
+      if (lang === "fa") {
+        body.classList.remove("lang-en");
+        mainTitle.textContent = data.fa.title;
+        subTitle.textContent = data.fa.sub;
+        aboutText.textContent = data.fa.about;
+        footerText.textContent = data.fa.footer;
+        createLinks(data.fa.links);
+        aboutText.style.textAlign = "justify";
+        aboutText.style.direction = "rtl";
+      } else {
+        body.classList.add("lang-en");
+        mainTitle.textContent = data.en.title;
+        subTitle.textContent = data.en.sub;
+        aboutText.textContent = data.en.about;
+        footerText.textContent = data.en.footer;
+        createLinks(data.en.links);
+        aboutText.style.textAlign = "left";
+        aboutText.style.direction = "ltr";
       }
-      requestAnimationFrame(draw);
-    })();
+      // نمایش با انیمیشن ساده
+      aboutText.classList.remove("visible");
+      setTimeout(() => {
+        aboutText.classList.add("visible");
+      }, 50);
+    }
+
+    btnFa.addEventListener("click", () => switchLang("fa"));
+    btnEn.addEventListener("click", () => switchLang("en"));
+
+    // مقدار اولیه
+    switchLang("fa");
+
+    // انیمیشن دیده شدن بخش ها
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".about-box, .contact-box, .title-wrapper, .link-bar").forEach((el) => {
+        el.classList.add("visible");
+      });
+    });
+
+    // کد ذرات پس‌زمینه ساده
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+    let particlesArray = [];
+
+    function resizeCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.color = `rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1})`;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > width) this.speedX = -this.speedX;
+        if (this.y < 0 || this.y > height) this.speedY = -this.speedY;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = "rgba(255, 255, 255, 0.7)";
+        ctx.shadowBlur = 6;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particlesArray = [];
+      let count = Math.floor((width * height) / 10000);
+      for (let i = 0; i < count; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+    initParticles();
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      particlesArray.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
   </script>
 </body>
 </html>
