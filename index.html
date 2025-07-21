@@ -43,14 +43,9 @@
       box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
       animation:floatMove 6s ease-in-out infinite;
       background:rgba(255,255,255,0.05);
-      position:relative;
       overflow:visible;
     }
-    .profile-container svg {
-      width:100%;
-      height:100%;
-      display:block;
-    }
+    .profile-container svg {width:100%;height:100%;display:block;}
     @keyframes floatMove {
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-6px)}
@@ -96,7 +91,7 @@
       transform:translateY(-2px);
     }
 
-    .about-box {
+    .about-box, .contact-box {
       max-width:900px;
       background:rgba(255,255,255,0.08);
       padding:18px;
@@ -105,26 +100,42 @@
       font-size:clamp(0.9rem,3vw,1rem);
       text-align:justify;
       margin-bottom:18px;
+      opacity:0;
+      transform:translateY(30px);
+      transition:all 1s ease;
       box-shadow:0 0 12px rgba(180,100,255,0.3);
-      animation:floatBox 7s ease-in-out infinite;
+      position:relative;
+      overflow:hidden;
+    }
+    .about-box:before, .contact-box:before {
+      content:"";
+      position:absolute;
+      top:0;left:-50%;
+      width:50%;height:100%;
+      background:linear-gradient(120deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
+      transform:skewX(-25deg);
+      animation:shine 5s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0%{left:-50%}
+      50%{left:120%}
+      100%{left:120%}
+    }
+    .visible {
+      opacity:1!important;
+      transform:translateY(0)!important;
+    }
+
+    .contact-box {
+      display:flex;flex-direction:column;align-items:center;
+      gap:8px;
+      text-align:left;
+      animation:floatBox 6s ease-in-out infinite;
+      max-width:320px;
     }
     @keyframes floatBox {
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-4px)}
-    }
-
-    .contact-box {
-      margin-top:8px;
-      padding:12px 18px;
-      border-radius:16px;
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 0 12px rgba(180,100,255,0.3);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:6px;
-      animation: contactGlow 4s ease-in-out infinite, floatBox 6s ease-in-out infinite;
-      max-width:320px;
     }
     .contact-item {
       direction:ltr;
@@ -141,13 +152,13 @@
       text-shadow:0 0 6px rgba(200,150,255,0.8);
       transform:translateY(-2px);
     }
-    .contact-icon {font-size:1.1rem}
-    @keyframes contactGlow {
-      0%,100% { box-shadow:0 0 10px rgba(180,100,255,0.3); }
-      50% { box-shadow:0 0 18px rgba(200,150,255,0.5); }
-    }
 
-    .footer {font-size:0.8rem;margin-top:18px;opacity:0.7}
+    .footer {
+      font-size:0.85rem;
+      margin-top:18px;
+      opacity:0.7;
+      transition:opacity 0.3s;
+    }
     .footer a {color:white;text-decoration:none}
 
     .lang-switch {
@@ -209,16 +220,16 @@
   <div class="link-bar" id="links"></div>
 
   <div class="about-box" id="about-text">
-    دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است...
+    دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران...
   </div>
 
-  <div class="contact-box">
-    <a class="contact-item" href="mailto:mojtabazadeh@outlook.com"><span class="contact-icon">📧</span>mojtabazadeh@outlook.com</a>
-    <a class="contact-item" href="tel:+989334115773"><span class="contact-icon">📞</span>+98 933 411 5773</a>
+  <div class="contact-box" id="contact-box">
+    <a class="contact-item" href="mailto:mojtabazadeh@outlook.com">📧 mojtabazadeh@outlook.com</a>
+    <a class="contact-item" href="tel:+989334115773">📞 +98 933 411 5773</a>
   </div>
 
-  <div class="footer">
-    © <a href="http://www.mojtabazadeh.ir/" target="_blank">Saeed Mojtabazadeh | www.mojtabazadeh.ir</a>
+  <div class="footer" id="footer">
+    © سعید مجتبی‌زاده
   </div>
 
   <script defer>
@@ -227,6 +238,7 @@
         title:"دکتر سعید مجتبی‌زاده",
         sub:"اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",
         about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران...`,
+        footer:"© سعید مجتبی‌زاده",
         links:[
           {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
           {text:"پایگاه مقالات",href:"http://www.drmojtabazadeh.ir/"},
@@ -242,6 +254,7 @@
         title:"Dr. Saeed Mojtabazadeh",
         sub:"Postdoc Fellow in Geotechnical Engineering",
         about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran...`,
+        footer:"Saeed Mojtabazadeh ©",
         links:[
           {text:"Website",href:"http://mojtabazadeh.ir/"},
           {text:"Researches",href:"http://www.drmojtabazadeh.ir/"},
@@ -258,7 +271,8 @@
     const mainTitle=document.getElementById("main-title"),
           subTitle=document.getElementById("sub-title"),
           linksContainer=document.getElementById("links"),
-          aboutText=document.getElementById("about-text");
+          aboutText=document.getElementById("about-text"),
+          footer=document.getElementById("footer");
 
     function buildLinks(lang){
       linksContainer.innerHTML="";
@@ -275,6 +289,7 @@
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
         aboutText.textContent=data[lang].about;
+        footer.textContent=data[lang].footer;
         buildLinks(lang);
         if(lang==="en"){
           document.body.classList.add("lang-en");
@@ -290,6 +305,14 @@
     switchLang(savedLang);
     document.getElementById("btn-fa").onclick=()=>switchLang("fa");
     document.getElementById("btn-en").onclick=()=>switchLang("en");
+
+    const observer=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting)e.target.classList.add("visible");
+      });
+    },{threshold:0.2});
+    observer.observe(document.getElementById("about-text"));
+    observer.observe(document.getElementById("contact-box"));
 
     const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
     let particles=[];
@@ -325,15 +348,15 @@
       });
       ctx.strokeStyle="rgba(200,150,255,0.2)";
       ctx.lineWidth=0.5;
-      for(let i=0;i<particles.length;i++){
-        for(let j=i+1;j<particles.length;j++){
-          const dx=particles[i].x-particles[j].x;
-          const dy=particles[i].y-particles[j].y;
-          const dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<120){
+            for(let i=0; i<particles.length; i++){
+        for(let j=i+1; j<particles.length; j++){
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if(dist < 120){
             ctx.beginPath();
-            ctx.moveTo(particles[i].x,particles[i].y);
-            ctx.lineTo(particles[j].x,particles[j].y);
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
           }
         }
