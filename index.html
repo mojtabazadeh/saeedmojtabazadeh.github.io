@@ -5,7 +5,15 @@
   <title>دکتر سعید مجتبی‌زاده</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <meta name="description" content="اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران">
+  <meta name="keywords" content="دکتر سعید مجتبی‌زاده, Saeed Mojtabazadeh, ژئوتکنیک, پژوهشگر, نوآوری علمی">
   <meta name="author" content="Saeed Mojtabazadeh">
+
+  <meta property="og:title" content="دکتر سعید مجتبی‌زاده">
+  <meta property="og:description" content="پایگاه دکتر سعید مجتبی‌زاده">
+  <meta property="og:image" content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg">
+  <meta property="og:url" content="http://www.mojtabazadeh.ir/">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/png" sizes="512x512" href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -14,37 +22,34 @@
     html,body{width:100%;height:100%;overflow-x:hidden}
     body {
       font-family:'Vazirmatn',sans-serif;
-      background:#0d0d1a;
+      background:#000;
       color:white;
       text-align:center;
       display:flex;
       flex-direction:column;
       align-items:center;
       padding:20px 10px 40px;
-      position:relative;
     }
     body.lang-en{font-family:'Poppins',sans-serif;direction:ltr;text-align:center}
 
-    /* ✅ ذرات */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
+    #particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
 
     .profile-container {
-      width:150px;height:150px;
+      width:150px;
+      height:150px;
       margin:25px auto 16px;
       border-radius:50%;
-      box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
+      box-shadow:0 8px 22px rgba(255,220,150,0.5);
       animation:floatMove 6s ease-in-out infinite;
       background:rgba(255,255,255,0.05);
+      position:relative;
       overflow:visible;
     }
-    .profile-container svg {width:100%;height:100%;display:block}
+    .profile-container svg {
+      width:100%;
+      height:100%;
+      display:block;
+    }
     @keyframes floatMove {
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-6px)}
@@ -57,18 +62,14 @@
     .title-line {
       font-size:clamp(1.6rem,5vw,2.4rem);
       font-weight:800;
-      background:linear-gradient(90deg,#ffccff,#cc99ff,#9966ff);
+      background:linear-gradient(90deg,#fff2a8,#ffc94d,#ffb400);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      text-shadow:0 0 12px rgba(200,150,255,0.6);
-      animation:glowPulse 4s ease-in-out infinite, shine 3s linear infinite;
-      background-size:200% auto;
-    }
-    @keyframes shine {
-      to{background-position:200% center}
+      text-shadow:0 0 12px rgba(255,211,108,0.6);
+      animation:glowPulse 4s ease-in-out infinite;
     }
     .title-sub {
       font-size:clamp(1rem,3vw,1.2rem);
-      color:#e0c7ff;
+      color:#ffddaa;
       font-weight:600;
       margin-top:4px;
       text-shadow:0 1px 3px rgba(0,0,0,0.4);
@@ -84,69 +85,24 @@
       color:white;
       padding:8px 14px;
       border-radius:25px;
-      font-size:clamp(0.85rem,3vw,1rem);
+      font-size:clamp(0.8rem,3vw,0.95rem);
       text-decoration:none;
       transition:all 0.3s ease;
     }
     .link-bar a:hover {
       background:rgba(255,255,255,0.25);
-      box-shadow:0 0 12px rgba(180,100,255,0.7);
+      box-shadow:0 0 12px rgba(255,200,100,0.7);
       transform:translateY(-2px);
     }
 
-    .about-box {
-      position:relative;
-      max-width:900px;
-      background:rgba(255,255,255,0.08);
-      padding:18px;
-      border-radius:16px;
-      line-height:1.8;
-      font-size:clamp(0.9rem,3vw,1rem);
-      text-align:justify;
-      margin-bottom:18px;
-      box-shadow:0 0 12px rgba(180,100,255,0.3);
-      animation:floatBox 7s ease-in-out infinite;
-      overflow-y:auto;
-      max-height:40vh;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior:smooth;
+    .frame-wrapper {
+      width:95%;max-width:900px;aspect-ratio:16/9;
+      border-radius:16px;overflow:hidden;
+      margin-top:10px;
+      background:rgba(0,0,0,0.25);backdrop-filter:blur(4px);
+      animation:fadeInUp 1.4s ease forwards;opacity:0;transform:translateY(10px);
     }
-    body.lang-en .about-box {text-align:justify;text-align-last:left}
-    body:not(.lang-en) .about-box {text-align:justify;text-align-last:right}
-    @keyframes floatBox {
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-4px)}
-    }
-
-    .contact-box {
-      margin-top:8px;
-      padding:12px 18px;
-      border-radius:16px;
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 0 12px rgba(180,100,255,0.3);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:6px;
-      animation: contactGlow 4s ease-in-out infinite, floatBox 6s ease-in-out infinite;
-      max-width:320px;
-    }
-    .contact-item {
-      direction:ltr;
-      display:flex;align-items:center;
-      gap:6px;font-size:0.95rem;
-      color:#f0e6ff;text-decoration:none;
-      transition:all 0.3s ease;
-    }
-    .contact-item:hover {
-      color:#ffffff;
-      text-shadow:0 0 6px rgba(200,150,255,0.8);
-      transform:translateY(-2px);
-    }
-    @keyframes contactGlow {
-      0%,100% { box-shadow:0 0 10px rgba(180,100,255,0.3); }
-      50% { box-shadow:0 0 18px rgba(200,150,255,0.5); }
-    }
+    .frame-wrapper iframe {width:100%;height:100%;border:none;display:block;border-radius:16px}
 
     .footer {font-size:0.8rem;margin-top:18px;opacity:0.7}
     .footer a {color:white;text-decoration:none}
@@ -156,7 +112,7 @@
     }
     .lang-switch button {
       background:rgba(255,255,255,0.15);
-      color:white;border:none;padding:7px 14px;
+      color:white;border:none;padding:6px 12px;
       border-radius:50px;cursor:pointer;font-size:0.8rem;
       transition:all 0.3s ease;
     }
@@ -164,93 +120,94 @@
       background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    .smooth-switch {animation:smoothFadeSlide 0.9s ease;}
+    .smooth-switch {
+      animation: smoothFadeSlide 0.9s ease;
+    }
     @keyframes smoothFadeSlide {
       0%{opacity:1;transform:translateY(0)}
       40%{opacity:0;transform:translateY(-15px)}
       60%{opacity:0;transform:translateY(15px)}
       100%{opacity:1;transform:translateY(0)}
     }
-    @keyframes fadeInUp {to{opacity:1;transform:translateY(0)}}
+
+    @keyframes fadeInUp {to {opacity:1;transform:translateY(0)}}
     @keyframes glowPulse {
-      0%,100%{text-shadow:0 0 8px rgba(200,150,255,0.6)}
-      50%{text-shadow:0 0 14px rgba(200,150,255,1)}
+      0%,100%{text-shadow:0 0 8px rgba(255,211,108,0.6)}
+      50%{text-shadow:0 0 14px rgba(255,211,108,1)}
     }
 
     @media(max-width:480px){
-      .profile-container{width:120px;height:120px;}
+      .profile-container{
+        width:120px;
+        height:120px;
+      }
       .link-bar{gap:6px}
-      .link-bar a{padding:7px 12px;font-size:0.9rem}
-      .about-box {max-height:35vh !important;padding:14px}
-      .contact-box {max-width:95vw;padding:14px 16px;font-size:0.95rem}
+      .link-bar a{padding:6px 10px}
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
+  <canvas id="particles"></canvas>
 
   <div class="lang-switch">
-    <button id="btn-fa">فارسی</button>
-    <button id="btn-en">English</button>
+    <button id="btn-fa">Fa</button>
+    <button id="btn-en">En</button>
   </div>
 
   <div class="profile-container">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-      <defs><clipPath id="circleView"><circle cx="50" cy="50" r="50"/></clipPath></defs>
+      <defs>
+        <clipPath id="circleView">
+          <circle cx="50" cy="50" r="50"/>
+        </clipPath>
+      </defs>
       <image clip-path="url(#circleView)" href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
     </svg>
   </div>
 
   <div class="title-wrapper">
     <h1 class="title-line" id="main-title">دکتر سعید مجتبی‌زاده</h1>
-    <h2 class="title-sub" id="sub-title">اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران</h2>
+    <h2 class="title-sub" id="sub-title">فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای</h2>
   </div>
 
   <div class="link-bar" id="links"></div>
 
-  <div class="about-box" id="about-text" tabindex="0" aria-label="درباره دکتر سعید مجتبی‌زاده">
-    <!-- متن درباره من طبق زبان تغییر می‌کند -->
+  <div class="frame-wrapper">
+    <iframe src="https://www.aparat.com/video/video/embed/videohash/x722241/vt/frame?autoplay=false"
+      allow="autoplay; fullscreen" allowfullscreen></iframe>
   </div>
 
-  <div class="contact-box">
-    <a class="contact-item" href="mailto:mojtabazadeh@outlook.com">📧 mojtabazadeh@outlook.com</a>
-    <a class="contact-item" href="tel:+989334115773">📞 +98 933 411 5773</a>
+  <div class="footer">
+    © <a href="http://www.mojtabazadeh.ir/" target="_blank">Saeed Mojtabazadeh | www.mojtabazadeh.ir</a>
   </div>
 
-  <div class="footer" id="footer">سعید مجتبی‌زاده ©</div>
-
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    /* ✅ افکت ذرات */
-    particlesJS("particles-js", {
-      particles: {
-        number: {value: 80, density:{enable:true,value_area:800}},
-        color: {value:"#bb86fc"},
-        shape: {type:"circle"},
-        opacity:{value:0.5,random:true},
-        size:{value:3,random:true},
-        line_linked:{enable:true,distance:150,color:"#bb86fc",opacity:0.4,width:1},
-        move:{enable:true,speed:2,direction:"none",out_mode:"out"}
-      },
-      interactivity:{
-        events:{onhover:{enable:true,mode:"grab"},onclick:{enable:true,mode:"push"}},
-        modes:{grab:{distance:200,line_linked:{opacity:0.6}},push:{particles_nb:4}}
-      },
-      retina_detect:true
-    });
-
-    /* ✅ تغییر زبان */
-    const data={fa:{title:"دکتر سعید مجتبی‌زاده",sub:"اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",
-    about:`دکتر سعید مجتبی‌زاده حسنلوئی...`,
-    footer:"سعید مجتبی‌زاده ©",links:[{text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"}]},
-    en:{title:"Dr. Saeed Mojtabazadeh",sub:"Postdoc Fellow in Geotechnical Engineering",
-    about:`Dr. Saeed Mojtabazadeh is...`,
-    footer:"Saeed Mojtabazadeh ©",links:[{text:"Website",href:"http://mojtabazadeh.ir/"}]}};
+  <script defer>
+    const data = {
+      fa:{title:"دکتر سعید مجتبی‌زاده",sub:"فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای",links:[
+        {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
+        {text:"پایگاه مقالات",href:"http://www.drmojtabazadeh.ir/"},
+        {text:"پایگاه مطالعات",href:"http://www.smojtabazadeh.ir/"},
+        {text:"اینستاگالری",href:"https://www.instagallery.ir/"},
+        {text:"پایگاه اَپرچِر",href:"https://www.mojtabazadeh-hasanlouei.ir/"},
+        {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
+        {text:"پروفایل اورکید",href:"https://orcid.org/0000-0001-8508-4837"},
+        {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"},
+      ]},
+      en:{title:"Dr. Saeed Mojtabazadeh",sub:"Postdoctoral Fellow in Geotechnical Engineering",links:[
+        {text:"Personal Website",href:"http://mojtabazadeh.ir/"},
+        {text:"Research Articles",href:"http://www.drmojtabazadeh.ir/"},
+        {text:"Study Hub",href:"http://www.smojtabazadeh.ir/"},
+        {text:"Instagallery",href:"https://www.instagallery.ir/"},
+        {text:"Aperture Hub",href:"https://www.mojtabazadeh-hasanlouei.ir/"},
+        {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
+        {text:"ORCID Profile",href:"https://orcid.org/0000-0001-8508-4837"},
+        {text:"English Website",href:"https://www.mojtabazade.ir/"},
+      ]}
+    };
 
     const mainTitle=document.getElementById("main-title"),
           subTitle=document.getElementById("sub-title"),
-          linksContainer=document.getElementById("links"),
-          aboutText=document.getElementById("about-text");
+          linksContainer=document.getElementById("links");
 
     function buildLinks(lang){
       linksContainer.innerHTML="";
@@ -260,24 +217,79 @@
         linksContainer.appendChild(a);
       });
     }
+
     function switchLang(lang){
       localStorage.setItem("lang",lang);
       document.body.classList.add("smooth-switch");
       setTimeout(()=>{
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
-        aboutText.textContent=data[lang].about;
-        document.getElementById("footer").textContent=data[lang].footer;
         buildLinks(lang);
-        if(lang==="en"){document.body.classList.add("lang-en");document.documentElement.dir="ltr";}
-        else{document.body.classList.remove("lang-en");document.documentElement.dir="rtl";}
+        if(lang==="en"){
+          document.body.classList.add("lang-en");
+          document.documentElement.dir="ltr";
+        } else {
+          document.body.classList.remove("lang-en");
+          document.documentElement.dir="rtl";
+        }
       },300);
       setTimeout(()=>document.body.classList.remove("smooth-switch"),900);
     }
+
     const savedLang=localStorage.getItem("lang")||"fa";
     switchLang(savedLang);
-    document.getElementById("btn-fa").addEventListener("click",()=>switchLang("fa"));
-    document.getElementById("btn-en").addEventListener("click",()=>switchLang("en"));
+    document.getElementById("btn-fa").onclick=()=>switchLang("fa");
+    document.getElementById("btn-en").onclick=()=>switchLang("en");
+
+    const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
+    let particles=[];
+    function createParticles(){
+      const count=Math.floor((window.innerWidth*window.innerHeight)/12000);
+      particles=Array.from({length:count},()=>({
+        x:Math.random()*window.innerWidth,
+        y:Math.random()*window.innerHeight,
+        r:Math.random()*1.8+1,
+        dx:(Math.random()-0.5)*0.4,
+        dy:(Math.random()-0.5)*0.4
+      }));
+    }
+    function resizeParticles(){
+      const ratio=window.devicePixelRatio||1;
+      canvas.width=window.innerWidth*ratio;
+      canvas.height=window.innerHeight*ratio;
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.scale(ratio,ratio);
+      createParticles();
+    }
+    resizeParticles();
+    window.addEventListener("resize",resizeParticles);
+
+    (function draw(){
+      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+      ctx.fillStyle="rgba(255,220,150,0.8)";
+      particles.forEach(p=>{
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+        p.x+=p.dx;p.y+=p.dy;
+        if(p.x<0||p.x>window.innerWidth)p.dx*=-1;
+        if(p.y<0||p.y>window.innerHeight)p.dy*=-1;
+      });
+      ctx.strokeStyle="rgba(255,220,150,0.2)";
+      ctx.lineWidth=0.5;
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const dx=particles[i].x-particles[j].x;
+          const dy=particles[i].y-particles[j].y;
+          const dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<120){
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x,particles[i].y);
+            ctx.lineTo(particles[j].x,particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    })();
   </script>
 </body>
 </html>
