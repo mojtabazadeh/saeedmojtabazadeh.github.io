@@ -22,7 +22,8 @@
     html,body{width:100%;height:100%;overflow-x:hidden}
     body {
       font-family:'Vazirmatn',sans-serif;
-      background:#000;
+      background:linear-gradient(135deg,#1a0033,#3b0066,#660099,#9933cc);
+      background-attachment: fixed;
       color:white;
       text-align:center;
       display:flex;
@@ -39,7 +40,7 @@
       height:150px;
       margin:25px auto 16px;
       border-radius:50%;
-      box-shadow:0 8px 22px rgba(255,220,150,0.5);
+      box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
       animation:floatMove 6s ease-in-out infinite;
       background:rgba(255,255,255,0.05);
       position:relative;
@@ -62,14 +63,14 @@
     .title-line {
       font-size:clamp(1.6rem,5vw,2.4rem);
       font-weight:800;
-      background:linear-gradient(90deg,#fff2a8,#ffc94d,#ffb400);
+      background:linear-gradient(90deg,#ffccff,#cc99ff,#9966ff);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      text-shadow:0 0 12px rgba(255,211,108,0.6);
+      text-shadow:0 0 12px rgba(200,150,255,0.6);
       animation:glowPulse 4s ease-in-out infinite;
     }
     .title-sub {
       font-size:clamp(1rem,3vw,1.2rem);
-      color:#ffddaa;
+      color:#e0c7ff;
       font-weight:600;
       margin-top:4px;
       text-shadow:0 1px 3px rgba(0,0,0,0.4);
@@ -91,7 +92,7 @@
     }
     .link-bar a:hover {
       background:rgba(255,255,255,0.25);
-      box-shadow:0 0 12px rgba(255,200,100,0.7);
+      box-shadow:0 0 12px rgba(180,100,255,0.7);
       transform:translateY(-2px);
     }
 
@@ -132,8 +133,8 @@
 
     @keyframes fadeInUp {to {opacity:1;transform:translateY(0)}}
     @keyframes glowPulse {
-      0%,100%{text-shadow:0 0 8px rgba(255,211,108,0.6)}
-      50%{text-shadow:0 0 14px rgba(255,211,108,1)}
+      0%,100%{text-shadow:0 0 8px rgba(200,150,255,0.6)}
+      50%{text-shadow:0 0 14px rgba(200,150,255,1)}
     }
 
     @media(max-width:480px){
@@ -167,7 +168,7 @@
 
   <div class="title-wrapper">
     <h1 class="title-line" id="main-title">دکتر سعید مجتبی‌زاده</h1>
-    <h2 class="title-sub" id="sub-title">فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای</h2>
+    <h2 class="title-sub" id="sub-title">اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران</h2>
   </div>
 
   <div class="link-bar" id="links"></div>
@@ -183,24 +184,24 @@
 
   <script defer>
     const data = {
-      fa:{title:"دکتر سعید مجتبی‌زاده",sub:"فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای",links:[
+      fa:{title:"دکتر سعید مجتبی‌زاده",sub:"اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران",links:[
         {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
         {text:"پایگاه مقالات",href:"http://www.drmojtabazadeh.ir/"},
         {text:"پایگاه مطالعات",href:"http://www.smojtabazadeh.ir/"},
         {text:"اینستاگالری",href:"https://www.instagallery.ir/"},
-        {text:"پایگاه اَپرچِر",href:"https://www.mojtabazadeh-hasanlouei.ir/"},
+        {text:"پایگاه اَپرچِر",href:"http://mojtabazadeh-hasanlouei.ir/"},
         {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
         {text:"پروفایل اورکید",href:"https://orcid.org/0000-0001-8508-4837"},
         {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"},
       ]},
-      en:{title:"Dr. Saeed Mojtabazadeh",sub:"Postdoctoral Fellow in Geotechnical Engineering",links:[
-        {text:"Personal Website",href:"http://mojtabazadeh.ir/"},
-        {text:"Research Articles",href:"http://www.drmojtabazadeh.ir/"},
+      en:{title:"Dr. Saeed Mojtabazadeh",sub:"Postdoc Fellow in Geotechnical Engineering",links:[
+        {text:"Website",href:"http://mojtabazadeh.ir/"},
+        {text:"Researches",href:"http://www.drmojtabazadeh.ir/"},
         {text:"Study Hub",href:"http://www.smojtabazadeh.ir/"},
         {text:"Instagallery",href:"https://www.instagallery.ir/"},
-        {text:"Aperture Hub",href:"https://www.mojtabazadeh-hasanlouei.ir/"},
+        {text:"Aperture",href:"http://mojtabazadeh-hasanlouei.ir/"},
         {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
-        {text:"ORCID Profile",href:"https://orcid.org/0000-0001-8508-4837"},
+        {text:"ORCID",href:"https://orcid.org/0000-0001-8508-4837"},
         {text:"English Website",href:"https://www.mojtabazade.ir/"},
       ]}
     };
@@ -266,14 +267,14 @@
 
     (function draw(){
       ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
-      ctx.fillStyle="rgba(255,220,150,0.8)";
+      ctx.fillStyle="rgba(200,150,255,0.8)";
       particles.forEach(p=>{
         ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
         p.x+=p.dx;p.y+=p.dy;
         if(p.x<0||p.x>window.innerWidth)p.dx*=-1;
         if(p.y<0||p.y>window.innerHeight)p.dy*=-1;
       });
-      ctx.strokeStyle="rgba(255,220,150,0.2)";
+      ctx.strokeStyle="rgba(200,150,255,0.2)";
       ctx.lineWidth=0.5;
       for(let i=0;i<particles.length;i++){
         for(let j=i+1;j<particles.length;j++){
