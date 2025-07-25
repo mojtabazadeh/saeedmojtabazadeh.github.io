@@ -1,793 +1,489 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>دکتر سعید مجتبی‌زاده</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
-  <meta name="description" content="اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران" />
-  <meta name="keywords" content="دکتر سعید مجتبی زاده, Saeed Mojtabazadeh, مهندسی ژئوتکنیک, پژوهشگر برتر استان زنجان, نخبه علمی" />
-  <meta name="author" content="Saeed Mojtabazadeh" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="اولین فوق‌دکتری مهندسی ژئوتکنیک لرزه‌ای در ایران">
+  <meta name="keywords" content="دکتر سعید مجتبی زاده, Saeed Mojtabazadeh, مهندسی ژئوتکنیک, پژوهشگر برتر استان زنجان, نخبه علمی">
+  <meta name="author" content="Saeed Mojtabazadeh">
 
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="512x512"
-    href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <meta property="og:title" content="دکتر سعید مجتبی‌زاده">
+  <meta property="og:description" content="پایگاه دکتر سعید مجتبی‌زاده">
+  <meta property="og:image" content="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg">
+  <meta property="og:url" content="http://www.mojtabazadeh.ir/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="512x512" href="https://github.com/mojtabazadeh/saeedmojtabazadeh.github.io/blob/main/favicon.png?raw=true">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html,
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{width:100%;height:100%;overflow-x:hidden}
     body {
-      height: 100%;
-      font-family: "Vazirmatn", sans-serif;
-      background-color: #0a001a;
-      color: #eee;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      font-family:'Vazirmatn',sans-serif;
+      background:linear-gradient(135deg,#1a0033,#3b0066,#660099,#9933cc);
+      background-attachment: fixed;
+      color:white;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:20px 10px 40px;
     }
-    body.lang-en {
-      direction: ltr;
-    }
-    a {
-      color: #b08cff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover,
-    a:focus {
-      color: #d9b3ff;
-      outline: none;
-    }
+    body.lang-en{font-family:'Poppins',sans-serif;direction:ltr;text-align:center}
 
-    /* کانواس ذرات */
-    #particles {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background: transparent;
-    }
+    #particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
 
-    /* دکمه تغییر زبان */
-    .lang-switch {
-      position: fixed;
-      top: 14px;
-      left: 14px;
-      z-index: 110;
-      display: flex;
-      gap: 10px;
-    }
-    .lang-switch button {
-      background: rgba(255, 255, 255, 0.12);
-      border: none;
-      border-radius: 40px;
-      padding: 6px 14px;
-      color: #eee;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 0 15px rgba(180, 120, 255, 0.6);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      background: linear-gradient(270deg, rgba(255,255,255,0.15), rgba(180,100,255,0.25));
-      background-size: 400% 400%;
-      animation: shineBtnLang 3s ease-in-out infinite;
-      user-select: none;
-    }
-    .lang-switch button:hover,
-    .lang-switch button:focus {
-      background-position: 100% 0;
-      box-shadow: 0 0 25px rgba(220, 180, 255, 0.9);
-      outline: none;
-      transform: scale(1.05);
-    }
-    @keyframes shineBtnLang {
-      0%,
-      100% {
-        background-position: 0% 0;
-      }
-      50% {
-        background-position: 100% 0;
-      }
-    }
-
-    /* دکمه دانلود مقالات (بالا سمت راست) */
-    #btn-download {
-      position: fixed;
-      top: 14px;
-      right: 14px;
-      z-index: 110;
-      background: rgba(255, 255, 255, 0.15);
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 14px rgba(200, 150, 255, 0.7);
-      background: linear-gradient(270deg, rgba(255, 255, 255, 0.15), rgba(180, 100, 255, 0.25));
-      background-size: 400% 400%;
-      animation: shineBtnDownload 3s ease-in-out infinite;
-      text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
-      user-select: none;
-    }
-    #btn-download:hover,
-    #btn-download:focus {
-      background-position: 100% 0;
-      box-shadow: 0 0 22px rgba(220, 180, 255, 0.9);
-      outline: none;
-      transform: scale(1.07);
-    }
-    @keyframes shineBtnDownload {
-      0%,
-      100% {
-        background-position: 0% 0;
-      }
-      50% {
-        background-position: 100% 0;
-      }
-    }
-
-    /* تصویر پروفایل دایره‌ای */
     .profile-container {
-      position: relative;
-      margin: 100px auto 12px auto;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 0 16px rgba(160, 120, 255, 0.7);
-      user-select: none;
-      z-index: 5;
+      width:150px;
+      height:150px;
+      margin:25px auto 16px;
+      border-radius:50%;
+      box-shadow:0 0 25px rgba(255,120,255,0.6),0 0 45px rgba(140,70,255,0.3);
+      animation:floatMove 6s ease-in-out infinite;
+      background:rgba(255,255,255,0.05);
+      position:relative;
+      overflow:visible;
     }
-    .profile-container svg {
-      display: block;
-      width: 100%;
-      height: 100%;
+    .profile-container svg {width:100%;height:100%;display:block}
+    @keyframes floatMove {
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
     }
 
-    /* عنوان و زیرعنوان */
     .title-wrapper {
-      max-width: 700px;
-      margin: 0 auto 22px auto;
-      text-align: center;
-      z-index: 5;
-      position: relative;
-      padding: 0 16px;
-      user-select: none;
+      max-width:90vw;margin-bottom:20px;
+      animation:fadeInUp 1s ease forwards;opacity:0;transform:translateY(10px);
     }
     .title-line {
-      font-weight: 800;
-      font-size: 2.3rem;
-      line-height: 1.1;
-      color: #ccbbff;
-      user-select: text;
-    }
-    body.lang-en .title-line {
-      font-family: "Poppins", sans-serif;
+      font-size:clamp(1.6rem,5vw,2.4rem);
+      font-weight:800;
+      background:linear-gradient(90deg,#ffccff,#cc99ff,#9966ff);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 0 12px rgba(200,150,255,0.6);
+      animation:glowPulse 4s ease-in-out infinite;
     }
     .title-sub {
-      font-weight: 600;
-      font-size: 1.15rem;
-      margin-top: 6px;
-      color: #d6c7ff;
-      font-style: italic;
-      user-select: text;
-    }
-    body.lang-en .title-sub {
-      font-family: "Poppins", sans-serif;
+      font-size:clamp(1rem,3vw,1.2rem);
+      color:#e0c7ff;
+      font-weight:600;
+      margin-top:4px;
+      text-shadow:0 1px 3px rgba(0,0,0,0.4);
     }
 
-    /* نوار لینک‌ها */
     .link-bar {
-      max-width: 680px;
-      margin: 0 auto 30px auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      user-select: text;
-      z-index: 5;
-      position: relative;
-      padding: 0 14px;
+      display:flex;flex-wrap:wrap;justify-content:center;
+      gap:10px;max-width:95vw;margin-bottom:16px;
+      animation:fadeInUp 1.2s ease forwards;opacity:0;transform:translateY(10px);
     }
     .link-bar a {
-      background: rgba(80, 20, 140, 0.3);
-      padding: 10px 18px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #c8b0ff;
-      box-shadow: 0 0 12px rgba(180, 120, 255, 0.5);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      white-space: nowrap;
-      user-select: text;
+      background:rgba(255,255,255,0.1);
+      color:white;
+      padding:8px 14px;
+      border-radius:25px;
+      font-size:clamp(0.8rem,3vw,0.95rem);
+      text-decoration:none;
+      transition:all 0.3s ease;
     }
-    .link-bar a:hover,
-    .link-bar a:focus {
-      background-color: #b594ff;
-      color: #fff;
-      box-shadow: 0 0 18px #c3aaff;
-      outline: none;
+    .link-bar a:hover {
+      background:rgba(255,255,255,0.25);
+      box-shadow:0 0 12px rgba(180,100,255,0.7);
+      transform:translateY(-2px);
     }
 
-    /* باکس درباره من */
     .about-box {
-      max-width: 700px;
-      margin: 0 auto 50px auto;
-      background: rgba(36, 12, 62, 0.8);
-      border-radius: 14px;
-      padding: 22px 24px;
-      font-size: 1rem;
-      line-height: 1.52;
-      color: #ccc;
-      overflow-y: auto;
-      max-height: 280px;
-      user-select: text;
-      box-shadow: 0 0 22px rgba(200, 140, 255, 0.45);
-      user-select: text;
-    }
-    .about-box:focus {
-      outline: 3px solid #bb99ff;
-      outline-offset: 3px;
-    }
-    body.lang-en .about-box {
-      font-family: "Poppins", sans-serif;
+      position:relative;
+      max-width:900px;
+      background:rgba(255,255,255,0.08);
+      padding:18px;
+      border-radius:16px;
+      line-height:1.8;
+      font-size:clamp(0.9rem,3vw,1rem);
+      text-align:justify;
+      margin-bottom:18px;
+      box-shadow:0 0 12px rgba(180,100,255,0.3);
+      animation:floatBox 7s ease-in-out infinite;
+      overflow-y:auto;
+      max-height:40vh;
+      -webkit-overflow-scrolling: touch;
     }
 
-    /* جعبه تماس */
+    body.lang-en .about-box {
+      text-align:justify;
+      text-align-last:left;
+    }
+    body:not(.lang-en) .about-box {
+      text-align:justify;
+      text-align-last:right;
+    }
+
+    @keyframes floatBox {
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-4px)}
+    }
+
     .contact-box {
-      max-width: 700px;
-      margin: 0 auto 60px auto;
-      display: flex;
-      justify-content: center;
-      gap: 26px;
-      flex-wrap: wrap;
-      user-select: text;
-      z-index: 5;
-      position: relative;
-      padding: 0 14px;
+      margin-top:8px;
+      padding:12px 18px;
+      border-radius:16px;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 12px rgba(180,100,255,0.3);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
+      animation: contactGlow 4s ease-in-out infinite, floatBox 6s ease-in-out infinite;
+      max-width:320px;
+      box-sizing: border-box;
     }
     .contact-item {
-      background: rgba(80, 20, 140, 0.3);
-      padding: 10px 18px;
-      border-radius: 40px;
-      color: #d8c9ff;
-      font-weight: 600;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      box-shadow: 0 0 14px rgba(180, 120, 255, 0.5);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      user-select: text;
+      direction:ltr;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:0.95rem;
+      color:#f0e6ff;
+      text-decoration:none;
+      transition:all 0.3s ease;
     }
-    .contact-item:hover,
-    .contact-item:focus {
-      background-color: #b594ff;
-      color: #fff;
-      box-shadow: 0 0 18px #c3aaff;
-      outline: none;
+    .contact-item:hover {
+      color:#ffffff;
+      text-shadow:0 0 6px rgba(200,150,255,0.8);
+      transform:translateY(-2px);
     }
-    .contact-icon {
-      font-size: 1.1rem;
-      user-select: none;
+    .contact-icon {font-size:1.1rem}
+    @keyframes contactGlow {
+      0%,100% { box-shadow:0 0 10px rgba(180,100,255,0.3); }
+      50% { box-shadow:0 0 18px rgba(200,150,255,0.5); }
     }
 
-    /* فوتر */
-    .footer {
-      max-width: 700px;
-      margin: 0 auto 40px auto;
-      text-align: center;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: #aaa;
-      user-select: none;
-      user-select: none;
-      position: relative;
-      z-index: 5;
-      padding: 0 14px;
+    .footer {font-size:0.8rem;margin-top:18px;opacity:0.7}
+    .footer a {color:white;text-decoration:none}
+
+    .lang-switch {
+      position:fixed;top:12px;left:12px;display:flex;gap:6px;z-index:99;
+    }
+    .lang-switch button {
+      background:rgba(255,255,255,0.15);
+      color:white;border:none;padding:7px 14px;
+      border-radius:50px;cursor:pointer;font-size:0.8rem;
+      transition:all 0.3s ease;
+    }
+    .lang-switch button:hover {
+      background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    /* مودال مقالات */
-    #modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 200;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      overflow-y: auto;
+    .smooth-switch {animation:smoothFadeSlide 0.9s ease;}
+    @keyframes smoothFadeSlide {
+      0%{opacity:1;transform:translateY(0)}
+      40%{opacity:0;transform:translateY(-15px)}
+      60%{opacity:0;transform:translateY(15px)}
+      100%{opacity:1;transform:translateY(0)}
     }
-    #modal:focus {
-      outline: none;
-    }
-    #modal-content {
-      position: relative;
-      background: #1a0033;
-      border-radius: 14px;
-      max-width: 620px;
-      width: 100%;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: 0 0 30px rgba(180, 100, 255, 0.85);
-      padding: 24px 32px 28px 32px;
-      color: #eee;
-      direction: ltr;
-      text-align: left;
-      font-family: "Poppins", sans-serif;
-      font-size: 1rem;
-      line-height: 1.5;
-      user-select: text;
-    }
-    #modal-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #d9b3ff;
-      margin-bottom: 16px;
-      text-align: center;
-      user-select: text;
-    }
-    #modal-links {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      max-height: 70vh;
-      overflow-y: auto;
-      padding-right: 4px;
-      user-select: text;
-    }
-    #modal-links a {
-      color: #c0a0ff;
-      text-decoration: none;
-      border-radius: 10px;
-      padding: 10px 16px;
-      background: rgba(255, 255, 255, 0.05);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-weight: 600;
-      user-select: text;
-    }
-    #modal-links a:hover,
-    #modal-links a:focus {
-      background: #a473ff;
-      color: white;
-      box-shadow: 0 0 12px #b389ff;
-      outline: none;
+    @keyframes fadeInUp {to{opacity:1;transform:translateY(0)}}
+    @keyframes glowPulse {
+      0%,100%{text-shadow:0 0 8px rgba(200,150,255,0.6)}
+      50%{text-shadow:0 0 14px rgba(200,150,255,1)}
     }
 
-    /* دکمه بسته شدن مودال (×) */
-    #close-modal {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      color: #d9b3ff;
-      font-weight: 700;
-      font-size: 1.8rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      user-select: none;
-      line-height: 1;
-    }
-    #close-modal:hover,
-    #close-modal:focus {
-      color: #ffffff;
-      outline: none;
-    }
-
-    /* ریسپانسیو */
-    @media (max-width: 768px) {
-      .profile-container {
-        width: 90px;
-        height: 90px;
-        margin-top: 70px;
-      }
-      .title-line {
-        font-size: 1.8rem;
-      }
-      .title-sub {
-        font-size: 1rem;
-      }
+    #btn-download {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(180, 100, 255, 0.3);
+}
+#btn-download:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 12px rgba(180, 100, 255, 0.7);
+  transform: scale(1.05);
+}
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+}
+#modal-content {
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(180,100,255,0.5);
+  position: relative;
+}
+#modal-title {
+  font-size: 1.1rem;
+  color: #e0c7ff;
+  margin-bottom: 12px;
+}
+#modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#modal-links a {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+#modal-links a:hover {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 10px rgba(180,100,255,0.7);
+}
+#close-modal {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: #e0c7ff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+    
+    @media(max-width:480px){
+      .profile-container{width:120px;height:120px;}
+      .link-bar{gap:6px}
+      .link-bar a{padding:6px 10px}
       .about-box {
-        max-height: 240px;
-        font-size: 0.95rem;
-        padding: 18px 20px;
+        max-height: 35vh !important;
+        overflow-y: auto !important;
+        padding: 14px;
       }
       .contact-box {
-        gap: 18px;
-      }
-      #modal-content {
-        max-width: 90vw;
-        padding: 20px 26px 24px 26px;
-        font-size: 0.95rem;
-      }
-      #modal-links a {
-        font-size: 0.95rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .lang-switch {
-        top: 10px;
-        left: 10px;
-        gap: 6px;
-      }
-      .lang-switch button {
-        padding: 5px 10px;
-        font-size: 0.8rem;
-      }
-      #btn-download {
-        top: 10px;
-        right: 10px;
-        padding: 6px 12px;
-        font-size: 0.8rem;
-      }
-      .profile-container {
-        width: 75px;
-        height: 75px;
-        margin-top: 50px;
-      }
-      .title-line {
-        font-size: 1.5rem;
-      }
-      .title-sub {
-        font-size: 0.85rem;
-      }
-      .about-box {
-        max-height: 200px;
-        font-size: 0.9rem;
+        max-width: 95vw;
         padding: 14px 16px;
-      }
-      .contact-box {
-        gap: 14px;
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- کانواس ذرات -->
-  <canvas id="particles" aria-hidden="true"></canvas>
+  <canvas id="particles"></canvas>
 
-  <!-- دکمه های زبان -->
-  <div class="lang-switch" role="group" aria-label="Language switch">
-    <button id="btn-fa" type="button" aria-pressed="false">فارسی</button>
-    <button id="btn-en" type="button" aria-pressed="false">English</button>
+  <div class="lang-switch">
+    <button id="btn-fa">فارسی</button>
+    <button id="btn-en">English</button>
   </div>
 
-  <!-- دکمه دانلود مقالات -->
-  <button
-    id="btn-download"
-    type="button"
-    aria-haspopup="dialog"
-    aria-controls="modal"
-    aria-expanded="false"
-  >
-    دانلود مقالات
-  </button>
-
-  <!-- عکس پروفایل -->
-  <div class="profile-container" aria-label="تصویر دکتر سعید مجتبی‌زاده">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
-      <defs>
-        <clipPath id="circleView">
-          <circle cx="50" cy="50" r="50" />
-        </clipPath>
-      </defs>
-      <image
-        clip-path="url(#circleView)"
-        href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg"
-        width="100"
-        height="100"
-        preserveAspectRatio="xMidYMid slice"
-        alt="تصویر دکتر سعید مجتبی‌زاده"
-      />
+<button id="btn-download">دانلود مقالات</button>
+  
+  <div class="profile-container">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+      <defs><clipPath id="circleView"><circle cx="50" cy="50" r="50"/></clipPath></defs>
+      <image clip-path="url(#circleView)" href="https://bayanbox.ir/view/6333081801587349279/Saeed2.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
     </svg>
   </div>
 
-  <!-- عنوان و زیرعنوان -->
   <div class="title-wrapper">
     <h1 class="title-line" id="main-title">دکتر سعید مجتبی‌زاده</h1>
     <h2 class="title-sub" id="sub-title">فوق‌دکتری مهندسی عمران در گرایش ژئوتکنیک لرزه‌ای</h2>
   </div>
 
-  <!-- نوار لینک‌ها -->
-  <nav class="link-bar" id="links" aria-label="لینک‌های مرتبط"></nav>
+  <div class="link-bar" id="links"></div>
 
-  <!-- باکس درباره من -->
-  <section
-    class="about-box"
-    id="about-text"
-    tabindex="0"
-    aria-label="درباره دکتر سعید مجتبی‌زاده"
-    role="region"
-  >
-    دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز بوده است. ایشان دارای سابقه چندین سال همکاری در پروژه‌های ملی و بین‌المللی و چاپ بیش از 20 مقاله علمی-پژوهشی در ژورنال‌های معتبر است.
-  </section>
-
-  <!-- بخش تماس -->
-  <section class="contact-box" aria-label="اطلاعات تماس دکتر سعید مجتبی‌زاده">
-    <a href="mailto:saeedmojtabazadeh@gmail.com" class="contact-item" aria-label="ایمیل دکتر سعید مجتبی‌زاده">
-      <span class="contact-icon" aria-hidden="true">✉️</span>
-      saeedmojtabazadeh@gmail.com
-    </a>
-    <a href="tel:+989122625417" class="contact-item" aria-label="شماره تماس دکتر سعید مجتبی‌زاده">
-      <span class="contact-icon" aria-hidden="true">📞</span>
-      +98 912 262 5417
-    </a>
-  </section>
-
-  <!-- فوتر -->
-  <footer class="footer" role="contentinfo" aria-label="کپی‌رایت">
-    © 2024 Saeed Mojtabazadeh - All rights reserved.
-  </footer>
-
-  <!-- مودال مقالات -->
-  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
-    <div id="modal-content">
-      <button id="close-modal" aria-label="بستن پنجره مودال" title="بستن">×</button>
-      <h3 id="modal-title">دانلود مقالات پژوهشی</h3>
-      <div id="modal-links" tabindex="0"></div>
-    </div>
+  <div class="about-box" id="about-text" tabindex="0" aria-label="درباره دکتر سعید مجتبی‌زاده">
+    دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود. 
   </div>
 
-  <script>
-    // کد ذرات پس‌زمینه با Canvas
+  <div class="contact-box">
+    <a class="contact-item" href="mailto:mojtabazadeh@outlook.com"><span class="contact-icon" aria-hidden="true">📧</span>mojtabazadeh@outlook.com</a>
+    <a class="contact-item" href="tel:+989334115773"><span class="contact-icon" aria-hidden="true">📞</span>+98 933 411 5773</a>
+  </div>
 
-    (() => {
-      const canvas = document.getElementById("particles");
-      const ctx = canvas.getContext("2d");
-      let width, height;
-      let particlesArray;
+  <div class="footer" id="footer">
+    سعید مجتبی‌زاده ©
+  </div>
 
-      // تعریف ذرات
-      class Particle {
-        constructor() {
-          this.reset();
-        }
-        reset() {
-          this.x = Math.random() * width;
-          this.y = Math.random() * height;
-          this.size = Math.random() * 2 + 0.8;
-          this.speedX = (Math.random() - 0.5) * 0.6;
-          this.speedY = (Math.random() - 0.5) * 0.6;
-          this.opacity = Math.random() * 0.5 + 0.1;
-          this.color = `rgba(180,120,255,${this.opacity})`;
-        }
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          if (this.x > width) this.x = 0;
-          else if (this.x < 0) this.x = width;
-          if (this.y > height) this.y = 0;
-          else if (this.y < 0) this.y = height;
-        }
-        draw() {
-          ctx.beginPath();
-          ctx.fillStyle = this.color;
-          ctx.shadowColor = "rgba(180,120,255,0.6)";
-          ctx.shadowBlur = 8;
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
-        }
+  <div id="modal">
+  <div id="modal-content">
+    <button id="close-modal">×</button>
+    <h3 id="modal-title">دانلود مقالات پژوهشی</h3>
+    <div id="modal-links"></div>
+  </div>
+</div>
+
+  <script defer>
+    const data={
+      fa:{
+        title:"دکتر سعید مجتبی‌زاده",
+        sub:"فوق‌دکتری مهندسی عمران در گرایش ژئوتکنیک لرزه‌ای",
+        about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود. `,
+        footer:"سعید مجتبی‌زاده ©",
+        links:[
+          {text:"پایگاه شخصی",href:"http://mojtabazadeh.ir/"},
+          {text:"پایگاه مقالات",href:"http://www.drmojtabazadeh.ir/"},
+          {text:"پایگاه مطالعات",href:"http://www.smojtabazadeh.ir/"},
+          {text:"اینستاگالری",href:"https://www.instagallery.ir/"},
+          {text:"پایگاه اَپرچِر",href:"http://mojtabazadeh-hasanlouei.ir/"},
+          {text:"گوگل اسکالر",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
+          {text:"پروفایل اورکید",href:"https://orcid.org/0000-0001-8508-4837"},
+          {text:"پایگاه انگلیسی",href:"https://www.mojtabazade.ir/"}
+        ]
+      },
+      en:{
+        title:"Dr. Saeed Mojtabazadeh",
+        sub:"Postdoc Fellow in Geotechnical Engineering",
+        about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
+        footer:"Saeed Mojtabazadeh ©",
+        links:[
+          {text:"Website",href:"http://mojtabazadeh.ir/"},
+          {text:"Researches",href:"http://www.drmojtabazadeh.ir/"},
+          {text:"Studies",href:"http://www.smojtabazadeh.ir/"},
+          {text:"Instagallery",href:"https://www.instagallery.ir/"},
+          {text:"Aperture",href:"http://mojtabazadeh-hasanlouei.ir/"},
+          {text:"Google Scholar",href:"https://scholar.google.com/citations?user=YphpjTcAAAAJ&hl=en"},
+          {text:"ORCID",href:"https://orcid.org/0000-0001-8508-4837"},
+          {text:"English Hub",href:"https://www.mojtabazade.ir/"}
+        ]
       }
+    };
 
-      function initParticles() {
-        particlesArray = [];
-        const count = Math.floor((width * height) / 5000);
-        for (let i = 0; i < count; i++) {
-          particlesArray.push(new Particle());
-        }
-      }
+    const mainTitle=document.getElementById("main-title"),
+          subTitle=document.getElementById("sub-title"),
+          linksContainer=document.getElementById("links"),
+          aboutText=document.getElementById("about-text");
 
-      function animateParticles() {
-        ctx.clearRect(0, 0, width, height);
-        particlesArray.forEach((p) => {
-          p.update();
-          p.draw();
-        });
-        requestAnimationFrame(animateParticles);
-      }
-
-      function resizeCanvas() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-        initParticles();
-      }
-
-      window.addEventListener("resize", resizeCanvas);
-      resizeCanvas();
-      animateParticles();
-    })();
-
-    // تغییر زبان
-    (() => {
-      const btnFa = document.getElementById("btn-fa");
-      const btnEn = document.getElementById("btn-en");
-      const html = document.documentElement;
-      const titleLine = document.getElementById("main-title");
-      const subTitle = document.getElementById("sub-title");
-      const aboutBox = document.getElementById("about-text");
-      const linkBar = document.getElementById("links");
-      const contactEmail = document.querySelector(".contact-box a[href^='mailto']");
-      const contactTel = document.querySelector(".contact-box a[href^='tel']");
-
-      // داده‌های زبان انگلیسی
-      const enData = {
-        mainTitle: "Dr. Saeed Mojtabazadeh",
-        subTitle: "Postdoctoral Researcher in Civil Engineering - Geotechnical Earthquake",
-        about:
-          "Dr. Saeed Mojtabazadeh Hassanalouei, as the first postdoctoral researcher in civil engineering-geotechnics in Iran, has focused since 2015 on developing advanced computational algorithms and numerical modeling in geotechnical earthquake engineering. He has several years of collaboration in national and international projects and more than 20 scientific research papers in reputable journals.",
-        links: [
-          { text: "Google Scholar", href: "https://scholar.google.com/citations?user=YOUR_ID" },
-          { text: "ResearchGate", href: "https://www.researchgate.net/profile/Saeed_Mojtabazadeh" },
-          { text: "ORCID", href: "https://orcid.org/0000-0002-XXXX-XXXX" },
-          { text: "LinkedIn", href: "https://www.linkedin.com/in/saeedmojtabazadeh/" },
-        ],
-        contactEmailLabel: "Email Dr. Saeed Mojtabazadeh",
-        contactTelLabel: "Phone number of Dr. Saeed Mojtabazadeh",
-        footerText: "© 2024 Saeed Mojtabazadeh - All rights reserved.",
-        downloadBtn: "Download Papers",
-        modalTitle: "Download Research Papers",
-      };
-
-      // داده‌های زبان فارسی
-      const faData = {
-        mainTitle: "دکتر سعید مجتبی‌زاده",
-        subTitle: "فوق‌دکتری مهندسی عمران در گرایش ژئوتکنیک لرزه‌ای",
-        about:
-          "دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز بوده است. ایشان دارای سابقه چندین سال همکاری در پروژه‌های ملی و بین‌المللی و چاپ بیش از 20 مقاله علمی-پژوهشی در ژورنال‌های معتبر است.",
-        links: [
-          { text: "گوگل اسکالر", href: "https://scholar.google.com/citations?user=YOUR_ID" },
-          { text: "ریسرچ‌گیت", href: "https://www.researchgate.net/profile/Saeed_Mojtabazadeh" },
-          { text: "اورکید", href: "https://orcid.org/0000-0002-XXXX-XXXX" },
-          { text: "لینکدین", href: "https://www.linkedin.com/in/saeedmojtabazadeh/" },
-        ],
-        contactEmailLabel: "ایمیل دکتر سعید مجتبی‌زاده",
-        contactTelLabel: "شماره تماس دکتر سعید مجتبی‌زاده",
-        footerText: "© 2024 سعید مجتبی‌زاده - همه حقوق محفوظ است.",
-        downloadBtn: "دانلود مقالات",
-        modalTitle: "دانلود مقالات پژوهشی",
-      };
-
-      // آرایه مقالات پژوهشی برای مودال
-      const papers = [
-        { text: "Article 1: Advanced Numerical Modeling", href: "https://example.com/article1.pdf" },
-        { text: "Article 2: Seismic Wave Propagation", href: "https://example.com/article2.pdf" },
-        { text: "Article 3: Geotechnical Analysis Techniques", href: "https://example.com/article3.pdf" },
-        // لینک های واقعی خود را اینجا قرار دهید
-      ];
-
-      const btnDownload = document.getElementById("btn-download");
-      const modal = document.getElementById("modal");
-      const modalLinks = document.getElementById("modal-links");
-      const closeModal = document.getElementById("close-modal");
-      const footer = document.querySelector(".footer");
-
-      // تنظیم زبان به فارسی به صورت پیشفرض
-      let currentLang = "fa";
-      function updateLanguage(lang) {
-        if (lang === currentLang) return;
-        currentLang = lang;
-
-        if (lang === "fa") {
-          document.documentElement.lang = "fa";
-          document.documentElement.dir = "rtl";
-          document.body.classList.remove("lang-en");
-          btnFa.setAttribute("aria-pressed", "true");
-          btnEn.setAttribute("aria-pressed", "false");
-          titleLine.textContent = faData.mainTitle;
-          subTitle.textContent = faData.subTitle;
-          aboutBox.textContent = faData.about;
-          footer.textContent = faData.footerText;
-          btnDownload.textContent = faData.downloadBtn;
-          modal.querySelector("#modal-title").textContent = faData.modalTitle;
-          contactEmail.textContent = "✉️ " + faData.contactEmailLabel.replace("ایمیل ", "");
-          contactEmail.setAttribute("aria-label", faData.contactEmailLabel);
-          contactTel.setAttribute("aria-label", faData.contactTelLabel);
-          // لینک‌ها
-          linkBar.innerHTML = "";
-          faData.links.forEach((link) => {
-            const a = document.createElement("a");
-            a.href = link.href;
-            a.target = "_blank";
-            a.rel = "noopener noreferrer";
-            a.textContent = link.text;
-            linkBar.appendChild(a);
-          });
-        } else if (lang === "en") {
-          document.documentElement.lang = "en";
-          document.documentElement.dir = "ltr";
+    function buildLinks(lang){
+      linksContainer.innerHTML="";
+      data[lang].links.forEach(l=>{
+        const a=document.createElement("a");
+        a.href=l.href;a.target="_blank";a.textContent=l.text;
+        linksContainer.appendChild(a);
+      });
+    }
+    function switchLang(lang){
+      localStorage.setItem("lang",lang);
+      document.body.classList.add("smooth-switch");
+      setTimeout(()=>{
+        mainTitle.textContent=data[lang].title;
+        subTitle.textContent=data[lang].sub;
+        aboutText.textContent=data[lang].about;
+        document.getElementById("footer").textContent=data[lang].footer;
+        buildLinks(lang);
+        if(lang==="en"){
           document.body.classList.add("lang-en");
-          btnFa.setAttribute("aria-pressed", "false");
-          btnEn.setAttribute("aria-pressed", "true");
-          titleLine.textContent = enData.mainTitle;
-          subTitle.textContent = enData.subTitle;
-          aboutBox.textContent = enData.about;
-          footer.textContent = enData.footerText;
-          btnDownload.textContent = enData.downloadBtn;
-          modal.querySelector("#modal-title").textContent = enData.modalTitle;
-          contactEmail.textContent = "✉️ " + enData.contactEmailLabel.replace("Email ", "");
-          contactEmail.setAttribute("aria-label", enData.contactEmailLabel);
-          contactTel.setAttribute("aria-label", enData.contactTelLabel);
-          // لینک‌ها
-          linkBar.innerHTML = "";
-          enData.links.forEach((link) => {
-            const a = document.createElement("a");
-            a.href = link.href;
-            a.target = "_blank";
-            a.rel = "noopener noreferrer";
-            a.textContent = link.text;
-            linkBar.appendChild(a);
-          });
+          document.documentElement.dir="ltr";
+        }else{
+          document.body.classList.remove("lang-en");
+          document.documentElement.dir="rtl";
+        }
+      },300);
+      setTimeout(()=>document.body.classList.remove("smooth-switch"),900);
+    }
+    const savedLang=localStorage.getItem("lang")||"fa";
+    switchLang(savedLang);
+    document.getElementById("btn-fa").addEventListener("click",()=>switchLang("fa"));
+    document.getElementById("btn-en").addEventListener("click",()=>switchLang("en"));
+
+    const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
+    let particles=[];
+    function createParticles(){
+      const count=Math.floor((window.innerWidth*window.innerHeight)/12000);
+      particles=Array.from({length:count},()=>({
+        x:Math.random()*window.innerWidth,
+        y:Math.random()*window.innerHeight,
+        r:Math.random()*1.8+1,
+        dx:(Math.random()-0.5)*0.4,
+        dy:(Math.random()-0.5)*0.4
+      }));
+    }
+    function resizeParticles(){
+      const ratio=window.devicePixelRatio||1;
+      canvas.width=window.innerWidth*ratio;
+      canvas.height=window.innerHeight*ratio;
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.scale(ratio,ratio);
+      createParticles();
+    }
+    resizeParticles();
+    window.addEventListener("resize",resizeParticles);
+
+    (function draw(){
+      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+      ctx.fillStyle="rgba(200,150,255,0.8)";
+      particles.forEach(p=>{
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+        p.x+=p.dx;p.y+=p.dy;
+        if(p.x<0||p.x>window.innerWidth)p.dx*=-1;
+        if(p.y<0||p.y>window.innerHeight)p.dy*=-1;
+      });
+      ctx.strokeStyle="rgba(200,150,255,0.2)";
+      ctx.lineWidth=0.5;
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const dx=particles[i].x-particles[j].x;
+          const dy=particles[i].y-particles[j].y;
+          const dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<120){
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x,particles[i].y);
+            ctx.lineTo(particles[j].x,particles[j].y);
+            ctx.stroke();
+          }
         }
       }
-
-      btnFa.addEventListener("click", () => {
-        updateLanguage("fa");
-      });
-      btnEn.addEventListener("click", () => {
-        updateLanguage("en");
-      });
-
-      updateLanguage("fa");
-
-      // مودال مقالات
-
-      btnDownload.addEventListener("click", () => {
-        modalLinks.innerHTML = "";
-        // اضافه کردن لینک‌های مقالات
-        papers.forEach((p) => {
-          const a = document.createElement("a");
-          a.href = p.href;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          a.textContent = p.text;
-          modalLinks.appendChild(a);
-        });
-        modal.style.display = "flex";
-        btnDownload.setAttribute("aria-expanded", "true");
-        modal.focus();
-        document.body.style.overflow = "hidden";
-      });
-
-      closeModal.addEventListener("click", closeModalFunc);
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          closeModalFunc();
-        }
-      });
-
-      function closeModalFunc() {
-        modal.style.display = "none";
-        btnDownload.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-        btnDownload.focus();
-      }
-
-      // بستن مودال با کلید ESC
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.style.display === "flex") {
-          closeModalFunc();
-        }
-      });
+      requestAnimationFrame(draw);
     })();
+
+// مقالات پژوهشی
+const papers = [
+  { text: "Article 1: Advanced Numerical Modeling", href: "https://example.com/article1.pdf" },
+  { text: "Article 2: Seismic Wave Propagation", href: "https://example.com/article2.pdf" },
+  { text: "Article 3: Geotechnical Analysis Techniques", href: "https://example.com/article3.pdf" }
+];
+
+const btnDownload = document.getElementById("btn-download");
+const modal = document.getElementById("modal");
+const modalLinks = document.getElementById("modal-links");
+const closeModal = document.getElementById("close-modal");
+
+btnDownload.addEventListener("click", () => {
+  modalLinks.innerHTML = "";
+  papers.forEach((p) => {
+    const a = document.createElement("a");
+    a.href = p.href;
+    a.target = "_blank";
+    a.textContent = p.text;
+    modalLinks.appendChild(a);
+  });
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+
+function closeModalFunc() {
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+closeModal.addEventListener("click", closeModalFunc);
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModalFunc();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.style.display === "flex") {
+    closeModalFunc();
+  }
+});
+    
   </script>
 </body>
 </html>
