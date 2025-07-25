@@ -202,97 +202,6 @@
         font-size: 0.95rem;
       }
     }
-
-
-
-
-
-
-
-.download-btn-container {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 99;
-}
-.download-btn-container button {
-  background: rgba(255,255,255,0.15);
-  color: white;
-  border: none;
-  padding: 7px 14px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.3s ease;
-}
-.download-btn-container button:hover {
-  background: rgba(255,255,255,0.3);
-  transform: scale(1.05);
-}
-
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
-  z-index: 999;
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 16px;
-  max-width: 500px;
-  width: 90%;
-  max-height: 70vh;
-  overflow-y: auto;
-  box-shadow: 0 0 20px rgba(180,100,255,0.5);
-  animation: slideUp 0.4s ease forwards;
-}
-.modal-title {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  color: #fff;
-  text-align: center;
-}
-.modal-links a {
-  display: block;
-  color: #e0c7ff;
-  text-decoration: none;
-  margin: 6px 0;
-  padding: 6px 10px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background: rgba(255,255,255,0.05);
-}
-.modal-links a:hover {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-}
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  font-size: 1.4rem;
-  color: #fff;
-  cursor: pointer;
-}
-@keyframes slideUp {
-  from {transform: translateY(20px);opacity:0}
-  to {transform: translateY(0);opacity:1}
-}
-
-
-
-
-
-
-
-
-
     
   </style>
 </head>
@@ -303,22 +212,7 @@
     <button id="btn-fa">فارسی</button>
     <button id="btn-en">English</button>
   </div>
-
-
-
-
-
-<div class="download-btn">
-  <button id="btn-download">📄</button>
-</div>
-
-
-
-
-
-
   
-
   <div class="profile-container">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
       <defs><clipPath id="circleView"><circle cx="50" cy="50" r="50"/></clipPath></defs>
@@ -469,80 +363,7 @@
         }
       }
       requestAnimationFrame(draw);
-    })();
-
-
-
-
-
-
-
-
-
-const papers = [
-  {text:"27. The Orthotropy Effect of Underground Inclusion on the Seismic Response of Ground Surface", link:"https://drive.google.com/file/d/1gZ8aF2_FtYW0XBLlXkPnH97Sx1cUNRxv/view"},
-  {text:"26. Seismic Response of the Orthotropic Ground Surface Including Underground Circular Unlined Tunnel", link:"https://drive.google.com/file/d/1hZ532hBk93MWAzn8dMg24jnVr2pg0ZNg/view"}
-  // ... بقیه لینک‌ها
-];
-
-const modal=document.getElementById("modal"),
-      modalLinks=document.getElementById("modal-links"),
-      modalTitle=document.getElementById("modal-title"),
-      btnDownload=document.getElementById("btn-download"),
-      closeModal=document.getElementById("close-modal");
-
-function buildModal(lang){
-  modalLinks.innerHTML="";
-  modalTitle.textContent = (lang==="fa") ? "دانلود مقالات" : "Download Papers";
-  modalLinks.style.textAlign = "left"; // همیشه چپ‌چین
-  papers.forEach(p=>{
-    const a=document.createElement("a");
-    a.href=p.link;
-    a.target="_blank";
-    a.textContent=p.text;
-    modalLinks.appendChild(a);
-  });
-}
-
-btnDownload.addEventListener("click",()=>{
-  const lang=localStorage.getItem("lang")||"fa";
-  buildModal(lang);
-  modal.style.display="flex";
-});
-closeModal.addEventListener("click",()=>modal.style.display="none");
-modal.addEventListener("click",e=>{
-  if(e.target===modal) modal.style.display="none";
-});
-
-
-
-
-
-
-
-
-    
+    })();    
   </script>
-
-
-
-
-
-
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span id="close-modal" class="close-btn">&times;</span>
-    <h3 id="modal-title">دانلود مقالات</h3>
-    <div id="modal-links"></div>
-  </div>
-</div>
-
-
-
-
-
-
-
-  
 </body>
 </html>
