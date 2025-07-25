@@ -202,6 +202,67 @@
         font-size: 0.95rem;
       }
     }
+
+/* افکت شاین روی دکمه دانلود */
+#btn-download {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(180, 100, 255, 0.3);
+  overflow: hidden;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+#btn-download:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 18px rgba(180, 100, 255, 0.7);
+  transform: scale(1.05);
+}
+
+/* انیمیشن شاین */
+#btn-download .shine {
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,255,255,0.6), rgba(255,255,255,0.15));
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: shineAnim 2.5s infinite;
+}
+
+@keyframes shineAnim {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* اگر مودال لینک‌ها داری، متن داخلش چپ‌چین باشد */
+#modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+#modal-links a {
+  text-align: left !important;
+  direction: ltr !important;
+  user-select: text;
+}
   </style>
 </head>
 <body>
@@ -211,6 +272,11 @@
     <button id="btn-fa">فارسی</button>
     <button id="btn-en">English</button>
   </div>
+
+  <button id="btn-download" aria-label="Download Articles">
+    💽 دانلود مقالات
+    <span class="shine"></span>
+  </button>
 
   <div class="profile-container">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
@@ -244,6 +310,7 @@
       fa:{
         title:"دکتر سعید مجتبی‌زاده",
         sub:"فوق‌دکتری مهندسی عمران در گرایش ژئوتکنیک لرزه‌ای",
+        downloadTitle: "💽 دانلود مقالات",
         about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود. `,
         footer:"سعید مجتبی‌زاده ©",
         links:[
@@ -260,6 +327,7 @@
       en:{
         title:"Dr. Saeed Mojtabazadeh",
         sub:"Postdoc Fellow in Geotechnical Engineering",
+        downloadTitle: "Download Papers 💽",
         about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
         footer:"Saeed Mojtabazadeh ©",
         links:[
@@ -297,6 +365,9 @@
         aboutText.textContent=data[lang].about;
         document.getElementById("footer").textContent=data[lang].footer;
         buildLinks(lang);
+
+        document.getElementById("btn-download").textContent = data[lang].downloadTitle;
+        
         if(lang==="en"){
           document.body.classList.add("lang-en");
           document.documentElement.dir="ltr";
