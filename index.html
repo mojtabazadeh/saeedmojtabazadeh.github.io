@@ -187,119 +187,6 @@
       50%{text-shadow:0 0 14px rgba(200,150,255,1)}
     }
 
-    #btn-download {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  border: none;
-  padding: 7px 14px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(180, 100, 255, 0.3);
-}
-#btn-download:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 12px rgba(180, 100, 255, 0.7);
-  transform: scale(1.05);
-}
-#modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 200;
-  justify-content: center;
-  align-items: center;
-}
-#modal-content {
-  background: linear-gradient(135deg, #f7f3ff, #dcd6ff);
-  border-radius: 20px;
-  max-width: 420px;
-  width: 90%;
-  padding: 28px 32px;
-  text-align: center;
-  box-shadow:
-    0 4px 15px rgba(102, 0, 153, 0.25),
-    0 0 40px rgba(153, 51, 204, 0.15);
-  position: relative;
-  color: #3a0066;
-  font-family: 'Vazirmatn', sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  user-select: none;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#modal-content:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow:
-    0 8px 25px rgba(102, 0, 153, 0.4),
-    0 0 50px rgba(153, 51, 204, 0.25);
-}
-
-#modal-title {
-  font-size: 1.3rem;
-  color: #5a0080;
-  margin-bottom: 20px;
-  font-weight: 800;
-  text-shadow: 0 0 8px rgba(153, 51, 204, 0.6);
-}
-
-#modal-links {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-#modal-links a {
-  background: #fff;
-  color: #660099;
-  padding: 14px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow:
-    0 4px 8px rgba(180, 100, 255, 0.3),
-    inset 0 0 10px rgba(255, 255, 255, 0.7);
-  transition: background-color 0.35s ease, color 0.35s ease, transform 0.25s ease;
-  border: 2px solid transparent;
-  user-select: text;
-}
-
-#modal-links a:hover {
-  background: #d8b3ff;
-  color: #3a0066;
-  box-shadow:
-    0 6px 18px rgba(153, 51, 204, 0.7),
-    inset 0 0 12px rgba(255, 255, 255, 0.85);
-  transform: translateY(-3px);
-  border-color: #660099;
-}
-
-#close-modal {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: none;
-  border: none;
-  color: #660099;
-  font-size: 1.8rem;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.25s ease;
-  user-select: none;
-}
-
-#close-modal:hover {
-  color: #a366ff;
-  transform: scale(1.15);
-}
-
-    
     @media(max-width:480px){
       .profile-container{width:120px;height:120px;}
       .link-bar{gap:6px}
@@ -325,8 +212,6 @@
     <button id="btn-en">English</button>
   </div>
 
-<button id="btn-download">دانلود مقالات</button>
-  
   <div class="profile-container">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
       <defs><clipPath id="circleView"><circle cx="50" cy="50" r="50"/></clipPath></defs>
@@ -353,14 +238,6 @@
   <div class="footer" id="footer">
     سعید مجتبی‌زاده ©
   </div>
-
-  <div id="modal">
-  <div id="modal-content">
-    <button id="close-modal">×</button>
-    <h3 id="modal-title">دانلود مقالات پژوهشی</h3>
-    <div id="modal-links"></div>
-  </div>
-</div>
 
   <script defer>
     const data={
@@ -484,47 +361,6 @@
       }
       requestAnimationFrame(draw);
     })();
-
-// مقالات پژوهشی
-const papers = [
-  { text: "Article 1: Advanced Numerical Modeling", href: "https://example.com/article1.pdf" },
-  { text: "Article 2: Seismic Wave Propagation", href: "https://example.com/article2.pdf" },
-  { text: "Article 3: Geotechnical Analysis Techniques", href: "https://example.com/article3.pdf" }
-];
-
-const btnDownload = document.getElementById("btn-download");
-const modal = document.getElementById("modal");
-const modalLinks = document.getElementById("modal-links");
-const closeModal = document.getElementById("close-modal");
-
-btnDownload.addEventListener("click", () => {
-  modalLinks.innerHTML = "";
-  papers.forEach((p) => {
-    const a = document.createElement("a");
-    a.href = p.href;
-    a.target = "_blank";
-    a.textContent = p.text;
-    modalLinks.appendChild(a);
-  });
-  modal.style.display = "flex";
-  document.body.style.overflow = "hidden";
-});
-
-function closeModalFunc() {
-  modal.style.display = "none";
-  document.body.style.overflow = "";
-}
-
-closeModal.addEventListener("click", closeModalFunc);
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) closeModalFunc();
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.style.display === "flex") {
-    closeModalFunc();
-  }
-});
-    
   </script>
 </body>
 </html>
