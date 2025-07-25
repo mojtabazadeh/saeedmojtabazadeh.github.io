@@ -368,6 +368,18 @@
 
 
 
+fetch('/scholar_data.json')
+  .then(res => res.json())
+  .then(data => {
+    const lang = document.body.classList.contains('lang-en') ? 'en' : 'fa';
+
+    document.getElementById('scholar-citations').textContent =
+      (lang === 'fa' ? 'استنادات' : 'Citations') + ': ' + data.citations;
+
+    document.getElementById('scholar-hindex').textContent =
+      (lang === 'fa' ? 'h-index' : 'h-index') + ': ' + data.hindex;
+  })
+  .catch(console.error);
 
 
 
