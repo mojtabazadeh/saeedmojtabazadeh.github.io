@@ -174,17 +174,97 @@
       background:rgba(255,255,255,0.3);transform:scale(1.05);
     }
 
-    .smooth-switch {animation:smoothFadeSlide 0.9s ease;}
-    @keyframes smoothFadeSlide {
-      0%{opacity:1;transform:translateY(0)}
-      40%{opacity:0;transform:translateY(-15px)}
-      60%{opacity:0;transform:translateY(15px)}
-      100%{opacity:1;transform:translateY(0)}
+    /* مودال دانلود مقالات */
+    .download-btn {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      z-index: 100;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
     }
-    @keyframes fadeInUp {to{opacity:1;transform:translateY(0)}}
-    @keyframes glowPulse {
-      0%,100%{text-shadow:0 0 8px rgba(200,150,255,0.6)}
-      50%{text-shadow:0 0 14px rgba(200,150,255,1)}
+    .download-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.05);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top:0; left:0; width: 100vw; height: 100vh;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(5px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 150;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      max-width: 90vw;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: #fff;
+      color: #222;
+      padding: 25px 30px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(140,70,255,0.8);
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      line-height: 1.6;
+      text-align: justify;
+      direction: rtl;
+      user-select: text;
+    }
+    .modal-content a {
+      color: #660099;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .modal-content a:hover {
+      color: #9933cc;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #660099;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(140,70,255,0.7);
+      transition: background-color 0.3s ease;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 160;
+    }
+    .modal-close:hover {
+      background: #9933cc;
+    }
+
+    /* در حالت انگلیسی مودال به صورت LTR */
+    body.lang-en .modal-content {
+      direction: ltr;
+      text-align: left;
     }
 
     @media(max-width:480px){
@@ -201,68 +281,12 @@
         padding: 14px 16px;
         font-size: 0.95rem;
       }
+      /* دکمه دانلود در موبایل کمی کوچکتر شود */
+      .download-btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+      }
     }
-
-/* افکت شاین روی دکمه دانلود */
-#btn-download {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  border: none;
-  padding: 7px 20px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(180, 100, 255, 0.3);
-  overflow: hidden;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  user-select: none;
-}
-
-#btn-download:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 18px rgba(180, 100, 255, 0.7);
-  transform: scale(1.05);
-}
-
-/* انیمیشن شاین */
-#btn-download .shine {
-  position: absolute;
-  top: 0; left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,255,255,0.6), rgba(255,255,255,0.15));
-  transform: skewX(-20deg);
-  pointer-events: none;
-  animation: shineAnim 2.5s infinite;
-}
-
-@keyframes shineAnim {
-  0% { left: -75%; }
-  100% { left: 125%; }
-}
-
-/* اگر مودال لینک‌ها داری، متن داخلش چپ‌چین باشد */
-#modal-links {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  text-align: left !important;
-  direction: ltr !important;
-}
-
-#modal-links a {
-  text-align: left !important;
-  direction: ltr !important;
-  user-select: text;
-}
   </style>
 </head>
 <body>
@@ -273,9 +297,10 @@
     <button id="btn-en">English</button>
   </div>
 
-  <button id="btn-download" aria-label="Download Articles">
-    💽 دانلود مقالات
-    <span class="shine"></span>
+  <!-- دکمه دانلود مقالات -->
+  <button class="download-btn" id="download-btn" aria-haspopup="dialog" aria-controls="download-modal" aria-expanded="false" aria-label="دانلود مقالات / Download Articles">
+    📥 
+    <span id="download-btn-text">دانلود مقالات</span>
   </button>
 
   <div class="profile-container">
@@ -305,12 +330,45 @@
     سعید مجتبی‌زاده ©
   </div>
 
+  <!-- مودال دانلود مقالات -->
+  <div class="modal-overlay" id="download-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Modal" id="modal-close-btn">&times;</button>
+      <h3 id="modal-title" style="margin-bottom:12px;color:#660099;"> 
+        <span lang="fa">دانلود مقالات</span><span lang="en" style="display:none;">Articles Download</span>
+      </h3>
+      <div id="modal-desc" style="max-height: 65vh; overflow-y:auto; padding-right: 4px; user-select:text; direction: rtl; font-size: 0.9rem; color: #222;">
+        <ol style="padding-inline-start: 18px; margin-left: 0;">
+          <li><strong><a href="https://drive.google.com/file/d/1gZ8aF2_FtYW0XBLlXkPnH97Sx1cUNRxv/view?usp=drive_link" target="_blank" rel="noopener noreferrer">The Orthotropy Effect of Underground Inclusion on the Seismic Response of Ground Surface</a></strong>, <em lang="fa">[به زبان فارسی]</em> (2024).  
+            Published at <a href="https://sjce.journals.sharif.edu/article_23630.html?lang=en" target="_blank" rel="noopener noreferrer"><em>Sharif Journal of Civil Engineering (SJCE)</em></a><br>
+            <strong>Saeed Mojtabazadeh-Hasanlouei</strong>, Mehdi Panji & Mohsen Kamalian
+          </li>
+          <li><strong><a href="https://drive.google.com/file/d/1hZ532hBk93MWAzn8dMg24jnVr2pg0ZNg/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Seismic Response of the Orthotropic Ground Surface Including Underground Circular Unlined Tunnel</a></strong>, <em lang="fa">[به زبان فارسی]</em> (2024).  
+            Published at <a href="https://www.jsce.ir/article_199086.html?lang=en" target="_blank" rel="noopener noreferrer"><em>Journal of Structural and Construction Engineering (JSCE)</em></a><br>
+            <strong>Saeed Mojtabazadeh-Hasanlouei</strong>, Mehdi Panji & Mohsen Kamalian
+          </li>
+          <li><strong><a href="https://drive.google.com/file/d/1Dhk2E0QekInm1e9JMrHRTKTsPPnQH6Ei/view?usp=drive_link" target="_blank" rel="noopener noreferrer">A Numerical Study on Seismic Response of Ground Surface Considering Embedded Soft Soil Layers</a></strong>, (2023).  
+            Published at <a href="https://www.jsce.ir/article_182349.html?lang=en" target="_blank" rel="noopener noreferrer"><em>Journal of Structural and Construction Engineering (JSCE)</em></a><br>
+            <strong>Saeed Mojtabazadeh-Hasanlouei</strong>
+          </li>
+          <li><strong><a href="https://drive.google.com/file/d/1PugHEjSbJz2M1OY9R5_0IgobiydSOANi/view?usp=drive_link" target="_blank" rel="noopener noreferrer">The Topographic Effect on the Seismic Response of the Ground Surface: A 3D Boundary Element Method</a></strong>, (2022).  
+            Published at <a href="https://www.jsce.ir/article_173040.html?lang=en" target="_blank" rel="noopener noreferrer"><em>Journal of Structural and Construction Engineering (JSCE)</em></a><br>
+            <strong>Saeed Mojtabazadeh-Hasanlouei</strong>, Mehdi Panji & Mohsen Kamalian
+          </li>
+          <li><strong><a href="https://drive.google.com/file/d/1KhIcVqUXNQ9FFST2qp69A1XOexZZ1-1v/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Application of the Direct Half-Space Time-Domain Boundary Element Method to Seismic Wave Propagation in a Half-Space with Surface Topography</a></strong>, (2021).  
+            Published at <a href="https://www.jsce.ir/article_163422.html?lang=en" target="_blank" rel="noopener noreferrer"><em>Journal of Structural and Construction Engineering (JSCE)</em></a><br>
+            <strong>Saeed Mojtabazadeh-Hasanlouei</strong>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
   <script defer>
     const data={
       fa:{
         title:"دکتر سعید مجتبی‌زاده",
         sub:"فوق‌دکتری مهندسی عمران در گرایش ژئوتکنیک لرزه‌ای",
-        downloadTitle: "💽 دانلود مقالات",
         about:`دکتر سعید مجتبی‌زاده حسنلوئی، به عنوان اولین پژوهشگر پسادکتری مهندسی عمران-ژئوتکنیک در ایران، از سال 1394 بر توسعه‌ی الگوریتم‌های محاسباتی و مدلسازی عددی پیشرفته در حوزه‌ی ژئومکانیک لرزه‌ای متمرکز شده است. او رساله‌ی دوره‌ی دکتری تخصصی و طرح پژوهشی پسادکتری خویش را بر مسأله‌ی انتشار و پراکنش امواج لرزه‌ای در محیط‌های با خواص اورتوتروپیک از جمله عوارض توپوگرافی گوناگون، با استفاده از روش اجزای مرزی نیم‌فضای مستقیم در حوزه‌ی زمان معطوف نموده است. از موضوعات پژوهشی مورد علاقه‌ی وی می‌توان به توسعه‌ی روش‌های عددی همچون روش اجزای مرزی، اجزای محدود و رویکردهای ترکیبی جهت مدلسازی و تحلیل عددی مسائل لرزه‌ای، بررسی اثرات ساختگاهی ناشی از حضور عوارض توپوگرافی سطحی و زیر‌سطحی، مکانیک محیط‌های نانو/متخلخل و ایزولاسیون لرزه‌ای اشاره نمود. `,
         footer:"سعید مجتبی‌زاده ©",
         links:[
@@ -327,7 +385,6 @@
       en:{
         title:"Dr. Saeed Mojtabazadeh",
         sub:"Postdoc Fellow in Geotechnical Engineering",
-        downloadTitle: "Download Papers 💽",
         about:`Dr. Saeed Mojtabazadeh is the pioneering geotechnical engineering postdoctoral researcher in Iran, specializing in computational algorithms. Since 2016, Dr. Mojtabazadeh has been dedicated to advanced numerical modeling in seismic geomechanics. His Ph.D. thesis and postdoctoral research focus on investigating SH-wave propagation in orthotropic mediums, along with topographic features, utilizing an exclusive approach known as the Direct Half-Space Time-Domain Boundary Element Method. He has developed multiple numerical approaches, including the Boundary Element Method (BEM), Finite Element Method (FEM), and Hybrid methods, applied to seismic analysis in geotechnical engineering.`,
         footer:"Saeed Mojtabazadeh ©",
         links:[
@@ -346,7 +403,12 @@
     const mainTitle=document.getElementById("main-title"),
           subTitle=document.getElementById("sub-title"),
           linksContainer=document.getElementById("links"),
-          aboutText=document.getElementById("about-text");
+          aboutText=document.getElementById("about-text"),
+          footerText=document.getElementById("footer"),
+          downloadBtn=document.getElementById("download-btn"),
+          downloadBtnText=document.getElementById("download-btn-text"),
+          modalOverlay=document.getElementById("download-modal"),
+          modalCloseBtn=document.getElementById("modal-close-btn");
 
     function buildLinks(lang){
       linksContainer.innerHTML="";
@@ -363,17 +425,27 @@
         mainTitle.textContent=data[lang].title;
         subTitle.textContent=data[lang].sub;
         aboutText.textContent=data[lang].about;
-        document.getElementById("footer").textContent=data[lang].footer;
+        footerText.textContent=data[lang].footer;
         buildLinks(lang);
 
-        document.getElementById("btn-download").textContent = data[lang].downloadTitle;
-        
         if(lang==="en"){
           document.body.classList.add("lang-en");
           document.documentElement.dir="ltr";
+          downloadBtnText.textContent = "Articles Download";
+          // مودال متن انگلیسی
+          modalOverlay.querySelector("#modal-title span[lang='fa']").style.display = "none";
+          modalOverlay.querySelector("#modal-title span[lang='en']").style.display = "inline";
+          modalOverlay.querySelector("#modal-desc").style.direction = "ltr";
+          modalOverlay.querySelector("#modal-desc").style.textAlign = "left";
         }else{
           document.body.classList.remove("lang-en");
           document.documentElement.dir="rtl";
+          downloadBtnText.textContent = "دانلود مقالات";
+          // مودال متن فارسی
+          modalOverlay.querySelector("#modal-title span[lang='fa']").style.display = "inline";
+          modalOverlay.querySelector("#modal-title span[lang='en']").style.display = "none";
+          modalOverlay.querySelector("#modal-desc").style.direction = "rtl";
+          modalOverlay.querySelector("#modal-desc").style.textAlign = "justify";
         }
       },300);
       setTimeout(()=>document.body.classList.remove("smooth-switch"),900);
@@ -383,6 +455,36 @@
     document.getElementById("btn-fa").addEventListener("click",()=>switchLang("fa"));
     document.getElementById("btn-en").addEventListener("click",()=>switchLang("en"));
 
+    // مدیریت باز و بسته کردن مودال
+    downloadBtn.addEventListener("click", ()=>{
+      const expanded = downloadBtn.getAttribute("aria-expanded") === "true";
+      if(expanded){
+        closeModal();
+      }else{
+        openModal();
+      }
+    });
+    modalCloseBtn.addEventListener("click", closeModal);
+
+    // بستن مودال با کلید Escape
+    document.addEventListener("keydown", e=>{
+      if(e.key==="Escape" && modalOverlay.classList.contains("active")){
+        closeModal();
+      }
+    });
+
+    function openModal(){
+      modalOverlay.classList.add("active");
+      downloadBtn.setAttribute("aria-expanded", "true");
+      modalOverlay.focus();
+    }
+    function closeModal(){
+      modalOverlay.classList.remove("active");
+      downloadBtn.setAttribute("aria-expanded", "false");
+      downloadBtn.focus();
+    }
+
+    // کد ذرات پس‌زمینه (همان کد اصلی شما)
     const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
     let particles=[];
     function createParticles(){
