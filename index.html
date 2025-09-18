@@ -204,8 +204,7 @@
     }
 
 
-
-/* ✅ دکمه جدید دانلود مقالات */
+    
     .download-btn {
       position: fixed;
       top: 12px;
@@ -256,7 +255,7 @@
 
 
 
-<!-- ✅ دکمه دانلود مقالات -->
+
   <a href="https://www.mojtabazade.ir/research/" target="_blank" class="download-btn" id="download-btn">دانلود مقالات</a>
 
   
@@ -328,7 +327,7 @@
           subTitle=document.getElementById("sub-title"),
           linksContainer=document.getElementById("links"),
           aboutText=document.getElementById("about-text");
-          downloadBtn=document.getElementById("download-btn"); // ✅ اضافه شد
+          downloadBtn=document.getElementById("download-btn"); 
 
     function buildLinks(lang){
       linksContainer.innerHTML="";
@@ -347,7 +346,7 @@
         aboutText.textContent=data[lang].about;
         document.getElementById("footer").textContent=data[lang].footer;
         buildLinks(lang);
-        downloadBtn.textContent=(lang==="en"?"Download Papers":"دانلود مقالات"); // ✅ متن دکمه تغییر می‌کند
+        downloadBtn.textContent=(lang==="en"?"Download Papers":"دانلود مقالات");
         if(lang==="en"){
           document.body.classList.add("lang-en");
           document.documentElement.dir="ltr";
